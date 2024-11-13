@@ -83,4 +83,17 @@
     nav ul li {
       margin: 0.5rem 0;
     }
+
+    /* Image Styling */
+.intro-photo img,
+.teaching-experience img,
+.club-events img,
+.research-projects img,
+.skills img,
+.professional-projects img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
   } 
