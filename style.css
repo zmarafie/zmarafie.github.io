@@ -25,9 +25,15 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
 nav ul {
   display: flex;
-  justify-content: center;
   list-style-type: none;
 }
 
@@ -63,43 +69,37 @@ nav ul li a:hover {
   margin: 3px 0;
 }
 
-nav {
-  position: relative;
-}
-
 .nav-links {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  background-color: #004080;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-}
-
-.nav-links.show {
   display: flex;
 }
 
-.nav-links li {
-  margin: 1rem 0;
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
-  nav ul {
-    display: none;
-  }
-
   .hamburger {
     display: flex;
   }
-}
 
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 60px; /* Height of the header */
+    left: 0;
+    background-color: #004080;
+  }
 
+  .nav-links.show {
+    display: flex;
+  }
 
+  nav ul li {
+    margin: 1rem 0;
+    text-align: center;
+  }
 
+  nav ul li a {
+    padding: 1rem;
+  }
 
 
   section {
