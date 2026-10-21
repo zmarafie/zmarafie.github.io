@@ -284,6 +284,8 @@ h3{font-size:1.1875rem;font-weight:500;line-height:1.35}
 .more[open] summary::before{transform:rotate(45deg)}
 .more .rows{margin-top:.75rem}
 .more .sub{margin-top:1.5rem}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:.75rem;max-width:44rem;margin:.9rem 0 0;padding:0}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;box-shadow:0 0 0 1px var(--rule)}
 .ph{display:grid;place-items:center;min-height:8rem;margin-top:.9rem;padding:1rem;border:1px dashed var(--tick);border-radius:10px;background:var(--dial);color:var(--muted);font-size:.9375rem;text-align:center}
 
 /* Teaching */
@@ -559,6 +561,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
               <div>
                 <h3>Data-Driven Experiences: Embracing the Phygital Future of Shopping in Kuwait</h3>
                 <p>Invited talk, Third Kuwait Digital Transformation Conference.</p>
+                <figure class="photo" style="max-width:44rem;margin-top:.9rem"><img src="images/phygital-panel.jpg" alt="Dr. Zahraa Marafie on the panel Data-Driven Experiences: Embracing the Phygital Future of Shopping in Kuwait" width="1200" height="732" loading="lazy"><figcaption>On the panel at the Third Kuwait Digital Transformation Conference, December 2024.</figcaption></figure>
               </div>
             </li>
             <li class="row">
@@ -566,6 +569,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
               <div>
                 <h3>The Science Behind Netflix</h3>
                 <p>Workshop co-led with Dr. Shaikhah Alkhadhr, College of Science, Kuwait University.</p>
+                <ul class="gallery" aria-label="Photos from The Science Behind Netflix"><li><img src="images/netflix-stage.jpg" alt="Dr. Zahraa Marafie and Dr. Shaikhah Alkhadhr on stage in front of a screen showing a movie recommender notebook" width="900" height="675" loading="lazy"></li><li><img src="images/netflix-card.jpg" alt="A thank-you card for The Science Behind Netflix, signed by Dr. Shaikhah Alkhadhr and Dr. Zahraa Marafie" width="900" height="675" loading="lazy"></li><li><img src="images/netflix-thanks-slide.jpg" alt="The closing Thanks slide with both presenters and their contact details" width="900" height="675" loading="lazy"></li></ul>
               </div>
             </li>
             <li class="row">
@@ -587,7 +591,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
                 <h3>HeatWatch: Real-time Detection of Heat Exhaustion via Wearable Sensors and AI Models</h3>
                 <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">S. Alkhadhr</span></p>
                 <p class="venue"><span class="tag">Poster</span><span>Poster Day, Scientific Research Conference 2024 to 2025, Kuwait University</span></p>
-                <div class="ph">Photo from Poster Day to come</div>
+                <figure class="photo" style="max-width:22rem;margin-top:.9rem"><img src="images/poster-day-heatwatch.jpg" alt="Dr. Zahraa Marafie and Dr. Shaikhah Alkhadhr standing beside the HeatWatch poster at Poster Day" width="1000" height="1333" loading="lazy"><figcaption>With Dr. Shaikhah Alkhadhr beside our HeatWatch poster at Poster Day, February 2025.</figcaption></figure>
               </div>
             </li>
           </ul>
@@ -655,6 +659,15 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
             <div>
               <h3>Host of the UC Irvine delegation</h3>
               <p>Prof. Fadi Kurdahi and colleagues from the Samueli School of Engineering visited Kuwait University. I organized graduate program sessions and meetings with faculty that opened discussions on research collaboration and student exchange.</p>
+              <figure class="photo" style="max-width:36rem;margin-top:.9rem"><img src="images/uci-delegation.jpg" alt="Dr. Zahraa Marafie with members of the UC Irvine delegation at Kuwait University" width="1200" height="600" loading="lazy"><figcaption>With members of the UC Irvine delegation at Kuwait University, 2025.</figcaption></figure>
+            </div>
+          </li>
+          <li class="row">
+            <span class="gut">Dec 2024</span>
+            <div>
+              <h3>Participant, 2024 CGU Forum: Medical AI, Opportunities and Challenges</h3>
+              <p>Forum on medical AI hosted by the Artificial Intelligence Research Center and the College of Intelligent Computing, Chang Gung University, Taiwan, 9 December 2024.</p>
+              <figure class="photo" style="max-width:44rem;margin-top:.9rem"><img src="images/cgu-forum-2024.jpg" alt="Dr. Zahraa Marafie with fellow participants in front of the 2024 CGU Forum Medical AI slide" width="1200" height="713" loading="lazy"><figcaption>With fellow participants at the 2024 CGU Forum on medical AI, Chang Gung University.</figcaption></figure>
             </div>
           </li>
           <li class="row">
@@ -662,6 +675,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
             <div>
               <h3>Host of Prof. Kwei-Jay Lin, Chang Gung University</h3>
               <p>I coordinated his visit and led discussions on memoranda of understanding, student exchange, joint research and co-advising.</p>
+              <ul class="gallery" aria-label="Photos from the visit of Prof. Kwei-Jay Lin"><li><img src="images/lin-visit-ceremony.jpg" alt="A certificate of appreciation and a gift presented at Kuwait University during the visit, with Dr. Zahraa Marafie and colleagues" width="900" height="675" loading="lazy"></li><li><img src="images/lin-visit-lecture.jpg" alt="Prof. Kwei-Jay Lin giving his seminar at Kuwait University" width="900" height="675" loading="lazy"></li><li><img src="images/lin-visit-selfie.jpg" alt="Dr. Zahraa Marafie with Prof. Kwei-Jay Lin at Kuwait University" width="900" height="675" loading="lazy"></li></ul>
               <p class="links"><a href="https://web.ku.edu.kw/ar/news/kuw287760" target="_blank" rel="noopener">Kuwait University news (Arabic)</a></p>
             </div>
           </li>
@@ -693,7 +707,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
         <ul class="figs" aria-label="Highlights from 2024 to 2025">
           <li><strong>19</strong><span>teams in the National Entrepreneurship Competition, co-organized by the club (April 2025)</span></li>
           <li><strong>50+</strong><span>students from colleges across the university at the AI tools workshop (March 2025)</span></li>
-          <li><strong>500+</strong><span>girls aged 14 to 21 in CODED Academy X, where club members volunteered (April 2025)</span></li>
         </ul>
 
         <div class="ph">Photos from ClickIT events to come</div>
@@ -713,7 +726,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
               <span class="gut">15 to 26 Apr</span>
               <div>
                 <h3>CODED Academy X</h3>
-                <p>Club members volunteered at CODED's program for empowering girls in technology and entrepreneurship, held at the College of Life Sciences for more than 500 girls aged 14 to 21.</p>
+                <p>Club members volunteered at CODED's program for empowering girls in technology and entrepreneurship, held at the College of Life Sciences.</p>
                 <p class="venue"><span class="tag">Volunteering</span><span>With CODED</span></p>
               </div>
             </li>
