@@ -1,0 +1,1074 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dr. Zahraa Marafie</title>
+<meta name="description" content="Dr. Zahraa Marafie is an Assistant Professor of Information Science at Kuwait University. Her research applies AI inside Internet of Things systems for health, road safety and sustainable cities.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dr. Zahraa Marafie">
+<meta property="og:description" content="Assistant Professor of Information Science at Kuwait University. AI and the Internet of Things for health, road safety and sustainable cities.">
+<meta property="og:url" content="https://www.zmarafie.com/">
+<meta property="og:image" content="https://www.zmarafie.com/images/zahraa-marafie.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600&display=swap">
+<style>
+/* Layout concept: a telemetry page. A quiet reading column with one loud idea:
+   a watch-dial portrait and signal traces, one for each place the research lives
+   (wrist, road, city, classroom). Cool paper, deep marine ink, one thermal gradient. */
+:root{
+  color-scheme:light;
+  --paper:#EEF2F5;
+  --paper-2:#E4EBF0;
+  --dial:#F8FAFB;
+  --ink:#0C1B26;
+  --ink-2:#33495A;
+  --muted:#52677A;
+  --rule:#CBD6DE;
+  --grid:rgba(12,27,38,.07);
+  --tick:#8EA2B1;
+  --link:#0B6E7A;
+  --cool:#119DAE;
+  --warm:#E3A21B;
+  --hot:#D23F1B;
+  --hot-ink:#B8340F;
+  --font:"Readex Pro",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Arabic","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#07161E;
+    --paper-2:#0B1F2A;
+    --dial:#0D2330;
+    --ink:#E7EFF3;
+    --ink-2:#B5C5CF;
+    --muted:#8CA1AF;
+    --rule:#1B3140;
+    --grid:rgba(231,239,243,.06);
+    --tick:#3E586A;
+    --link:#5FD3DE;
+    --cool:#2CC3D3;
+    --warm:#F2B24A;
+    --hot:#FF7A4D;
+    --hot-ink:#FF8F66;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#07161E;
+  --paper-2:#0B1F2A;
+  --dial:#0D2330;
+  --ink:#E7EFF3;
+  --ink-2:#B5C5CF;
+  --muted:#8CA1AF;
+  --rule:#1B3140;
+  --grid:rgba(231,239,243,.06);
+  --tick:#3E586A;
+  --link:#5FD3DE;
+  --cool:#2CC3D3;
+  --warm:#F2B24A;
+  --hot:#FF7A4D;
+  --hot-ink:#FF8F66;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink-2);
+  font-family:var(--font);font-size:1rem;line-height:1.7;font-weight:400;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,p,ul,ol,dl,figure,address{margin:0}
+h1,h2,h3{color:var(--ink);text-wrap:balance}
+ul,ol{padding:0;list-style:none}
+address{font-style:normal}
+a{color:var(--link);text-underline-offset:.22em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--link);outline-offset:3px;border-radius:3px}
+.skip{position:absolute;left:-999px;top:0}
+.skip:focus{left:1rem;top:calc(env(safe-area-inset-top,0px) + .5rem);z-index:40;background:var(--ink);color:var(--paper);padding:.5rem 1rem;border-radius:6px}
+
+.wrap{
+  width:100%;max-width:1180px;margin-inline:auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+@media (min-width:720px){
+  .wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}
+}
+
+/* Header */
+.bar{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:var(--paper);
+  background:color-mix(in srgb,var(--paper) 90%,transparent);
+  -webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+.bar .wrap{display:flex;align-items:center;gap:1.25rem;min-height:56px}
+.brand{display:inline-flex;align-items:center;gap:.6rem;color:var(--ink);font-weight:500;text-decoration:none;white-space:nowrap}
+.brand i{
+  width:20px;height:20px;border-radius:50%;flex:none;
+  background:conic-gradient(from -90deg,var(--cool),var(--warm) 45%,var(--hot) 76%,transparent 76%);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));
+  mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));
+}
+.bar nav{margin-left:auto;min-width:0;overflow-x:auto;scrollbar-width:none}
+.bar nav::-webkit-scrollbar{display:none}
+.bar nav ul{display:flex;gap:.25rem}
+.bar nav a{display:block;padding:.5rem .7rem;color:var(--ink-2);text-decoration:none;font-size:.9375rem;white-space:nowrap;border-radius:6px}
+.bar nav a:hover{color:var(--ink)}
+.bar nav a[aria-current="true"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--link)}
+
+/* Hero */
+.hero{padding-block:clamp(2rem,6vw,5rem) clamp(2.5rem,6vw,5rem)}
+.hero .wrap{
+  display:grid;gap:1.75rem 3rem;
+  grid-template-columns:minmax(0,1fr);
+  grid-template-areas:"name" "dial" "intro";
+}
+@media (min-width:900px){
+  .hero .wrap{
+    grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);
+    grid-template-areas:"name dial" "intro dial";
+    align-items:center;
+  }
+}
+.name{
+  grid-area:name;font-weight:300;line-height:1.04;letter-spacing:-.025em;
+  font-size:clamp(2.6rem,1rem + 6.2vw,5.4rem);
+}
+.name .l{display:block}
+.name .ar{display:block;margin-top:.2em;font-size:.62em;line-height:1.3;letter-spacing:0;color:var(--muted);text-align:left}
+.intro{grid-area:intro;min-width:0}
+.role{font-size:1.1875rem;font-weight:500;color:var(--ink);line-height:1.4}
+.role span{display:block;font-weight:400;color:var(--ink-2)}
+.lead{margin-top:1.5rem;max-width:34ch;font-size:clamp(1.25rem,1.05rem + .9vw,1.65rem);line-height:1.4;font-weight:300;color:var(--ink)}
+.cred{margin-top:1rem;max-width:52ch;color:var(--ink-2)}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;margin-top:1.75rem}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 1.4rem;border-radius:999px;background:var(--ink);color:var(--paper);font-weight:500;text-decoration:none}
+.btn:hover{background:var(--link);color:var(--paper)}
+.textlink{font-weight:500}
+
+/* Watch-dial portrait */
+.dial{
+  --d:clamp(220px,36vw,380px);
+  grid-area:dial;justify-self:center;position:relative;
+  width:var(--d);aspect-ratio:1;border-radius:50%;
+  background:var(--dial);box-shadow:0 0 0 1px var(--rule);
+}
+@media (min-width:900px){.dial{justify-self:end}}
+.dial img{
+  position:absolute;inset:calc(var(--d) * .115);
+  width:calc(var(--d) * .77);height:calc(var(--d) * .77);
+  border-radius:50%;object-fit:cover;
+}
+.dial::before,.dial::after,.dial .arc{content:"";position:absolute;border-radius:50%}
+.dial::before{
+  inset:0;
+  background:repeating-conic-gradient(from -.35deg,var(--tick) 0 .7deg,transparent .7deg 3deg);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - var(--d) * .055),#000 calc(100% - var(--d) * .055),#000 calc(100% - var(--d) * .02),transparent calc(100% - var(--d) * .02));
+  mask:radial-gradient(farthest-side,transparent calc(100% - var(--d) * .055),#000 calc(100% - var(--d) * .055),#000 calc(100% - var(--d) * .02),transparent calc(100% - var(--d) * .02));
+}
+.dial::after{
+  inset:0;
+  background:repeating-conic-gradient(from -.6deg,var(--ink) 0 1.2deg,transparent 1.2deg 30deg);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - var(--d) * .085),#000 calc(100% - var(--d) * .085),#000 calc(100% - var(--d) * .02),transparent calc(100% - var(--d) * .02));
+  mask:radial-gradient(farthest-side,transparent calc(100% - var(--d) * .085),#000 calc(100% - var(--d) * .085),#000 calc(100% - var(--d) * .02),transparent calc(100% - var(--d) * .02));
+}
+@property --sweep{syntax:"<percentage>";inherits:false;initial-value:76%}
+.dial .arc{
+  --sweep:76%;
+  inset:calc(var(--d) * .095);
+  background:conic-gradient(from -90deg,var(--cool),var(--warm) calc(var(--sweep) * .62),var(--hot) var(--sweep),transparent var(--sweep));
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));
+  mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));
+  animation:sweep 2.2s cubic-bezier(.3,.6,.2,1) .2s both;
+}
+@keyframes sweep{from{--sweep:0%}to{--sweep:76%}}
+
+/* Sections */
+.sec{padding-block:clamp(3rem,7vw,5.5rem)}
+.sec.alt{background:var(--paper-2)}
+.sec .wrap{display:grid;gap:1.5rem 3rem;grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){
+  .sec .wrap{grid-template-columns:200px minmax(0,1fr)}
+  .sec-head{position:sticky;top:calc(env(safe-area-inset-top,0px) + 5.5rem);align-self:start}
+}
+.sec-body{min-width:0;display:grid;gap:clamp(2rem,4vw,3rem)}
+h2{font-size:clamp(1.5rem,1.2rem + 1.2vw,2rem);font-weight:500;line-height:1.2;letter-spacing:-.01em}
+h3{font-size:1.1875rem;font-weight:500;line-height:1.35}
+.sub{margin-bottom:1rem;font-size:1.0625rem;font-weight:500;color:var(--ink)}
+.prose{max-width:62ch}
+.prose + .prose{margin-top:1rem}
+
+/* Research channels */
+.channels{display:grid;gap:clamp(2.5rem,5vw,3.75rem)}
+.channel{display:grid;gap:1.25rem 2.5rem;align-items:start}
+@media (min-width:900px){.channel{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}}
+.ch-text,.ch-vis{min-width:0}
+.ch-text p{max-width:52ch}
+.proj{margin:.15rem 0 .75rem;color:var(--muted);font-size:.9375rem}
+.ch-vis{display:grid;gap:1rem}
+.trace{
+  position:relative;overflow:hidden;border-radius:10px;
+  background-color:var(--dial);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;
+  box-shadow:inset 0 0 0 1px var(--rule);
+}
+.trace svg{display:block;width:100%;height:clamp(92px,14vw,116px)}
+.trace figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:0 1rem;padding:.55rem .8rem 0;font-size:.8125rem;line-height:1.4;color:var(--muted)}
+.mark{position:absolute;top:0;bottom:0;border-left:1px dashed var(--hot)}
+.mark span{position:absolute;bottom:.45rem;left:.45rem;font-size:.8125rem;line-height:1.3;color:var(--hot-ink)}
+.line{fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0;animation:draw 2.4s cubic-bezier(.3,.6,.2,1) .3s both}
+.dots circle{fill:var(--cool);opacity:.6}
+.static .line{animation:none}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.photo img{width:100%;border-radius:10px;box-shadow:0 0 0 1px var(--rule)}
+.photo figcaption{margin-top:.6rem;max-width:60ch;font-size:.875rem;line-height:1.5;color:var(--muted)}
+.note{font-size:.9375rem;color:var(--muted);max-width:62ch}
+.next{display:grid;gap:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chips li{padding:.2rem .85rem;border:1px solid var(--rule);border-radius:999px;background:var(--dial);font-size:.9375rem;color:var(--ink-2)}
+
+/* Rows: publications, talks, service */
+.rows{display:grid}
+.row{
+  --gut:7rem;
+  display:grid;grid-template-columns:var(--gut) minmax(0,1fr);gap:.25rem 1.5rem;
+  padding-block:1.2rem;border-top:1px solid var(--rule);
+}
+.row:first-child{border-top:0;padding-top:0}
+.row > div{min-width:0}
+.gut{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.9375rem;line-height:1.7}
+.row p{max-width:66ch}
+.row h3 + p{margin-top:.25rem}
+.pub{--gut:4.5rem}
+.pub h3 a{color:var(--ink);text-decoration-color:var(--rule);text-decoration-thickness:2px}
+.pub h3 a:hover{color:var(--link);text-decoration-color:currentColor}
+.by{margin-top:.25rem;font-size:.9375rem}
+.by strong{color:var(--ink);font-weight:600}
+.venue{display:flex;align-items:baseline;gap:.6rem;margin-top:.35rem;font-size:.9375rem;color:var(--muted)}
+.venue > span:last-child{min-width:0}
+.nw{white-space:nowrap}
+.tag{display:inline-block;flex:none;padding:0 .6rem;border:1px solid var(--rule);border-radius:999px;font-size:.8125rem;line-height:1.6;color:var(--ink-2);white-space:nowrap}
+.links{margin-top:.35rem;font-size:.9375rem}
+.links a + a{margin-left:1rem}
+@media (max-width:560px){
+  .row,.pub{grid-template-columns:minmax(0,1fr)}
+}
+
+/* Path */
+.route{display:grid;gap:.6rem;max-width:62ch}
+.route li{display:grid;grid-template-columns:8.5rem minmax(0,1fr);gap:1rem}
+.route .y{font-variant-numeric:tabular-nums;color:var(--muted)}
+@media (max-width:560px){.route li{grid-template-columns:minmax(0,1fr);gap:0}}
+
+/* About: education and experience */
+.det{display:block;margin-top:.15rem;font-size:.9375rem;line-height:1.55;color:var(--muted)}
+
+/* ClickIT */
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13.5rem),1fr));gap:1.5rem 2rem}
+.figs li::before{content:"";display:block;height:2px;margin-bottom:.9rem;background:linear-gradient(90deg,var(--cool),var(--warm) 60%,var(--hot))}
+.figs strong{display:block;font-size:clamp(2.25rem,1.6rem + 2.4vw,3.25rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
+.figs span{display:block;margin-top:.4rem;max-width:30ch;font-size:.9375rem;line-height:1.5;color:var(--ink-2)}
+.more{border-top:1px solid var(--rule);padding-top:.5rem}
+.more summary{display:flex;align-items:center;gap:.6rem;min-height:44px;cursor:pointer;list-style:none;font-weight:500;color:var(--ink)}
+.more summary::-webkit-details-marker{display:none}
+.more summary::before{content:"";flex:none;width:.5rem;height:.5rem;border-right:2px solid var(--link);border-bottom:2px solid var(--link);transform:rotate(-45deg);transition:transform .2s}
+.more[open] summary::before{transform:rotate(45deg)}
+.more .rows{margin-top:.75rem}
+.more .sub{margin-top:1.5rem}
+.ph{display:grid;place-items:center;min-height:8rem;margin-top:.9rem;padding:1rem;border:1px dashed var(--tick);border-radius:10px;background:var(--dial);color:var(--muted);font-size:.9375rem;text-align:center}
+
+/* Teaching */
+.courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));gap:.9rem 2.5rem}
+.courses li{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:.75rem}
+.code{font-variant-numeric:tabular-nums;color:var(--muted)}
+
+/* Contact */
+.mail{font-size:clamp(1.25rem,1rem + 2vw,2rem);font-weight:300;line-height:1.3;overflow-wrap:anywhere}
+.mail a{color:var(--ink)}
+.copy{
+  margin-top:.75rem;min-height:44px;padding:0 1.1rem;border:1px solid var(--ink-2);border-radius:999px;
+  background:transparent;color:var(--ink);font:inherit;font-size:.9375rem;font-weight:500;cursor:pointer;
+}
+.copy:hover{background:var(--ink);color:var(--paper)}
+.where{margin-top:1.5rem;color:var(--ink-2)}
+
+footer{padding-block:2rem 2.5rem;border-top:1px solid var(--rule);font-size:.9375rem;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Zahraa Marafie","honorificPrefix":"Dr.","alternateName":"زهراء معرفي","jobTitle":"Assistant Professor of Information Science","url":"https://www.zmarafie.com/","image":"https://www.zmarafie.com/images/zahraa-marafie.jpg","worksFor":{"@type":"CollegeOrUniversity","name":"Kuwait University","url":"https://www.ku.edu.kw/"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of California, Irvine"},{"@type":"CollegeOrUniversity","name":"Kuwait University"}],"knowsAbout":["Internet of Things","Artificial intelligence","Wearable sensing","Medical AI","Edge and fog intelligence","Real-time systems","Data science education"]}
+</script>
+<noscript><style>.trace{display:none}</style></noscript>
+<link rel="canonical" href="https://www.zmarafie.com/">
+<meta name="theme-color" content="#EEF2F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#07161E" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23119DAE'/%3E%3Cstop offset='.55' stop-color='%23E3A21B'/%3E%3Cstop offset='1' stop-color='%23D23F1B'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='url(%23g)' stroke-width='5'/%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top"><i aria-hidden="true"></i>Zahraa Marafie</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#talks">Talks and press</a></li>
+        <li><a href="#service">Service</a></li>
+        <li><a href="#clickit">ClickIT</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap">
+      <h1 class="name"><span class="l">Dr. Zahraa</span> <span class="l">Marafie</span><span class="ar" lang="ar" dir="rtl">د. زهراء معرفي</span></h1>
+
+      <div class="dial">
+        <img src="images/zahraa-marafie.jpg" alt="Portrait of Dr. Zahraa Marafie" width="720" height="720" fetchpriority="high">
+        <span class="arc" aria-hidden="true"></span>
+      </div>
+
+      <div class="intro">
+        <p class="role">Assistant Professor of Information Science<span>College of Life Sciences, Kuwait University</span></p>
+        <p class="lead">I put artificial intelligence to work inside real systems: on the wrist, on the road, across the city and in the classroom.</p>
+        <p class="cred">PhD in Computer Engineering from the University of California, Irvine. Co-lead of the CAIS Lab at Kuwait University. Invited speaker on AI and the law at Kuwait Lawyers Bar Society conferences.</p>
+        <div class="cta">
+          <a class="btn" href="#research">See my research</a>
+          <a class="textlink" href="#contact">Contact me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="research" aria-labelledby="h-research">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="h-research">Research</h2></div>
+      <div class="sec-body">
+        <p class="prose">Most of my work applies artificial intelligence inside Internet of Things systems, where sensors, small computers and machine learning work together. I also study how students learn data science.</p>
+
+        <div class="channels">
+          <article class="channel">
+            <div class="ch-text">
+              <h3>On the wrist</h3>
+              <p class="proj">HeatWatch, current project</p>
+              <p>HeatWatch uses wearable sensors and machine learning to spot heat stress early and to alert people before it becomes heat illness. It is a current project with Dr. Shaikhah Alkhadhr at Kuwait University.</p>
+            </div>
+            <div class="ch-vis">
+              <figure class="trace" data-trace="heart">
+                <figcaption><span>Heart rate, bpm</span><span>illustration</span></figcaption>
+                <svg aria-hidden="true" focusable="false"></svg>
+                <span class="mark" style="left:71%"><span>alert</span></span>
+              </figure>
+            </div>
+          </article>
+
+          <article class="channel">
+            <div class="ch-text">
+              <h3>On the road</h3>
+              <p class="proj">AutoCoach, from my PhD</p>
+              <p>AutoCoach is a driver feedback agent. It models each driver's personality and tailors its feedback, with the aim of improving driving behavior and road safety. I developed it with Prof. Kwei-Jay Lin at UC Irvine, and it is described in papers in Electronics and at IEEE SOCA.</p>
+            </div>
+            <div class="ch-vis">
+              <figure class="trace" data-trace="accel">
+                <figcaption><span>Acceleration, g</span><span>illustration</span></figcaption>
+                <svg aria-hidden="true" focusable="false"></svg>
+                <span class="mark" style="left:52%"><span>feedback</span></span>
+              </figure>
+              <figure class="photo">
+                <img src="images/autocoach-in-car.jpg" alt="A phone on a car dashboard running AutoCoach, showing a live driving score of 74 and a trip score of 88" width="1400" height="668" loading="lazy">
+                <figcaption>AutoCoach running in a car. The phone shows a live driving score and a trip score, with feedback on driving events.</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="channel">
+            <div class="ch-text">
+              <h3>Across the city</h3>
+              <p class="proj">GreenScore</p>
+              <p>GreenScore is a sustainability assessment framework for IoT systems, part of my work on smart cities.</p>
+            </div>
+            <div class="ch-vis">
+              <figure class="trace" data-trace="energy">
+                <figcaption><span>Energy use over a day, kW</span><span>illustration</span></figcaption>
+                <svg aria-hidden="true" focusable="false"></svg>
+              </figure>
+            </div>
+          </article>
+
+          <article class="channel">
+            <div class="ch-text">
+              <h3>In the classroom</h3>
+              <p class="proj">Data science education</p>
+              <p>With Dr. Safia Malallah of Kansas State University and co-authors, I study how confident and capable students are in data science. We developed an instrument to measure data science self-efficacy (ASEE 2024) and examined student confidence and competency in Kuwait (ASEE 2026, as first author).</p>
+            </div>
+            <div class="ch-vis">
+              <figure class="trace" data-trace="learn">
+                <figcaption><span>Survey scores</span><span>illustration</span></figcaption>
+                <svg aria-hidden="true" focusable="false"></svg>
+              </figure>
+            </div>
+          </article>
+        </div>
+
+        <div class="next">
+          <p class="prose">Next, I am extending this work into medical AI.</p>
+          <ul class="chips" aria-label="Research interests">
+            <li>Internet of Things</li>
+            <li>Artificial intelligence</li>
+            <li>Edge and fog intelligence</li>
+            <li>Real-time systems</li>
+            <li>Medical AI</li>
+            <li>Service-oriented computing</li>
+          </ul>
+          <p class="note">The traces on this page are illustrations, not measured data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="about" aria-labelledby="h-about">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="h-about">About</h2></div>
+      <div class="sec-body">
+        <p class="prose">I studied Information Science at Kuwait University and worked as a programmer at the Ministry of Finance before a scholarship took me to the University of California, Irvine. There I earned an MSc in 2016 and a PhD in 2021, both in Computer Engineering, and built AutoCoach. I joined the Department of Information Science at Kuwait University in 2021, where I teach, research AI and IoT, and co-lead the CAIS Lab with Dr. Shaikhah Alkhadhr.</p>
+        <div>
+          <p class="sub">Education</p>
+          <ol class="route">
+            <li><span class="y">2021</span><span>PhD in Computer Engineering, University of California, Irvine<span class="det">Advisor: Prof. Kwei-Jay Lin. Dissertation on intelligent IoT agents built on personality-based service models, which introduced AutoCoach.</span></span></li>
+            <li><span class="y">2016</span><span>MSc in Computer Engineering, University of California, Irvine<span class="det">Advisor: Prof. Nader Bagherzadeh. Thesis on energy optimization of two-dimensional networks-on-chip using genetic algorithms, with a 19% improvement in energy efficiency over baseline designs.</span></span></li>
+            <li><span class="y">2011</span><span>BSc in Information Science, Kuwait University<span class="det">Advisor: Dr. Hanady Abdulsalam. Capstone project: an RFID-based student attendance system.</span></span></li>
+          </ol>
+        </div>
+        <div>
+          <p class="sub">Experience</p>
+          <ol class="route">
+            <li><span class="y">2021 to now</span><span>Assistant Professor, Department of Information Science, College of Life Sciences, Kuwait University</span></li>
+            <li><span class="y">2018 to 2019</span><span>Teaching assistant, Electrical Engineering and Computer Science, University of California, Irvine<span class="det">Real-Time Systems (EECS 223).</span></span></li>
+            <li><span class="y">2014 to 2021</span><span>Teaching assistant (on scholarship), Department of Information Science, Kuwait University</span></li>
+            <li><span class="y">2011 to 2014</span><span>Computer programmer, Center of Information Systems, Ministry of Finance, Kuwait</span></li>
+            <li><span class="y">2009 to 2011</span><span>Student part-time roles, Kuwait University<span class="det">Graphic designer and administrative coordinator in the Departments of Information Science and Visual Communication.</span></span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="publications" aria-labelledby="h-pubs">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="h-pubs">Publications</h2></div>
+      <div class="sec-body">
+        <ul class="rows">
+          <li class="row pub">
+            <span class="gut">2026</span>
+            <div>
+              <h3><a href="https://peer.asee.org/investigating-data-science-student-confidence-and-competency-in-kuwait" target="_blank" rel="noopener">Investigating Data Science Student Confidence and Competency in Kuwait</a></h3>
+              <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">S. Malallah</span>, <span class="nw">E.U. Osiobe</span>, <span class="nw">L. Shamir</span>, <span class="nw">J.L. Valenzuela</span>, <span class="nw">F.E. James</span></p>
+              <p class="venue"><span class="tag">Conference</span><span>2026 ASEE Annual Conference &amp; Exposition</span></p>
+            </div>
+          </li>
+          <li class="row pub">
+            <span class="gut">2024</span>
+            <div>
+              <h3><a href="https://peer.asee.org/developing-an-instrument-for-assessing-self-efficacy-confidence-in-data-science.pdf" target="_blank" rel="noopener">Developing an Instrument for Assessing Self-Efficacy Confidence in Data Science</a></h3>
+              <p class="by"><span class="nw">S. Malallah</span>, <span class="nw">E.U. Osiobe</span>, <span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">P. Henriquez-Coronel</span>, <span class="nw">L. Shamir</span>, <span class="nw">E.L. Carlson</span>, <span class="nw">J.L. Weese</span></p>
+              <p class="venue"><span class="tag">Conference</span><span>2024 ASEE Annual Conference &amp; Exposition</span></p>
+            </div>
+          </li>
+          <li class="row pub">
+            <span class="gut">2021</span>
+            <div>
+              <h3><a href="https://www.mdpi.com/2079-9292/10/11/1361" target="_blank" rel="noopener">AutoCoach: An Intelligent Driver Behavior Feedback Agent with Personality-Based Driver Models</a></h3>
+              <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">K.-J. Lin</span>, <span class="nw">D. Wang</span>, <span class="nw">H. Lyu</span>, <span class="nw">Y. Liu</span>, <span class="nw">Y. Meng</span>, <span class="nw">J. Ma</span></p>
+              <p class="venue"><span class="tag">Journal</span><span>Electronics, 10(11), 1361</span></p>
+            </div>
+          </li>
+          <li class="row pub">
+            <span class="gut">2021</span>
+            <div>
+              <h3><a href="https://escholarship.org/uc/item/9s1972st" target="_blank" rel="noopener">Building Intelligent IoT Agents Using Personality-Based Service Models</a></h3>
+              <p class="venue"><span class="tag">Thesis</span><span>PhD dissertation, University of California, Irvine</span></p>
+            </div>
+          </li>
+          <li class="row pub">
+            <span class="gut">2019</span>
+            <div>
+              <h3><a href="https://ieeexplore.ieee.org/document/8954914" target="_blank" rel="noopener">AutoCoach: Driving Behavior Management Using Intelligent IoT Services</a></h3>
+              <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">K.-J. Lin</span>, <span class="nw">D. Wang</span>, <span class="nw">H. Lyu</span>, <span class="nw">Y. Meng</span>, <span class="nw">T. Ito</span></p>
+              <p class="venue"><span class="tag">Conference</span><span>IEEE 12th Conference on Service-Oriented Computing and Applications (SOCA)</span></p>
+            </div>
+          </li>
+          <li class="row pub">
+            <span class="gut">2018</span>
+            <div>
+              <h3><a href="https://ieeexplore.ieee.org/document/8439170" target="_blank" rel="noopener">Proactive FinTech: Using Intelligent IoT to Deliver Positive InsurTech Feedback</a></h3>
+              <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">K.-J. Lin</span>, <span class="nw">Y. Zhai</span>, <span class="nw">J. Li</span></p>
+              <p class="venue"><span class="tag">Conference</span><span>IEEE 20th Conference on Business Informatics (CBI), vol. 2, pp.&nbsp;<span class="nw">72–81</span>. Presented in Vienna, Austria</span></p>
+            </div>
+          </li>
+          <li class="row pub">
+            <span class="gut">2016</span>
+            <div>
+              <h3><a href="https://escholarship.org/uc/item/17c2b5rs" target="_blank" rel="noopener">Energy Optimization for Two-Dimensional NoCs Using Genetic Algorithms</a></h3>
+              <p class="venue"><span class="tag">Thesis</span><span>MSc thesis, University of California, Irvine</span></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="talks" aria-labelledby="h-talks">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="h-talks">Talks, posters and press</h2></div>
+      <div class="sec-body">
+        <div>
+          <p class="sub">Invited talks and workshops</p>
+          <ul class="rows">
+            <li class="row">
+              <span class="gut">Jul 2025</span>
+              <div>
+                <h3>Why Choose a Career Path in Tech?</h3>
+                <p>Panel speaker, CODED event, College of Life Sciences, Kuwait University.</p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">Jan 2025</span>
+              <div>
+                <h3>Applications of AI in the Legal Field</h3>
+                <p>Invited talk, The Future of Digital Justice Conference, Kuwait Lawyers Bar Society.</p>
+                <p class="links"><a href="https://www.youtube.com/watch?v=nSvGSbSXcKk" target="_blank" rel="noopener">Watch the session</a></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">Dec 2024</span>
+              <div>
+                <h3>Data-Driven Experiences: Embracing the Phygital Future of Shopping in Kuwait</h3>
+                <p>Invited talk, Third Kuwait Digital Transformation Conference.</p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">Nov 2024</span>
+              <div>
+                <h3>The Science Behind Netflix</h3>
+                <p>Workshop co-led with Dr. Shaikhah Alkhadhr, College of Science, Kuwait University.</p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">Oct 2024</span>
+              <div>
+                <h3>Data Security in AI</h3>
+                <p>Invited talk, Artificial Intelligence Between Law and Technology conference, Kuwait Lawyers Bar Society.</p>
+                <p class="links"><a href="https://cls.ku.edu.kw/ar/media-center/news/artificial-intelligence-between-law-and-technology" target="_blank" rel="noopener">College news (Arabic)</a></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="sub">Posters</p>
+          <ul class="rows">
+            <li class="row">
+              <span class="gut">Feb 2025</span>
+              <div>
+                <h3>HeatWatch: Real-time Detection of Heat Exhaustion via Wearable Sensors and AI Models</h3>
+                <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">S. Alkhadhr</span></p>
+                <p class="venue"><span class="tag">Poster</span><span>Poster Day, Scientific Research Conference 2024 to 2025, Kuwait University</span></p>
+                <div class="ph">Photo from Poster Day to come</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="sub">In the news</p>
+          <ul class="rows">
+            <li class="row">
+              <span class="gut">Oct 2024</span>
+              <div>
+                <h3>Al-Jarida</h3>
+                <p>Reported on my session about data security in AI. I spoke about the challenges institutions face as they adopt AI, especially in healthcare and finance, and the decisive role lawyers play in legal compliance and in protecting the sensitive data these systems depend on.</p>
+                <p class="links"><a href="https://www.aljarida.com/article/77967" target="_blank" rel="noopener">Read the article (Arabic)</a><a href="https://acakw.com/archives/5671" target="_blank" rel="noopener">Also covered by Al-Awael (Arabic)</a></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">May 2022</span>
+              <div>
+                <h3>Al-Anba</h3>
+                <p>Quoted at the Department of Information Science seminar led by wellness trainer Ahmed Al-Najjar. I spoke about how technology and social media widen access to knowledge and keep families in touch, while a constant stream of stories can affect quality of life.</p>
+                <p class="links"><a href="https://www.alanba.com.kw/1118822" target="_blank" rel="noopener">Read the article (Arabic)</a></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="service" aria-labelledby="h-service">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="h-service">Service and leadership</h2></div>
+      <div class="sec-body">
+        <ul class="rows">
+          <li class="row">
+            <span class="gut">Ongoing</span>
+            <div>
+              <h3>Co-lead, CAIS Lab</h3>
+              <p>Cybersecurity, AI, IoT and Simulations, in the Department of Information Science. I co-lead the lab with Dr. Shaikhah Alkhadhr.</p>
+            </div>
+          </li>
+          <li class="row">
+            <span class="gut">2025 to now</span>
+            <div>
+              <h3>Ambassador, Women in Data Science (WiDS) Kuwait at Kuwait University</h3>
+              <p>I organize talks and community events, and support female students to lead workshops, give talks and start research projects in data science and AI.</p>
+            </div>
+          </li>
+          <li class="row">
+            <span class="gut">2025 to now</span>
+            <div>
+              <h3>Faculty supervisor, KU ACM Student Chapter</h3>
+              <p>Student hackathons, technical talks and coding competitions.</p>
+            </div>
+          </li>
+          <li class="row">
+            <span class="gut">2023 to 2025</span>
+            <div>
+              <h3>Faculty supervisor, ClickIT Club</h3>
+              <p>Workshops, seminars, competitions and outreach for students in computing and AI. <a href="#clickit">See the full record</a>.</p>
+            </div>
+          </li>
+          <li class="row">
+            <span class="gut">2025</span>
+            <div>
+              <h3>Host of the UC Irvine delegation</h3>
+              <p>Prof. Fadi Kurdahi and colleagues from the Samueli School of Engineering visited Kuwait University. I organized graduate program sessions and meetings with faculty that opened discussions on research collaboration and student exchange.</p>
+            </div>
+          </li>
+          <li class="row">
+            <span class="gut">2023</span>
+            <div>
+              <h3>Host of Prof. Kwei-Jay Lin, Chang Gung University</h3>
+              <p>I coordinated his visit and led discussions on memoranda of understanding, student exchange, joint research and co-advising.</p>
+              <p class="links"><a href="https://web.ku.edu.kw/ar/news/kuw287760" target="_blank" rel="noopener">Kuwait University news (Arabic)</a></p>
+            </div>
+          </li>
+          <li class="row">
+            <span class="gut">2022 to 2025</span>
+            <div>
+              <h3>Guest seminars</h3>
+              <p>I organized three: Metaverse, between imagination and reality (2022); Intelligent computing, with Prof. Kwei-Jay Lin (2023); and designing virtual worlds to build computational thinking in young learners, with Dr. Safia Malallah (2025).</p>
+            </div>
+          </li>
+          <li class="row">
+            <span class="gut">2021 to 2025</span>
+            <div>
+              <h3>University committees</h3>
+              <p>Social and Public Seminars; Academic Schedule; Student Advising and Faculty Support Staff; Library, Lab, Facilities, Budget and Planning.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="clickit" aria-labelledby="h-clickit">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="h-clickit">ClickIT Club</h2></div>
+      <div class="sec-body">
+        <p class="prose">From 2023 to 2025 I was faculty supervisor of ClickIT, the student club of the Department of Information Science at Kuwait University. I supervised its workshops, seminars and competitions in computing and AI, and its volunteering and outreach with other student groups and national organizations. I handed the club to a new supervisor in 2025.</p>
+
+        <ul class="figs" aria-label="Highlights from 2024 to 2025">
+          <li><strong>19</strong><span>teams in the National Entrepreneurship Competition, co-organized by the club (April 2025)</span></li>
+          <li><strong>50+</strong><span>students from colleges across the university at the AI tools workshop (March 2025)</span></li>
+          <li><strong>500+</strong><span>girls aged 14 to 21 in CODED Academy X, where club members volunteered (April 2025)</span></li>
+        </ul>
+
+        <div class="ph">Photos from ClickIT events to come</div>
+
+        <div>
+          <p class="sub">Academic year 2024 to 2025</p>
+          <ul class="rows">
+            <li class="row">
+              <span class="gut">21 and 23 Apr</span>
+              <div>
+                <h3>Introduction to Python for Data Science</h3>
+                <p>A two-day workshop for College of Life Sciences students, building the technical skills they need for academic and research work.</p>
+                <p class="venue"><span class="tag">Workshop</span><span>With the ACM Student Chapter at KU and PyData Kuwait</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">15 to 26 Apr</span>
+              <div>
+                <h3>CODED Academy X</h3>
+                <p>Club members volunteered at CODED's program for empowering girls in technology and entrepreneurship, held at the College of Life Sciences for more than 500 girls aged 14 to 21.</p>
+                <p class="venue"><span class="tag">Volunteering</span><span>With CODED</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">9 to 19 Apr</span>
+              <div>
+                <h3>Kuwait Codes</h3>
+                <p>Club members supported CODED's initiative that teaches high-school students the basics of programming and modern technologies, held at the College of Life Sciences.</p>
+                <p class="venue"><span class="tag">Volunteering</span><span>With CODED</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">7 to 8 Apr</span>
+              <div>
+                <h3>National Entrepreneurship Competition</h3>
+                <p>Nineteen teams competed at the College of Life Sciences, with lectures on entrepreneurship concepts alongside the competition.</p>
+                <p class="venue"><span class="tag">Competition</span><span>Co-organized with the ACM Student Chapter at KU, a high-school Capstone team and the Sabah Al-Ahmad Center for Giftedness and Creativity (SACGC)</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">17 Mar</span>
+              <div>
+                <h3>AI Tools for Daily Life</h3>
+                <p>A student-presented workshop on AI tools and their academic uses. More than 50 students from colleges across the university took part.</p>
+                <p class="venue"><span class="tag">Workshop</span><span>With Women in Data Science (WiDS) Kuwait at KU and the ACM Student Chapter</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">17 and 19 Feb</span>
+              <div>
+                <h3>Introduction to Python Programming</h3>
+                <p>Basic programming concepts and hands-on Python, for students across technical and scientific fields.</p>
+                <p class="venue"><span class="tag">Workshop</span><span>With the KARS Club and PyData Kuwait</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">10 to 11 Dec</span>
+              <div>
+                <h3>Nature Masterclass: Get Published</h3>
+                <p>Club members volunteered at this workshop on scientific publishing for researchers, held at Kuwait University. They ran registration, guided participants to the halls and helped the session run smoothly.</p>
+                <p class="venue"><span class="tag">Volunteering</span><span>For the Kuwait Foundation for the Advancement of Sciences (KFAS)</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">25 to 27 Nov</span>
+              <div>
+                <h3>AI and Cybersecurity exhibition</h3>
+                <p>Students staffed an information booth for three days at the exhibition that accompanied a major conference. They explained the Data Science and AI major, the field's future and its job opportunities.</p>
+                <p class="venue"><span class="tag">Outreach</span><span>Representing the Department of Information Science</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">18 Nov</span>
+              <div>
+                <h3>Principles of Wellbeing: Body, Surroundings and Self</h3>
+                <p>A workshop on building healthy, balanced relationships across the three circles of a person's life (self, mind and body), and on coping with the challenges of daily life.</p>
+                <p class="venue"><span class="tag">Workshop</span><span>With a guest speaker</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">14 Nov</span>
+              <div>
+                <h3>Diabetes Day</h3>
+                <p>An interactive booth at the Nutrivia club's Diabetes Day, on the link between diabetes and technology, with giveaways to show solidarity with patients and raise awareness.</p>
+                <p class="venue"><span class="tag">Outreach</span><span>With the Nutrivia club</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">13 Nov</span>
+              <div>
+                <h3>Hackathon Championship</h3>
+                <p>A programming competition with problems of varied difficulty. Three Department of Information Science faculty members who specialize in programming judged the solutions.</p>
+                <p class="venue"><span class="tag">Competition</span><span>Organized by the club</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">7 Oct</span>
+              <div>
+                <h3>Managing Emotions in the Era of Technology</h3>
+                <p class="venue"><span class="tag">Seminar</span><span>With a guest speaker</span></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <details class="more">
+          <summary>Earlier events, 2023 to 2024</summary>
+          <p class="sub">2023 to 2024</p>
+          <ul class="rows">
+            <li class="row">
+              <span class="gut">May 2024</span>
+              <div>
+                <h3>Gaming Day Expo</h3>
+                <p class="venue"><span class="tag">Expo</span><span>College of Life Sciences</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">May 2024</span>
+              <div>
+                <h3>Game Genius Display</h3>
+                <p class="venue"><span class="tag">Competition</span><span>College of Life Sciences</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">22 to 24 Apr</span>
+              <div>
+                <h3>Introduction to Game Development</h3>
+                <p class="venue"><span class="tag">Workshop</span><span>College of Life Sciences</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">20 Mar</span>
+              <div>
+                <h3>PC Building Essentials</h3>
+                <p class="venue"><span class="tag">Workshop</span><span>College of Life Sciences</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">13 Nov</span>
+              <div>
+                <h3>Hour of Code Solo</h3>
+                <p class="venue"><span class="tag">Competition</span><span>College of Engineering and Petroleum</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">21 Oct</span>
+              <div>
+                <h3>Python Programming</h3>
+                <p class="venue"><span class="tag">Workshop</span><span>With Project Code</span></p>
+              </div>
+            </li>
+          </ul>
+          <p class="sub">2022 to 2023</p>
+          <ul class="rows">
+            <li class="row">
+              <span class="gut">8 Mar</span>
+              <div>
+                <h3>Gamathon Expo</h3>
+                <p class="venue"><span class="tag">Expo</span><span>College of Life Sciences</span></p>
+              </div>
+            </li>
+          </ul>
+        </details>
+
+        <div>
+          <p class="sub">Worked with</p>
+          <ul class="chips" aria-label="Partner clubs and organizations">
+            <li>ACM Student Chapter at KU</li>
+            <li>WiDS Kuwait at KU</li>
+            <li>PyData Kuwait</li>
+            <li>KARS Club</li>
+            <li>Nutrivia club</li>
+            <li>CODED</li>
+            <li>KFAS</li>
+            <li>SACGC</li>
+            <li>Capstone high-school team</li>
+          </ul>
+        </div>
+
+        <p class="note">Follow the club on <a href="https://www.instagram.com/isc_club/" target="_blank" rel="noopener">Instagram (@isc_club)</a> and on LinkedIn (ClickIT Club).</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="teaching" aria-labelledby="h-teaching">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="h-teaching">Teaching</h2></div>
+      <div class="sec-body">
+        <p class="prose">Courses I have taught at Kuwait University.</p>
+        <ul class="courses">
+          <li><span class="code">ISC 100</span><span>Introduction to Personal Computers</span></li>
+          <li><span class="code">ISC 240</span><span>Programming and Problem Solving</span></li>
+          <li><span class="code">ISC 357</span><span>Operating Systems and File Systems Management</span></li>
+          <li><span class="code">ISC 471</span><span>Interactive 3D Graphics Modeling</span></li>
+          <li><span class="code">CLS 130</span><span>Ethics and Practices</span></li>
+          <li><span class="code">CLS 161</span><span>Introduction to Entrepreneurship</span></li>
+          <li><span class="code">CLS 253</span><span>Technical Writing</span></li>
+          <li><span class="code">ETM 450</span><span>Applications of Information Systems in Environmental Management</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="contact" aria-labelledby="h-contact">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="h-contact">Contact</h2></div>
+      <div class="sec-body">
+        <p class="prose">I welcome collaboration on wearable AI, medical AI and IoT for sustainable cities.</p>
+        <div>
+          <p class="mail"><a id="mail-text" href="mailto:zahraa.marafie@ku.edu.kw">zahraa.marafie@ku.edu.kw</a></p>
+          <button type="button" class="copy" id="copy-mail">Copy address</button>
+          <address class="where">Department of Information Science<br>College of Life Sciences, Kuwait University<br>Kuwait</address>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 Zahraa Marafie</p>
+    <p><a href="#top">Back to top</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var NS="http://www.w3.org/2000/svg";
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a){e.setAttribute(k,a[k])}return e}
+  function rng(s){return function(){s|=0;s=s+0x6D2B79F5|0;var t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+  function G(x,c,w){var d=(x-c)/w;return Math.exp(-d*d)}
+  function pathD(p){var s="M"+p[0][0].toFixed(1)+" "+p[0][1].toFixed(1);for(var i=1;i<p.length;i++){s+="L"+p[i][0].toFixed(1)+" "+p[i][1].toFixed(1)}return s}
+  function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+
+  /* Each builder returns points in pixel space for a W by H drawing. */
+  var kinds={
+    heart:function(W,H){
+      var base=H*.6,amp=H*.5,pts=[],beats=[],x=W*.04;
+      function gap(px){return W*(.12-.07*clamp(px/W,0,1))}
+      while(x<W*1.05){beats.push(x);x+=gap(x)}
+      for(var px=0;px<=W;px++){
+        var y=0;
+        for(var i=0;i<beats.length;i++){
+          var b=beats[i],g=gap(b);
+          if(Math.abs(px-b)>g*.62){continue}
+          var w1=Math.max(1.4,g*.014);
+          y+=.11*G(px,b-.2*g,Math.max(2,g*.045))-.08*G(px,b-.05*g,w1)+G(px,b,w1)-.22*G(px,b+.045*g,w1*1.1)+.26*G(px,b+.3*g,Math.max(2.5,g*.07));
+        }
+        y+=.012*Math.sin(px/31);
+        pts.push([px,base-y*amp]);
+      }
+      return {pts:pts,paint:{axis:"x",stops:[[0,"--cool"],[.55,"--cool"],[.74,"--warm"],[1,"--hot"]]}};
+    },
+    accel:function(W,H){
+      var base=H*.52,amp=H*.34,pts=[],ev=[[.2,-1,.8],[.52,1,1],[.8,-1,.7]];
+      for(var px=0;px<=W;px++){
+        var y=.07*Math.sin(px/8.3+1.1)+.05*Math.sin(px/3.7+.4)+.035*Math.sin(px/2.1+2);
+        for(var i=0;i<ev.length;i++){
+          var c=ev[i][0]*W,d=px-c,s=ev[i][1],a=ev[i][2];
+          y+=s*a*G(px,c,4.5);
+          if(d>0){y-=s*a*.5*Math.exp(-d/22)*Math.sin(d/4.2)}
+        }
+        pts.push([px,base-y*amp]);
+      }
+      return {pts:pts,paint:{axis:"solid",color:"--cool"}};
+    },
+    energy:function(W,H){
+      var pts=[];
+      for(var px=0;px<=W;px++){
+        var t=px/W;
+        var v=.22+.45*G(t,.3,.1)+.7*G(t,.78,.12)+.025*Math.sin(t*61)+.015*Math.sin(t*137);
+        pts.push([px,H*.86-v*H*.62]);
+      }
+      return {pts:pts,paint:{axis:"y",stops:[[0,"--hot"],[.42,"--warm"],[1,"--cool"]]}};
+    },
+    learn:function(W,H){
+      var r=rng(11),pts=[],dots=[],n=Math.max(18,Math.round(W/16));
+      function curve(t){return H*.8-(1-Math.exp(-2.6*t))*H*.52}
+      for(var px=0;px<=W;px++){pts.push([px,curve(px/W)+.012*H*Math.sin(px/19)])}
+      for(var i=0;i<n;i++){
+        var t=(i+.5)/n;
+        dots.push([t*W,clamp(curve(t)+(r()-.5)*H*.34,5,H-5)]);
+      }
+      return {pts:pts,dots:dots,paint:{axis:"solid",color:"--cool"}};
+    }
+  };
+
+  var uid=0;
+  function build(fig){
+    var svg=fig.querySelector("svg");
+    if(!svg){return}
+    var kind=fig.getAttribute("data-trace");
+    var W=Math.round(svg.clientWidth)||520,H=Math.round(svg.clientHeight)||120;
+    if(fig._w===W&&fig._h===H){return}
+    fig._w=W;fig._h=H;
+    var out=kinds[kind](W,H);
+    svg.setAttribute("viewBox","0 0 "+W+" "+H);
+    while(svg.firstChild){svg.removeChild(svg.firstChild)}
+    var stroke;
+    if(out.paint.axis==="solid"){
+      stroke="var("+out.paint.color+")";
+    }else{
+      var id="tg"+(uid++);
+      var gr=el("linearGradient",{id:id,gradientUnits:"userSpaceOnUse",x1:0,y1:0,x2:out.paint.axis==="x"?W:0,y2:out.paint.axis==="y"?H:0});
+      out.paint.stops.forEach(function(s){
+        var st=el("stop",{offset:s[0]});st.style.stopColor="var("+s[1]+")";gr.appendChild(st);
+      });
+      var defs=el("defs",{});defs.appendChild(gr);svg.appendChild(defs);
+      stroke="url(#"+id+")";
+    }
+    if(out.dots){
+      var g=el("g",{"class":"dots"});
+      out.dots.forEach(function(d){g.appendChild(el("circle",{cx:d[0].toFixed(1),cy:d[1].toFixed(1),r:2.4}))});
+      svg.appendChild(g);
+    }
+    svg.appendChild(el("path",{"class":"line",d:pathD(out.pts),pathLength:1,stroke:stroke}));
+    if(fig._drawn){svg.classList.add("static")}
+    else{fig._drawn=true;setTimeout(function(){svg.classList.add("static")},3200)}
+  }
+  var figs=[].slice.call(document.querySelectorAll(".trace[data-trace]"));
+  function buildAll(){figs.forEach(build)}
+  buildAll();
+  if("ResizeObserver" in window){
+    var pending=false;
+    var ro=new ResizeObserver(function(){
+      if(pending){return}
+      pending=true;
+      requestAnimationFrame(function(){pending=false;buildAll()});
+    });
+    figs.forEach(function(f){ro.observe(f)});
+  }else{
+    window.addEventListener("resize",buildAll);
+  }
+
+  /* Copy the email address. */
+  var btn=document.getElementById("copy-mail");
+  if(btn){
+    var label=btn.textContent;
+    btn.addEventListener("click",function(){
+      var text="zahraa.marafie@ku.edu.kw";
+      function done(msg){btn.textContent=msg;setTimeout(function(){btn.textContent=label},1800)}
+      function pick(){
+        var node=document.getElementById("mail-text"),r=document.createRange();
+        r.selectNodeContents(node);
+        var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+        done("Address selected");
+      }
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){done("Copied")},pick);
+      }else{pick()}
+    });
+  }
+
+  /* Mark the section in view in the header. */
+  var links={};
+  [].forEach.call(document.querySelectorAll(".bar nav a"),function(a){links[a.getAttribute("href").slice(1)]=a});
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting){return}
+        for(var k in links){links[k].removeAttribute("aria-current")}
+        var l=links[e.target.id];
+        if(l){l.setAttribute("aria-current","true")}
+      });
+    },{rootMargin:"-45% 0px -50% 0px"});
+    Object.keys(links).forEach(function(id){var s=document.getElementById(id);if(s){io.observe(s)}});
+  }
+})();
+</script>
+</body>
+</html>
