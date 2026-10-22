@@ -9,8 +9,15 @@
 <meta property="og:title" content="Dr. Zahraa Marafie">
 <meta property="og:description" content="Assistant Professor of Information Science at Kuwait University. AI and the Internet of Things for health, road safety and sustainable cities.">
 <meta property="og:url" content="https://www.zmarafie.com/">
-<meta property="og:image" content="https://www.zmarafie.com/images/zahraa-marafie.jpg">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://www.zmarafie.com/images/og-home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Dr. Zahraa Marafie, Assistant Professor of Information Science, Kuwait University">
+<meta property="og:site_name" content="Dr. Zahraa Marafie">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://www.zmarafie.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.zmarafie.com/images/og-home.jpg">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%236B3F8F'/%3E%3Cstop%20offset='1'%20stop-color='%23C1557A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='url%28%23g%29'/%3E%3Ctext%20x='16'%20y='21.5'%20text-anchor='middle'%20font-family='Arial%2CHelvetica%2Csans-serif'%20font-size='13.5'%20font-weight='700'%20fill='%23fff'%3EZM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -484,6 +491,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
 .mail-reveal{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;font-size:1.0625rem}
 .mail-reveal a{color:var(--ink);overflow-wrap:anywhere}
 .mail-reveal .copy{margin-top:0}
+/* Paper buttons */
+.acts{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.55rem}
+.act{display:inline-flex;align-items:center;min-height:32px;padding:0 .8rem;border:1px solid var(--rule);border-radius:999px;background:transparent;color:var(--ink);font:inherit;font-size:.8125rem;font-weight:500;text-decoration:none;cursor:pointer;transition:border-color .2s,color .2s,background-color .2s}
+.act:hover{border-color:var(--link);color:var(--link)}
+.act.done{background:var(--link);border-color:var(--link);color:var(--paper)}
+.cite-text{margin-top:.5rem;padding:.6rem .8rem;border-radius:8px;background:var(--dial);border:1px solid var(--rule);font-size:.8125rem;line-height:1.5;color:var(--ink-2);user-select:all}
 /* Profile links with icons */
 .social{display:flex;flex-wrap:wrap;gap:.5rem}
 .social a{display:inline-flex;align-items:center;gap:.5rem;min-height:40px;padding:0 .95rem 0 .75rem;border:1px solid var(--rule);border-radius:999px;background:var(--dial);color:var(--ink);text-decoration:none;font-size:.9375rem;transition:border-color .25s,color .25s,transform .25s}
@@ -564,7 +577,7 @@ footer .wrap{align-items:center}
 }
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Zahraa Marafie","honorificPrefix":"Dr.","jobTitle":"Assistant Professor of Information Science","url":"https://www.zmarafie.com/","image":"https://www.zmarafie.com/images/zahraa-marafie.jpg","worksFor":{"@type":"CollegeOrUniversity","name":"Kuwait University","url":"https://www.ku.edu.kw/"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of California, Irvine"},{"@type":"CollegeOrUniversity","name":"Kuwait University"}],"knowsAbout":["Internet of Things","Artificial intelligence","Wearable sensing","Medical AI","Edge and fog intelligence","Real-time systems"]}
+{"@context": "https://schema.org", "@type": "Person", "name": "Zahraa Marafie", "honorificPrefix": "Dr.", "jobTitle": "Assistant Professor of Information Science", "url": "https://www.zmarafie.com/", "image": "https://www.zmarafie.com/images/zahraa-marafie.jpg", "worksFor": {"@type": "CollegeOrUniversity", "name": "Kuwait University", "url": "https://www.ku.edu.kw/"}, "alumniOf": [{"@type": "CollegeOrUniversity", "name": "University of California, Irvine"}, {"@type": "CollegeOrUniversity", "name": "Kuwait University"}], "knowsAbout": ["Internet of Things", "Artificial intelligence", "Wearable sensing", "Medical AI", "Edge and fog intelligence", "Real-time systems"], "sameAs": ["https://www.linkedin.com/in/zmarafie", "https://scholar.google.com/citations?user=rc3aBcoAAAAJ", "https://orcid.org/0009-0005-0356-1537", "https://www.instagram.com/marafiez/"], "affiliation": {"@type": "ResearchOrganization", "name": "Cybersecurity, AI, IoT and Simulations (CAIS) Lab", "url": "https://cais.ku.edu.kw", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kuwait University"}}, "description": "Assistant Professor of Information Science at Kuwait University and co-lead of the CAIS Lab. Applied AI and the Internet of Things for health, road safety and sustainable cities."}
 </script>
 <noscript><style>.trace{display:none}</style></noscript>
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}</style>
@@ -603,7 +616,7 @@ footer .wrap{align-items:center}
       <div class="intro">
         <p class="role">Assistant Professor of Information Science<span>College of Life Sciences, Kuwait University</span></p>
         <p class="lead">I put artificial intelligence to work inside real systems: on the wrist, on the road and across the city.</p>
-        <p class="cred">PhD in Computer Engineering, University of California, Irvine. Co-lead of the Cybersecurity, AI, IoT and Simulations (CAIS) Lab at Kuwait University.</p>
+        <p class="cred">PhD in Computer Engineering, University of California, Irvine. Co-lead of the <a href="https://cais.ku.edu.kw" target="_blank" rel="noopener">Cybersecurity, AI, IoT and Simulations (CAIS) Lab</a> at Kuwait University.</p>
         <div class="cta">
           <a class="btn" href="#research">See my research</a>
           <a class="textlink" href="#contact">Contact me</a>
@@ -764,7 +777,7 @@ footer .wrap{align-items:center}
               </div>
             </li>
           </ul>
-          <p class="note">These projects run in the CAIS Lab, which I co-lead with Dr. Shaikhah Alkhadhr.</p>
+          <p class="note">These projects run in the <a href="https://cais.ku.edu.kw" target="_blank" rel="noopener">CAIS Lab</a>, which I co-lead with Dr. Shaikhah Alkhadhr.</p>
         </div>
 
         <div class="next">
@@ -835,6 +848,7 @@ footer .wrap{align-items:center}
                 <h3><a href="https://peer.asee.org/investigating-data-science-student-confidence-and-competency-in-kuwait" target="_blank" rel="noopener">Investigating Data Science Student Confidence and Competency in Kuwait</a></h3>
                 <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">S. Malallah</span>, <span class="nw">E.U. Osiobe</span>, <span class="nw">L. Shamir</span>, <span class="nw">J.L. Valenzuela</span>, <span class="nw">F.E. James</span></p>
                 <p class="venue"><span class="tag t-pub">Conference</span><span>2026 ASEE Annual Conference &amp; Exposition</span></p>
+                <p class="acts"><button type="button" class="act cite" data-cite="Marafie, Z., Malallah, S., Osiobe, E.U., Shamir, L., Valenzuela, J.L., &amp; James, F.E. (2026). Investigating Data Science Student Confidence and Competency in Kuwait. 2026 ASEE Annual Conference &amp; Exposition. https://peer.asee.org/investigating-data-science-student-confidence-and-competency-in-kuwait">Cite</button></p>
               </div>
             </li>
             <li class="row pub">
@@ -843,6 +857,7 @@ footer .wrap{align-items:center}
                 <h3><a href="https://peer.asee.org/developing-an-instrument-for-assessing-self-efficacy-confidence-in-data-science.pdf" target="_blank" rel="noopener">Developing an Instrument for Assessing Self-Efficacy Confidence in Data Science</a></h3>
                 <p class="by"><span class="nw">S. Malallah</span>, <span class="nw">E.U. Osiobe</span>, <span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">P. Henriquez-Coronel</span>, <span class="nw">L. Shamir</span>, <span class="nw">E.L. Carlson</span>, <span class="nw">J.L. Weese</span></p>
                 <p class="venue"><span class="tag t-pub">Conference</span><span>2024 ASEE Annual Conference &amp; Exposition</span></p>
+                <p class="acts"><a class="act" href="https://peer.asee.org/developing-an-instrument-for-assessing-self-efficacy-confidence-in-data-science.pdf" target="_blank" rel="noopener">PDF</a><button type="button" class="act cite" data-cite="Malallah, S., Osiobe, E.U., Marafie, Z., Henriquez-Coronel, P., Shamir, L., Carlson, E.L., &amp; Weese, J.L. (2024). Developing an Instrument for Assessing Self-Efficacy Confidence in Data Science. 2024 ASEE Annual Conference &amp; Exposition. https://peer.asee.org/developing-an-instrument-for-assessing-self-efficacy-confidence-in-data-science.pdf">Cite</button></p>
               </div>
             </li>
             <li class="row pub">
@@ -851,6 +866,7 @@ footer .wrap{align-items:center}
                 <h3><a href="https://www.mdpi.com/2079-9292/10/11/1361" target="_blank" rel="noopener">AutoCoach: An Intelligent Driver Behavior Feedback Agent with Personality-Based Driver Models</a></h3>
                 <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">K.-J. Lin</span>, <span class="nw">D. Wang</span>, <span class="nw">H. Lyu</span>, <span class="nw">Y. Liu</span>, <span class="nw">Y. Meng</span>, <span class="nw">J. Ma</span></p>
                 <p class="venue"><span class="tag t-pub">Journal</span><span>Electronics, 10(11), 1361</span></p>
+                <p class="acts"><a class="act" href="https://www.mdpi.com/2079-9292/10/11/1361/pdf" target="_blank" rel="noopener">PDF</a><a class="act" href="https://doi.org/10.3390/electronics10111361" target="_blank" rel="noopener">DOI</a><button type="button" class="act cite" data-cite="Marafie, Z., Lin, K.-J., Wang, D., Lyu, H., Liu, Y., Meng, Y., &amp; Ma, J. (2021). AutoCoach: An Intelligent Driver Behavior Feedback Agent with Personality-Based Driver Models. Electronics, 10(11), 1361. https://doi.org/10.3390/electronics10111361">Cite</button></p>
               </div>
             </li>
             <li class="row pub">
@@ -858,6 +874,7 @@ footer .wrap{align-items:center}
               <div>
                 <h3><a href="https://escholarship.org/uc/item/9s1972st" target="_blank" rel="noopener">Building Intelligent IoT Agents Using Personality-Based Service Models</a></h3>
                 <p class="venue"><span class="tag t-pub">Thesis</span><span>PhD dissertation, University of California, Irvine</span></p>
+                <p class="acts"><a class="act" href="https://escholarship.org/content/qt9s1972st/qt9s1972st.pdf" target="_blank" rel="noopener">PDF</a><button type="button" class="act cite" data-cite="Marafie, Z. (2021). Building Intelligent IoT Agents Using Personality-Based Service Models [Doctoral dissertation, University of California, Irvine]. eScholarship. https://escholarship.org/uc/item/9s1972st">Cite</button></p>
               </div>
             </li>
             <li class="row pub">
@@ -866,6 +883,7 @@ footer .wrap{align-items:center}
                 <h3><a href="https://ieeexplore.ieee.org/document/8954914" target="_blank" rel="noopener">AutoCoach: Driving Behavior Management Using Intelligent IoT Services</a></h3>
                 <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">K.-J. Lin</span>, <span class="nw">D. Wang</span>, <span class="nw">H. Lyu</span>, <span class="nw">Y. Meng</span>, <span class="nw">T. Ito</span></p>
                 <p class="venue"><span class="tag t-pub">Conference</span><span>IEEE 12th Conference on Service-Oriented Computing and Applications (SOCA)</span></p>
+                <p class="acts"><a class="act" href="https://doi.org/10.1109/SOCA.2019.00023" target="_blank" rel="noopener">DOI</a><button type="button" class="act cite" data-cite="Marafie, Z., Lin, K.-J., Wang, D., Lyu, H., Meng, Y., &amp; Ito, T. (2019). AutoCoach: Driving Behavior Management Using Intelligent IoT Services. IEEE 12th Conference on Service-Oriented Computing and Applications (SOCA), pp. 103–110. https://doi.org/10.1109/SOCA.2019.00023">Cite</button></p>
               </div>
             </li>
             <li class="row pub">
@@ -874,6 +892,7 @@ footer .wrap{align-items:center}
                 <h3><a href="https://ieeexplore.ieee.org/document/8439170" target="_blank" rel="noopener">Proactive FinTech: Using Intelligent IoT to Deliver Positive InsurTech Feedback</a></h3>
                 <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">K.-J. Lin</span>, <span class="nw">Y. Zhai</span>, <span class="nw">J. Li</span></p>
                 <p class="venue"><span class="tag t-pub">Conference</span><span>IEEE 20th Conference on Business Informatics (CBI), vol. 2, pp.&nbsp;<span class="nw">72–81</span>. Presented in Vienna, Austria</span></p>
+                <p class="acts"><a class="act" href="https://doi.org/10.1109/CBI.2018.10048" target="_blank" rel="noopener">DOI</a><button type="button" class="act cite" data-cite="Marafie, Z., Lin, K.-J., Zhai, Y., &amp; Li, J. (2018). Proactive FinTech: Using Intelligent IoT to Deliver Positive InsurTech Feedback. IEEE 20th Conference on Business Informatics (CBI), vol. 2, pp. 72–81. https://doi.org/10.1109/CBI.2018.10048">Cite</button></p>
               </div>
             </li>
             <li class="row pub">
@@ -881,6 +900,7 @@ footer .wrap{align-items:center}
               <div>
                 <h3><a href="https://escholarship.org/uc/item/17c2b5rs" target="_blank" rel="noopener">Energy Optimization for Two-Dimensional NoCs Using Genetic Algorithms</a></h3>
                 <p class="venue"><span class="tag t-pub">Thesis</span><span>MSc thesis, University of California, Irvine</span></p>
+                <p class="acts"><a class="act" href="https://escholarship.org/content/qt17c2b5rs/qt17c2b5rs.pdf" target="_blank" rel="noopener">PDF</a><button type="button" class="act cite" data-cite="Marafie, Z. (2016). Energy Optimization for Two-Dimensional NoCs Using Genetic Algorithms [Master&#x27;s thesis, University of California, Irvine]. eScholarship. https://escholarship.org/uc/item/17c2b5rs">Cite</button></p>
               </div>
             </li>
           </ul>
@@ -1030,6 +1050,7 @@ footer .wrap{align-items:center}
             <div>
               <h3>Co-lead, CAIS Lab</h3>
               <p>Cybersecurity, AI, IoT and Simulations, in the Department of Information Science. I co-lead the lab with Dr. Shaikhah Alkhadhr.</p>
+              <p class="links"><a href="https://cais.ku.edu.kw" target="_blank" rel="noopener">Visit the CAIS Lab website (cais.ku.edu.kw)</a></p>
             </div>
           </li>
           <li class="row">
@@ -1157,7 +1178,7 @@ footer .wrap{align-items:center}
             <noscript><p class="mail-reveal">zahraa.marafie [at] ku.edu.kw</p></noscript>
           </div>
           <address class="where">Department of Information Science<br>College of Life Sciences, Kuwait University<br>Kuwait</address>
-          <ul class="social" style="margin-top:1.25rem"><li><a href="https://www.linkedin.com/in/zmarafie" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg><span>LinkedIn</span></a></li><li><a href="https://scholar.google.com/citations?hl=en&amp;user=rc3aBcoAAAAJ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6"/></svg><span>Google Scholar</span></a></li><li><a href="https://orcid.org/0009-0005-0356-1537" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-1.6 1.8-2.4 3-2.4s2.4.8 3 2.4M14 10h4M14 13h4"/></svg><span>ORCID</span></a></li><li><a href="https://www.instagram.com/marafiez/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="3"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-3h5L16 7"/></svg><span>Instagram</span></a></li></ul>
+          <ul class="social" style="margin-top:1.25rem"><li><a href="https://cais.ku.edu.kw" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 3h6M10 3v6l-5.2 9A2 2 0 0 0 6.5 21h11a2 2 0 0 0 1.7-3L14 9V3"/><path d="M7.5 15h9"/></svg><span>CAIS Lab</span></a></li><li><a href="https://www.linkedin.com/in/zmarafie" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg><span>LinkedIn</span></a></li><li><a href="https://scholar.google.com/citations?hl=en&amp;user=rc3aBcoAAAAJ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6"/></svg><span>Google Scholar</span></a></li><li><a href="https://orcid.org/0009-0005-0356-1537" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-1.6 1.8-2.4 3-2.4s2.4.8 3 2.4M14 10h4M14 13h4"/></svg><span>ORCID</span></a></li><li><a href="https://www.instagram.com/marafiez/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="3"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-3h5L16 7"/></svg><span>Instagram</span></a></li></ul>
         </div>
       </div>
     </div>
@@ -1167,7 +1188,7 @@ footer .wrap{align-items:center}
 <footer>
   <div class="wrap">
     <p>&copy; 2026 Zahraa Marafie</p>
-    <ul class="social social-icons" aria-label="Profiles"><li><a href="https://www.linkedin.com/in/zmarafie" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></a></li><li><a href="https://scholar.google.com/citations?hl=en&amp;user=rc3aBcoAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6"/></svg></a></li><li><a href="https://orcid.org/0009-0005-0356-1537" target="_blank" rel="noopener" aria-label="ORCID" title="ORCID"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-1.6 1.8-2.4 3-2.4s2.4.8 3 2.4M14 10h4M14 13h4"/></svg></a></li><li><a href="https://www.instagram.com/marafiez/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="3"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-3h5L16 7"/></svg></a></li></ul>
+    <ul class="social social-icons" aria-label="Profiles"><li><a href="https://cais.ku.edu.kw" target="_blank" rel="noopener" aria-label="CAIS Lab" title="CAIS Lab"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 3h6M10 3v6l-5.2 9A2 2 0 0 0 6.5 21h11a2 2 0 0 0 1.7-3L14 9V3"/><path d="M7.5 15h9"/></svg></a></li><li><a href="https://www.linkedin.com/in/zmarafie" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></a></li><li><a href="https://scholar.google.com/citations?hl=en&amp;user=rc3aBcoAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6"/></svg></a></li><li><a href="https://orcid.org/0009-0005-0356-1537" target="_blank" rel="noopener" aria-label="ORCID" title="ORCID"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-1.6 1.8-2.4 3-2.4s2.4.8 3 2.4M14 10h4M14 13h4"/></svg></a></li><li><a href="https://www.instagram.com/marafiez/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="3"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-3h5L16 7"/></svg></a></li></ul>
     <p><a href="#top">Back to top</a></p>
   </div>
 </footer>
@@ -1624,6 +1645,20 @@ footer .wrap{align-items:center}
     var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();requestAnimationFrame(function(){box.classList.add("go");box.classList.remove("wait")})}},{rootMargin:"0px 0px -10% 0px"});
     io.observe(box);
   }
+})();
+</script>
+<script>
+/* Cite: copy a ready-made reference for each paper. */
+(function(){
+  "use strict";
+  document.querySelectorAll(".act.cite").forEach(function(b){
+    b.addEventListener("click",function(){
+      var t=b.getAttribute("data-cite"),row=b.closest(".acts");
+      function done(m){b.textContent=m;b.classList.add("done");setTimeout(function(){b.textContent="Cite";b.classList.remove("done")},1800)}
+      function show(){var p=row.parentNode.querySelector(".cite-text");if(!p){p=document.createElement("p");p.className="cite-text";row.after(p)}p.textContent=t;var r=document.createRange();r.selectNodeContents(p);var s=window.getSelection();s.removeAllRanges();s.addRange(r);done("Shown below")}
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){done("Copied")},show)}else{show()}
+    });
+  });
 })();
 </script>
 </body>
