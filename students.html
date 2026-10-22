@@ -8,6 +8,7 @@
 <meta property="og:title" content="Student Clubs · Dr. Zahraa Marafie">
 <meta property="og:url" content="https://www.zmarafie.com/students.html">
 <meta property="og:image" content="https://www.zmarafie.com/images/clickit-students.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%236B3F8F'/%3E%3Cstop%20offset='1'%20stop-color='%23C1557A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='url%28%23g%29'/%3E%3Ctext%20x='16'%20y='21.5'%20text-anchor='middle'%20font-family='Arial%2CHelvetica%2Csans-serif'%20font-size='13.5'%20font-weight='700'%20fill='%23fff'%3EZM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600&display=swap">
@@ -341,6 +342,86 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
   .figs li.rv::before{transform:scaleX(0)}
   .figs li.rv.in::before{transform:none}
 }
+/* Colour-coded tags */
+.tag{--tc:var(--muted);display:inline-flex;align-items:center;gap:.4rem;border-color:color-mix(in srgb,var(--tc) 50%,var(--rule));background:color-mix(in srgb,var(--tc) 11%,transparent);color:var(--ink);transition:transform .25s,background-color .25s}
+.tag::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--tc)}
+.tag.t-learn,.tag.t-iot{--tc:var(--cool)}
+.tag.t-compete,.tag.t-data{--tc:var(--warm)}
+.tag.t-community,.tag.t-med{--tc:var(--hot)}
+.tag.t-pub{--tc:var(--link)}
+.tag.t-iotai{--tc:var(--cool)}
+.tag.t-iotai::before{background:linear-gradient(135deg,var(--cool) 50%,var(--warm) 50%)}
+@media (prefers-reduced-motion:no-preference){
+  .rv.in .tag{animation:tagPop .55s cubic-bezier(.3,1.5,.5,1) .3s both}
+  .row:hover .tag{transform:translateY(-1px);background:color-mix(in srgb,var(--tc) 20%,transparent)}
+  .row:hover .tag::before{animation:tagDot 1.2s ease-in-out infinite}
+  @keyframes tagPop{from{opacity:0;transform:scale(.8)}}
+  @keyframes tagDot{50%{transform:scale(1.6)}}
+}
+/* About: two columns for education and experience */
+@media (min-width:1000px){.about-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem 3rem}.about-cols .route li{grid-template-columns:7rem minmax(0,1fr)}}
+.about-more{margin-top:1rem;max-width:62ch}
+.about-more .prose{margin-top:.75rem}
+/* Profile links with icons */
+.social{display:flex;flex-wrap:wrap;gap:.5rem}
+.social a{display:inline-flex;align-items:center;gap:.5rem;min-height:40px;padding:0 .95rem 0 .75rem;border:1px solid var(--rule);border-radius:999px;background:var(--dial);color:var(--ink);text-decoration:none;font-size:.9375rem;transition:border-color .25s,color .25s,transform .25s}
+.social svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.social a:hover{border-color:var(--link);color:var(--link);transform:translateY(-2px)}
+.social-icons{gap:.35rem}
+.social-icons a{width:40px;padding:0;justify-content:center}
+footer .wrap{align-items:center}
+/* Photo viewer */
+:root{--scrim:rgba(5,16,23,.97);--on-scrim:#E7EFF3}
+.zoomable{cursor:zoom-in}
+.zoomable:focus-visible{outline:3px solid var(--link);outline-offset:3px}
+.lb{position:fixed;inset:0;z-index:50;display:grid;grid-template-rows:auto minmax(0,1fr) auto;background:var(--scrim);color:var(--on-scrim);padding:calc(env(safe-area-inset-top,0px) + .75rem) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 1rem) max(16px,env(safe-area-inset-left,0px));touch-action:pan-y}
+.lb-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:.9375rem}
+.lb-stage{display:grid;place-items:center;min-height:0;position:relative;overflow:hidden}
+.lb-stage img{max-width:calc(100% - 7rem);max-height:calc(100vh - 10rem);max-height:calc(100dvh - 10rem);width:auto;height:auto;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.45);object-fit:contain}
+.lb-cap{margin:.75rem auto 0;max-width:62ch;text-align:center;font-size:.9375rem;line-height:1.5;color:var(--on-scrim);opacity:.85}
+.lb button{display:inline-grid;place-items:center;min-width:44px;min-height:44px;border:1px solid rgba(231,239,243,.28);border-radius:999px;background:rgba(231,239,243,.08);color:var(--on-scrim);font:inherit;font-size:1.25rem;cursor:pointer}
+.lb button:hover{background:rgba(231,239,243,.18)}
+.lb .lb-prev,.lb .lb-next{position:absolute;top:50%;transform:translateY(-50%)}
+.lb .lb-prev{left:0}.lb .lb-next{right:0}
+.lb.single .lb-prev,.lb.single .lb-next,.lb.single .lb-count{display:none}
+@media (prefers-reduced-motion:no-preference){.lb{animation:lbIn .25s ease}.lb-stage img{animation:lbImg .3s cubic-bezier(.2,.7,.2,1)}@keyframes lbIn{from{opacity:0}}@keyframes lbImg{from{opacity:0;transform:scale(.97)}}}
+@media (max-width:600px){.lb-stage{overflow:visible}.lb-stage img{max-width:100%;max-height:calc(100dvh - 14rem)}.lb .lb-prev,.lb .lb-next{top:auto;bottom:-3.5rem;transform:none}.lb-cap{margin-top:4.25rem}}
+/* ClickIT event filters */
+.flt{display:grid;gap:.6rem;padding:1rem 1.1rem;border:1px solid var(--rule);border-radius:12px;background:var(--dial)}
+.flt-row{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem}
+.flt-row > span{min-width:3.5rem;font-size:.8125rem;color:var(--muted)}
+.flt button{display:inline-flex;align-items:center;gap:.4rem;min-height:36px;padding:0 .85rem;border:1px solid var(--rule);border-radius:999px;background:transparent;color:var(--ink-2);font:inherit;font-size:.875rem;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s}
+.flt button[data-t]::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--tc,var(--muted))}
+.flt button[data-t="all"]::before{display:none}
+.flt button[data-t="learn"]{--tc:var(--cool)}.flt button[data-t="compete"]{--tc:var(--warm)}.flt button[data-t="community"]{--tc:var(--hot)}
+.flt button:hover{border-color:var(--link);color:var(--ink)}
+.flt button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.flt-count{font-size:.8125rem;color:var(--muted)}
+.flt-empty{padding:1rem 0;color:var(--muted)}
+[data-year].f-hide,.row.f-hide{display:none}
+/* Scroll progress line under the header */
+.bar{position:sticky}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:3px;pointer-events:none}
+.progress i{display:block;height:100%;transform:scaleX(var(--sp,0));transform-origin:left;background:linear-gradient(90deg,var(--cool),var(--warm) 60%,var(--hot))}
+/* Desert dusk palette: decorative accents (plum, rose, sand). Warning colours in the animations stay as they are. */
+:root{--d1:#6B3F8F;--d2:#C1557A;--d3:#E8B46A;--d4:#2E8A93;--link:#6B3F8F;--dusk:linear-gradient(90deg,var(--d1),var(--d2) 55%,var(--d3))}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--d1:#B48AD8;--d2:#E37E9F;--d3:#F0C27E;--d4:#5CC3CB;--link:#C9A6EC}}
+:root[data-theme="dark"]{--d1:#B48AD8;--d2:#E37E9F;--d3:#F0C27E;--d4:#5CC3CB;--link:#C9A6EC}
+.brand .mono{width:26px;height:26px;flex:none;display:block}
+.dial .arc{background:conic-gradient(from -90deg,var(--d1),var(--d2) calc(var(--sweep) * .55),var(--d3) var(--sweep),transparent var(--sweep))}
+.figs li::before,.progress i,.tl-fill{background:var(--dusk)}
+.orbit::before{background:var(--d2);box-shadow:0 0 0 4px color-mix(in srgb,var(--d2) 22%,transparent),0 0 16px var(--d2)}
+.tag.t-learn,.tag.t-iot,.tag.t-iotai{--tc:var(--d1)}
+.tag.t-community,.tag.t-med{--tc:var(--d2)}
+.tag.t-compete,.tag.t-data{--tc:var(--d3)}
+.tag.t-pub{--tc:var(--d4)}
+.tag.t-iotai::before{background:linear-gradient(135deg,var(--d1) 50%,var(--d3) 50%)}
+.tl-dot.k-talk,.tl-legend .k-talk{--tc:var(--d1)}
+.tl-dot.k-press,.tl-legend .k-press{--tc:var(--d3)}
+.flt button[data-t="learn"]{--tc:var(--d1)}.flt button[data-t="compete"]{--tc:var(--d3)}.flt button[data-t="community"]{--tc:var(--d2)}
+.spark{background:var(--d2)}
+.dv-acc{stroke:var(--d1)}
+.gs-tag{background:var(--d3)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -364,13 +445,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
 
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="index.html"><i aria-hidden="true"></i>Zahraa Marafie</a>
+    <a class="brand" href="index.html"><svg class="mono" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><defs><linearGradient id="mono-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6B3F8F"/><stop offset="1" stop-color="#C1557A"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#mono-g)"/><text x="16" y="21" text-anchor="middle" font-family="Readex Pro, Arial, sans-serif" font-size="13" font-weight="600" fill="#fff" letter-spacing=".3">ZM</text></svg>Zahraa Marafie</a>
     <nav aria-label="Site">
       <ul>
         <li><a href="index.html#research">Research</a></li>
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#publications">Publications</a></li>
-        <li><a href="index.html#talks">Talks and press</a></li>
+        <li><a href="index.html#talks">Talks and media</a></li>
         <li><a href="index.html#service">Service</a></li>
         <li><a href="students.html" aria-current="true">Student clubs</a></li>
         <li><a href="index.html#teaching">Teaching</a></li>
@@ -408,102 +489,108 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
 
         <figure class="photo" style="max-width:44rem;margin-top:.9rem"><img src="images/clickit-students.jpg" alt="Group photo of ClickIT Club students and faculty on a staircase at Kuwait University" width="900" height="589" loading="lazy"><figcaption>With ClickIT Club students at Kuwait University.</figcaption></figure>
 
+        <div class="flt" id="clickit-filter" aria-label="Filter ClickIT events">
+          <div class="flt-row" role="group" aria-label="Year"><span>Year</span><button type="button" data-y="all" aria-pressed="true">All years</button><button type="button" data-y="2024" aria-pressed="false">2024/25</button><button type="button" data-y="2023" aria-pressed="false">2023/24</button><button type="button" data-y="2022" aria-pressed="false">2022/23</button></div>
+          <div class="flt-row" role="group" aria-label="Type"><span>Type</span><button type="button" data-t="all" aria-pressed="true">All types</button><button type="button" data-t="learn" aria-pressed="false">Workshops and talks</button><button type="button" data-t="compete" aria-pressed="false">Competitions and expos</button><button type="button" data-t="community" aria-pressed="false">Community</button></div>
+          <p class="flt-count" aria-live="polite"></p>
+        </div>
+
         <div>
-          <p class="sub">Academic year 2024 to 2025</p>
-          <ul class="rows">
-            <li class="row">
+          <p class="sub" data-year="2024">Academic year 2024 to 2025</p>
+          <ul class="rows" data-year="2024">
+            <li class="row" data-type="learn">
               <span class="gut">21 and 23 Apr</span>
               <div>
                 <h3>Introduction to Python for Data Science</h3>
                 <p>A two-day workshop for College of Life Sciences students, building the technical skills they need for academic and research work.</p>
-                <p class="venue"><span class="tag">Workshop</span><span>With the ACM Student Chapter at KU and PyData Kuwait</span></p>
+                <p class="venue"><span class="tag t-learn">Workshop</span><span>With the ACM Student Chapter at KU and PyData Kuwait</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="community">
               <span class="gut">15 to 26 Apr</span>
               <div>
                 <h3>CODED Academy X</h3>
                 <p>Club members volunteered at CODED's program for empowering girls in technology and entrepreneurship, held at the College of Life Sciences.</p>
-                <p class="venue"><span class="tag">Volunteering</span><span>With CODED</span></p>
+                <p class="venue"><span class="tag t-community">Volunteering</span><span>With CODED</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="community">
               <span class="gut">9 to 19 Apr</span>
               <div>
                 <h3>Kuwait Codes</h3>
                 <p>Club members supported CODED's initiative that teaches high-school students the basics of programming and modern technologies, held at the College of Life Sciences.</p>
-                <p class="venue"><span class="tag">Volunteering</span><span>With CODED</span></p>
+                <p class="venue"><span class="tag t-community">Volunteering</span><span>With CODED</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="compete">
               <span class="gut">7 to 8 Apr</span>
               <div>
                 <h3>National Entrepreneurship Competition</h3>
                 <p>Nineteen teams competed at the College of Life Sciences, with lectures on entrepreneurship concepts alongside the competition.</p>
-                <p class="venue"><span class="tag">Competition</span><span>Co-organized with the ACM Student Chapter at KU, a high-school Capstone team and the Sabah Al-Ahmad Center for Giftedness and Creativity (SACGC)</span></p>
+                <p class="venue"><span class="tag t-compete">Competition</span><span>Co-organized with the ACM Student Chapter at KU, a high-school Capstone team and the Sabah Al-Ahmad Center for Giftedness and Creativity (SACGC)</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="learn">
               <span class="gut">17 Mar</span>
               <div>
                 <h3>AI Tools for Daily Life</h3>
                 <p>A student-presented workshop on AI tools and their academic uses. More than 50 students from colleges across the university took part.</p>
-                <p class="venue"><span class="tag">Workshop</span><span>With Women in Data Science (WiDS) Kuwait at KU and the ACM Student Chapter</span></p>
+                <p class="venue"><span class="tag t-learn">Workshop</span><span>With Women in Data Science (WiDS) Kuwait at KU and the ACM Student Chapter</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="learn">
               <span class="gut">17 and 19 Feb</span>
               <div>
                 <h3>Introduction to Python Programming</h3>
                 <p>Basic programming concepts and hands-on Python, for students across technical and scientific fields.</p>
-                <p class="venue"><span class="tag">Workshop</span><span>With the KARS Club and PyData Kuwait</span></p>
+                <p class="venue"><span class="tag t-learn">Workshop</span><span>With the KARS Club and PyData Kuwait</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="community">
               <span class="gut">10 to 11 Dec</span>
               <div>
                 <h3>Nature Masterclass: Get Published</h3>
                 <p>Club members volunteered at this workshop on scientific publishing for researchers, held at Kuwait University. They ran registration, guided participants to the halls and helped the session run smoothly.</p>
-                <p class="venue"><span class="tag">Volunteering</span><span>For the Kuwait Foundation for the Advancement of Sciences (KFAS)</span></p>
+                <p class="venue"><span class="tag t-community">Volunteering</span><span>For the Kuwait Foundation for the Advancement of Sciences (KFAS)</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="community">
               <span class="gut">25 to 27 Nov</span>
               <div>
                 <h3>AI and Cybersecurity exhibition</h3>
                 <p>Students staffed an information booth for three days at the exhibition that accompanied a major conference. They explained the Data Science and AI major, the field's future and its job opportunities.</p>
-                <p class="venue"><span class="tag">Outreach</span><span>Representing the Department of Information Science</span></p>
+                <p class="venue"><span class="tag t-community">Outreach</span><span>Representing the Department of Information Science</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="learn">
               <span class="gut">18 Nov</span>
               <div>
                 <h3>Principles of Wellbeing: Body, Surroundings and Self</h3>
                 <p>A workshop on building healthy, balanced relationships across the three circles of a person's life (self, mind and body), and on coping with the challenges of daily life.</p>
-                <p class="venue"><span class="tag">Workshop</span><span>With a guest speaker</span></p>
+                <p class="venue"><span class="tag t-learn">Workshop</span><span>With a guest speaker</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="community">
               <span class="gut">14 Nov</span>
               <div>
                 <h3>Diabetes Day</h3>
                 <p>An interactive booth at the Nutrivia club's Diabetes Day, on the link between diabetes and technology, with giveaways to show solidarity with patients and raise awareness.</p>
-                <p class="venue"><span class="tag">Outreach</span><span>With the Nutrivia club</span></p>
+                <p class="venue"><span class="tag t-community">Outreach</span><span>With the Nutrivia club</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="compete">
               <span class="gut">13 Nov</span>
               <div>
                 <h3>Hackathon Championship</h3>
                 <p>A programming competition with problems of varied difficulty. Three Department of Information Science faculty members who specialize in programming judged the solutions.</p>
-                <p class="venue"><span class="tag">Competition</span><span>Organized by the club</span></p>
+                <p class="venue"><span class="tag t-compete">Competition</span><span>Organized by the club</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="learn">
               <span class="gut">7 Oct</span>
               <div>
                 <h3>Managing Emotions in the Era of Technology</h3>
-                <p class="venue"><span class="tag">Seminar</span><span>With a guest speaker</span></p>
+                <p class="venue"><span class="tag t-learn">Seminar</span><span>With a guest speaker</span></p>
               </div>
             </li>
           </ul>
@@ -535,112 +622,112 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
 
         <details class="more">
           <summary>Earlier events, 2022 to 2024</summary>
-          <p class="sub">2023 to 2024</p>
-          <ul class="rows">
-            <li class="row">
+          <p class="sub" data-year="2023">2023 to 2024</p>
+          <ul class="rows" data-year="2023">
+            <li class="row" data-type="compete">
               <span class="gut">1 May</span>
               <div>
                 <h3>Gamathon 2024 and Gaming Day</h3>
                 <p>The club's second Gamathon, held as part of Gaming Day.</p>
-                <p class="venue"><span class="tag">Expo</span><span>College of Life Sciences, with the CLS Student Association</span></p>
+                <p class="venue"><span class="tag t-compete">Expo</span><span>College of Life Sciences, with the CLS Student Association</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="compete">
               <span class="gut">1 May</span>
               <div>
                 <h3>Game Genius Display</h3>
                 <p>Students showed computer games they had programmed and designed themselves.</p>
-                <p class="venue"><span class="tag">Competition</span><span>College of Life Sciences, with Project Code and the College of Engineering programming club</span></p>
+                <p class="venue"><span class="tag t-compete">Competition</span><span>College of Life Sciences, with Project Code and the College of Engineering programming club</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="community">
               <span class="gut">22 Apr</span>
               <div>
                 <h3>GenAI on Google Cloud</h3>
-                <p class="venue"><span class="tag">Co-organized</span><span>With Google Developer Group</span></p>
+                <p class="venue"><span class="tag t-community">Co-organized</span><span>With Google Developer Group</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="learn">
               <span class="gut">22 and 24 Apr</span>
               <div>
                 <h3>Introduction to Game Development</h3>
-                <p class="venue"><span class="tag">Workshop</span><span>College of Life Sciences</span></p>
+                <p class="venue"><span class="tag t-learn">Workshop</span><span>College of Life Sciences</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="learn">
               <span class="gut">20 Mar</span>
               <div>
                 <h3>PC Building Essentials</h3>
-                <p class="venue"><span class="tag">Workshop</span><span>College of Life Sciences</span></p>
+                <p class="venue"><span class="tag t-learn">Workshop</span><span>College of Life Sciences</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="community">
               <span class="gut">6 Mar</span>
               <div>
                 <h3>CLS Graish</h3>
-                <p class="venue"><span class="tag">Outreach</span><span>Club booth, College of Life Sciences</span></p>
+                <p class="venue"><span class="tag t-community">Outreach</span><span>Club booth, College of Life Sciences</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="community">
               <span class="gut">4 Mar</span>
               <div>
                 <h3>Google Cloud Hero</h3>
-                <p class="venue"><span class="tag">Co-organized</span><span>Club members helped organize the event</span></p>
+                <p class="venue"><span class="tag t-community">Co-organized</span><span>Club members helped organize the event</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="community">
               <span class="gut">29 Feb</span>
               <div>
                 <h3>Google API</h3>
-                <p class="venue"><span class="tag">Co-organized</span><span>With Google Developer Group</span></p>
+                <p class="venue"><span class="tag t-community">Co-organized</span><span>With Google Developer Group</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="community">
               <span class="gut">21 Feb</span>
               <div>
                 <h3>National Day celebration</h3>
-                <p class="venue"><span class="tag">Outreach</span><span>Club booth</span></p>
+                <p class="venue"><span class="tag t-community">Outreach</span><span>Club booth</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="community">
               <span class="gut">12 and 13 Dec</span>
               <div>
                 <h3>DevFest: Flutter workshop and Gen AI</h3>
                 <p>Club members helped organize the Flutter workshop and the Gen AI session at DevFest.</p>
-                <p class="venue"><span class="tag">Co-organized</span><span>With Google Developer Group</span></p>
+                <p class="venue"><span class="tag t-community">Co-organized</span><span>With Google Developer Group</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="compete">
               <span class="gut">13 Nov</span>
               <div>
                 <h3>Hour of Code Solo</h3>
-                <p class="venue"><span class="tag">Competition</span><span>With the Computer Engineering Society, College of Engineering and Petroleum</span></p>
+                <p class="venue"><span class="tag t-compete">Competition</span><span>With the Computer Engineering Society, College of Engineering and Petroleum</span></p>
                 <figure class="photo" style="max-width:20rem;margin-top:.9rem"><img src="images/hour-of-code-judging.jpg" alt="Dr. Zahraa Marafie reviewing a student's work at a laptop during Hour of Code Solo" width="900" height="1200" loading="lazy"><figcaption>Judging student entries at Hour of Code Solo, College of Engineering and Petroleum.</figcaption></figure>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="learn">
               <span class="gut">18, 23 and 25 Oct</span>
               <div>
                 <h3>Python Programming</h3>
                 <p>A three-day workshop on the basics of Python programming, at the College of Life Sciences.</p>
-                <p class="venue"><span class="tag">Workshop</span><span>With Project Code, College of Engineering and Petroleum</span></p>
+                <p class="venue"><span class="tag t-learn">Workshop</span><span>With Project Code, College of Engineering and Petroleum</span></p>
               </div>
             </li>
-            <li class="row">
+            <li class="row" data-type="community">
               <span class="gut">Oct</span>
               <div>
                 <h3>Pink October</h3>
-                <p class="venue"><span class="tag">Outreach</span><span>Awareness booth, College of Life Sciences</span></p>
+                <p class="venue"><span class="tag t-community">Outreach</span><span>Awareness booth, College of Life Sciences</span></p>
               </div>
             </li>
           </ul>
-          <p class="sub">2022 to 2023</p>
-          <ul class="rows">
-            <li class="row">
+          <p class="sub" data-year="2022">2022 to 2023</p>
+          <ul class="rows" data-year="2022">
+            <li class="row" data-type="compete">
               <span class="gut">8 Mar</span>
               <div>
                 <h3>Gamathon Expo</h3>
-                <p class="venue"><span class="tag">Expo</span><span>College of Life Sciences</span></p>
+                <p class="venue"><span class="tag t-compete">Expo</span><span>College of Life Sciences</span></p>
               </div>
             </li>
           </ul>
@@ -692,7 +779,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
               <div>
                 <h3>AI Tools for Daily Life</h3>
                 <p>A student-presented workshop on AI tools and their academic uses. More than 50 students from colleges across the university took part.</p>
-                <p class="venue"><span class="tag">Workshop</span><span>With ClickIT and the ACM Student Chapter</span></p>
+                <p class="venue"><span class="tag t-learn">Workshop</span><span>With ClickIT and the ACM Student Chapter</span></p>
               </div>
             </li>
           </ul>
@@ -718,21 +805,21 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
               <span class="gut">21 and 23 Apr 2025</span>
               <div>
                 <h3>Introduction to Python for Data Science</h3>
-                <p class="venue"><span class="tag">Workshop</span><span>With ClickIT and PyData Kuwait</span></p>
+                <p class="venue"><span class="tag t-learn">Workshop</span><span>With ClickIT and PyData Kuwait</span></p>
               </div>
             </li>
             <li class="row">
               <span class="gut">7 to 8 Apr 2025</span>
               <div>
                 <h3>National Entrepreneurship Competition</h3>
-                <p class="venue"><span class="tag">Competition</span><span>With ClickIT, a high-school Capstone team and SACGC</span></p>
+                <p class="venue"><span class="tag t-compete">Competition</span><span>With ClickIT, a high-school Capstone team and SACGC</span></p>
               </div>
             </li>
             <li class="row">
               <span class="gut">17 Mar 2025</span>
               <div>
                 <h3>AI Tools for Daily Life</h3>
-                <p class="venue"><span class="tag">Workshop</span><span>With ClickIT and WiDS Kuwait at KU</span></p>
+                <p class="venue"><span class="tag t-learn">Workshop</span><span>With ClickIT and WiDS Kuwait at KU</span></p>
               </div>
             </li>
           </ul>
@@ -750,6 +837,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
 <footer>
   <div class="wrap">
     <p>&copy; 2026 Zahraa Marafie</p>
+    <ul class="social social-icons" aria-label="Profiles"><li><a href="https://www.linkedin.com/in/zmarafie" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></a></li><li><a href="https://scholar.google.com/citations?hl=en&amp;user=rc3aBcoAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6"/></svg></a></li><li><a href="https://orcid.org/0009-0005-0356-1537" target="_blank" rel="noopener" aria-label="ORCID" title="ORCID"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-1.6 1.8-2.4 3-2.4s2.4.8 3 2.4M14 10h4M14 13h4"/></svg></a></li><li><a href="https://www.instagram.com/marafiez/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="3"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-3h5L16 7"/></svg></a></li></ul>
     <p><a href="#top">Back to top</a> · <a href="index.html">Home page</a></p>
   </div>
 </footer>
@@ -789,6 +877,87 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
     });
   },{rootMargin:"0px 0px -8% 0px"});
   list.forEach(function(el){io.observe(el)});
+})();
+</script>
+<script>
+/* Photo viewer: click or tap a photo to see it large; arrows, swipe and Esc work. */
+(function(){
+  "use strict";
+  var imgs=[].slice.call(document.querySelectorAll(".photo img,.gallery img"));
+  if(!imgs.length){return}
+  var lb=null,list=[],i=0,back=null,sx=null;
+  function capOf(img){var f=img.closest("figure");var c=f&&f.querySelector("figcaption");return c?c.textContent:img.alt}
+  function build(){
+    lb=document.createElement("div");lb.className="lb";lb.setAttribute("role","dialog");lb.setAttribute("aria-modal","true");lb.setAttribute("aria-label","Photo viewer");lb.hidden=true;
+    lb.innerHTML='<div class="lb-top"><span class="lb-count"></span><button type="button" class="lb-close" aria-label="Close photo">&times;</button></div><div class="lb-stage"><button type="button" class="lb-prev" aria-label="Previous photo">&#8592;</button><img alt=""><button type="button" class="lb-next" aria-label="Next photo">&#8594;</button></div><p class="lb-cap"></p>';
+    document.body.appendChild(lb);
+    lb.querySelector(".lb-close").addEventListener("click",close);
+    lb.querySelector(".lb-prev").addEventListener("click",function(){go(-1)});
+    lb.querySelector(".lb-next").addEventListener("click",function(){go(1)});
+    lb.addEventListener("click",function(e){if(e.target===lb||e.target.classList.contains("lb-stage")){close()}});
+    lb.addEventListener("pointerdown",function(e){sx=e.clientX});
+    lb.addEventListener("pointerup",function(e){if(sx!==null&&Math.abs(e.clientX-sx)>50){go(e.clientX<sx?1:-1)}sx=null});
+    document.addEventListener("keydown",function(e){if(lb.hidden){return}if(e.key==="Escape"){close()}else if(e.key==="ArrowRight"){go(1)}else if(e.key==="ArrowLeft"){go(-1)}else if(e.key==="Tab"){var f=[].slice.call(lb.querySelectorAll("button")).filter(function(b){return b.offsetParent!==null});var k=f.indexOf(document.activeElement);if(e.shiftKey&&k<=0){e.preventDefault();f[f.length-1].focus()}else if(!e.shiftKey&&k===f.length-1){e.preventDefault();f[0].focus()}}});
+  }
+  function show(){
+    var img=list[i],big=lb.querySelector(".lb-stage img");
+    big.src=img.currentSrc||img.src;big.alt=img.alt;
+    lb.querySelector(".lb-cap").textContent=capOf(img);
+    lb.querySelector(".lb-count").textContent=(i+1)+" of "+list.length;
+    lb.classList.toggle("single",list.length<2);
+  }
+  function open(img){
+    if(!lb){build()}
+    var g=img.closest(".gallery");list=g?[].slice.call(g.querySelectorAll("img")):[img];i=Math.max(0,list.indexOf(img));
+    back=document.activeElement;show();lb.hidden=false;document.documentElement.style.overflow="hidden";
+    lb.querySelector(".lb-close").focus();
+  }
+  function close(){lb.hidden=true;document.documentElement.style.overflow="";if(back&&back.focus){back.focus()}}
+  function go(d){if(list.length<2){return}i=(i+d+list.length)%list.length;show()}
+  imgs.forEach(function(img){
+    img.classList.add("zoomable");img.tabIndex=0;img.setAttribute("role","button");img.setAttribute("aria-label","Open photo: "+img.alt);
+    img.addEventListener("click",function(){open(img)});
+    img.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();open(img)}});
+  });
+})();
+</script>
+<script>
+/* ClickIT filters by year and event type. */
+(function(){
+  "use strict";
+  var box=document.getElementById("clickit-filter");if(!box){return}
+  var sec=document.getElementById("clickit"),more=sec.querySelector("details.more"),y="all",t="all";
+  var rows=[].slice.call(sec.querySelectorAll('ul[data-year] > .row'));
+  var empty=document.createElement("p");empty.className="flt-empty";empty.textContent="No events match these filters.";empty.hidden=true;box.after(empty);
+  function apply(){
+    var n=0;
+    sec.querySelectorAll("[data-year]").forEach(function(el){el.classList.toggle("f-hide",y!=="all"&&el.getAttribute("data-year")!==y)});
+    rows.forEach(function(r){var yr=r.parentElement.getAttribute("data-year");var ok=(y==="all"||yr===y)&&(t==="all"||r.getAttribute("data-type")===t);r.classList.toggle("f-hide",!ok);if(ok){n++}});
+    sec.querySelectorAll("ul[data-year]").forEach(function(u){var any=[].some.call(u.children,function(r){return !r.classList.contains("f-hide")});if(!any){u.classList.add("f-hide");var p=u.previousElementSibling;if(p&&p.hasAttribute("data-year")){p.classList.add("f-hide")}}});
+    if(more&&(y==="2023"||y==="2022"||t!=="all")){more.open=true}
+    box.querySelector(".flt-count").textContent=(y==="all"&&t==="all")?rows.length+" events":"Showing "+n+" of "+rows.length+" events";
+    empty.hidden=n>0;
+  }
+  box.addEventListener("click",function(e){
+    var b=e.target.closest("button");if(!b){return}
+    var grp=b.hasAttribute("data-y")?"y":"t";
+    box.querySelectorAll("button[data-"+grp+"]").forEach(function(x){x.setAttribute("aria-pressed",String(x===b))});
+    if(grp==="y"){y=b.getAttribute("data-y")}else{t=b.getAttribute("data-t")}
+    apply();
+  });
+  apply();
+})();
+</script>
+<script>
+/* Scroll progress line. */
+(function(){
+  "use strict";
+  var bar=document.querySelector(".bar");if(!bar){return}
+  var p=document.createElement("div");p.className="progress";p.setAttribute("aria-hidden","true");p.appendChild(document.createElement("i"));bar.appendChild(p);
+  var tick=false;
+  function upd(){tick=false;var h=document.documentElement.scrollHeight-window.innerHeight;var v=h>0?Math.min(1,Math.max(0,window.scrollY/h)):0;p.style.setProperty("--sp",v.toFixed(4))}
+  window.addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});
+  window.addEventListener("resize",upd);upd();
 })();
 </script>
 </body>
