@@ -310,6 +310,116 @@ h3{font-size:1.1875rem;font-weight:500;line-height:1.35}
 footer{padding-block:2rem 2.5rem;border-top:1px solid var(--rule);font-size:.9375rem;color:var(--muted)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
 
+/* GreenScore device scorecard illustration */
+:root{--on-accent:#0C1B26}
+.gs{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.5fr) minmax(0,.8fr);align-items:center;gap:.9rem 1.2rem;padding:.7rem .9rem 1rem}
+.gs-dev{display:flex;align-items:center;gap:.7rem;min-width:0}
+.trace .gs-icon{flex:none;width:52px;height:52px}
+.dv-line{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.dv-soft{fill:color-mix(in srgb,var(--rule) 70%,transparent)}
+.dv-acc{fill:none;stroke:var(--cool);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.dv-txt{font:600 9px var(--font);fill:var(--ink)}
+.gs-icon g[hidden]{display:none}
+.gs-meta{min-width:0}
+.gs-name{font-size:.8125rem;line-height:1.25;color:var(--muted)}
+.gs-score{font-size:2.2rem;font-weight:300;line-height:1.05;color:var(--ink);font-variant-numeric:tabular-nums}
+.gs-score small{font-size:.8125rem;color:var(--muted);margin-left:.15rem}
+.gs-tag{display:inline-block;white-space:nowrap;margin-top:.2rem;padding:0 .55rem;border-radius:999px;font-size:.6875rem;line-height:1.6;color:var(--on-accent);background:var(--cool);transition:opacity .3s}
+.gs-tag.off{opacity:0}
+.gs-factors{display:grid;gap:.55rem;min-width:0}
+.gs-factors li{display:grid;gap:.25rem;font-size:.8125rem;line-height:1.2;color:var(--ink-2)}
+.gs-factors small{color:var(--muted);font-size:.6875rem}
+.gs-factors .bar{display:block;height:6px;border-radius:3px;background:color-mix(in srgb,var(--rule) 70%,transparent);overflow:hidden}
+.gs-factors .bar u{display:block;height:100%;width:var(--v);border-radius:inherit;background:var(--cool);transition:width 1s cubic-bezier(.2,.7,.2,1),background-color .3s}
+.gs-factors li.up .bar u{background:var(--warm)}
+.gs-grades{display:grid;gap:3px;min-width:0}
+.gs-grades li{position:relative;height:15px;width:var(--w);clip-path:polygon(0 0,calc(100% - 7px) 0,100% 50%,calc(100% - 7px) 100%,0 100%);opacity:.32;transition:opacity .35s,transform .35s}
+.gs-grades li span{position:absolute;left:6px;top:0;font-size:.6875rem;font-weight:600;line-height:15px;color:var(--on-accent)}
+.gs-grades li[data-g="A"]{background:var(--cool)}
+.gs-grades li[data-g="B"]{background:color-mix(in srgb,var(--cool) 55%,var(--warm))}
+.gs-grades li[data-g="C"]{background:var(--warm)}
+.gs-grades li[data-g="D"]{background:color-mix(in srgb,var(--warm) 50%,var(--hot))}
+.gs-grades li[data-g="E"]{background:var(--hot)}
+.gs-grades li.on{opacity:1;transform:translateX(4px)}
+.gs-ai{grid-column:1/-1;display:flex;align-items:flex-start;gap:.5rem;min-height:2.6em;font-size:.8125rem;line-height:1.35;color:var(--ink-2)}
+.gs-ai b{font-weight:600;color:var(--ink)}
+.spark{flex:none;width:12px;height:12px;margin-top:.15rem;background:var(--cool);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
+.gs-ai .caret{display:inline-block;width:2px;height:1em;margin-left:1px;vertical-align:-.15em;background:var(--ink);animation:caret 1s steps(1) infinite}
+@keyframes caret{50%{opacity:0}}
+.gs-fig .gs{transition:opacity .35s}
+.gs-fig.swap .gs{opacity:0}
+@media (max-width:620px){
+  .gs{grid-template-columns:minmax(0,1fr) minmax(0,.9fr)}
+  .gs-factors{grid-column:1/-1;grid-row:2}
+  .gs-ai{grid-row:3}
+}
+@media (prefers-reduced-motion:reduce){.gs-factors .bar u,.gs-fig .gs{transition:none}}
+/* AutoCoach phone dashboard illustration */
+.ac-phone{margin:.6rem .9rem 1rem;padding:7px;border-radius:22px;background:var(--ink)}
+.ac-screen{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.75fr);gap:.6rem 1.1rem;padding:.8rem .95rem .7rem;border-radius:16px;background:var(--dial)}
+.ac-left{display:flex;flex-direction:column;gap:.45rem;min-width:0}
+.ac-k{font-size:.6875rem;line-height:1.2;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.ac-score{display:flex;align-items:baseline;gap:.35rem;font-size:2.6rem;font-weight:300;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.ac-score small{font-size:.8125rem;font-weight:500;color:var(--link)}
+.ac-score small.down{color:var(--hot-ink)}
+.trace .ac-trend{display:block;width:100%;height:30px}
+.ac-trend polyline{fill:none;stroke:var(--cool);stroke-width:2;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.ac-coins{display:flex;align-items:center;gap:.4rem;font-size:.875rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.coin{flex:none;width:15px;height:15px;border-radius:50%;background:radial-gradient(circle at 35% 32%,color-mix(in srgb,var(--dial) 70%,transparent) 0 18%,transparent 20%),var(--warm);box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--warm) 55%,var(--ink))}
+.ac-coins.bump .coin{animation:coinSpin .7s ease}
+.ac-right{min-width:0;display:grid;gap:.45rem}
+.ac-bars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.5rem;align-items:end}
+.ac-bar{display:grid;gap:.35rem;justify-items:center;min-width:0}
+.ac-bar > span{font-size:.6875rem;line-height:1.2;color:var(--muted);text-align:center;max-width:100%}
+.ac-col{position:relative;width:100%;max-width:38px;height:104px;border-radius:7px;background:color-mix(in srgb,var(--rule) 60%,transparent);overflow:hidden;transition:box-shadow .25s}
+.ac-col u{position:absolute;left:0;right:0;bottom:0;height:var(--v);border-radius:7px 7px 0 0;background:var(--cool);transition:background-color .25s}
+.ac-col s{position:absolute;left:0;right:0;bottom:var(--lim);border-top:2px dashed var(--ink);opacity:.6}
+.ac-bar.near u{background:var(--warm)}
+.ac-bar.over u{background:var(--hot)}
+.ac-bar.over .ac-col{box-shadow:0 0 0 2px var(--hot)}
+.ac-bar.over > span{color:var(--hot-ink);font-weight:500}
+.ac-legend{display:flex;align-items:center;gap:.4rem;font-size:.6875rem;line-height:1.3;color:var(--muted)}
+.ac-legend i{flex:none;width:16px;border-top:2px dashed var(--ink);opacity:.6}
+.ac-toast{grid-column:1/-1;display:flex;align-items:center;gap:.5rem;min-height:2rem;padding:.3rem .75rem;border-radius:999px;border:1px solid var(--rule);font-size:.8125rem;line-height:1.3;color:var(--ink);transition:opacity .3s,transform .3s}
+.ac-toast .dot{flex:none;width:8px;height:8px;border-radius:50%;background:var(--cool)}
+.ac-toast.reward{border-color:color-mix(in srgb,var(--warm) 60%,var(--rule))}
+.ac-toast.reward .dot{background:var(--warm)}
+.ac-toast.warn{border-color:color-mix(in srgb,var(--hot) 55%,var(--rule))}
+.ac-toast.warn .dot{background:var(--hot)}
+.ac-toast.hide{opacity:0;transform:translateY(4px)}
+@keyframes coinSpin{0%{transform:none}50%{transform:scaleX(.15)}100%{transform:none}}
+@media (max-width:560px){
+  .ac-screen{grid-template-columns:minmax(0,1fr)}
+  .ac-left{flex-direction:row;align-items:center;flex-wrap:wrap;gap:.4rem 1rem}
+  .ac-left .ac-trend{flex:1;min-width:5rem;width:auto}
+}
+@media (prefers-reduced-motion:reduce){.ac-toast,.ac-col u{transition:none}}
+/* HeatWatch smartwatch illustration */
+.wv{display:flex;align-items:center;gap:1.25rem;padding:.6rem .9rem 1rem}
+.trace .wv-watch{width:96px;height:auto;flex:none;overflow:visible}
+.wv-strap{fill:var(--rule)}
+.wv-body{fill:var(--ink)}
+.wv-screen{fill:var(--dial)}
+.wv-track{fill:none;stroke:var(--rule);stroke-width:5}
+.wv-ring{fill:none;stroke:var(--wv-c,var(--hot));stroke-width:5;stroke-linecap:round;transition:stroke .4s}
+.wv-halo{fill:none;stroke:var(--hot);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center}
+.wv-level{font:600 8px var(--font);fill:var(--ink)}
+.wv-cap{font:500 5.5px var(--font);letter-spacing:.08em;fill:var(--muted)}
+.wv-msg{font:500 6px var(--font);fill:var(--hot-ink)}
+.wv-fig:not(.alert) .wv-msg{opacity:0}
+.wv-read{flex:1;min-width:0;display:grid;gap:.65rem}
+.wv-read li{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:.2rem .75rem;font-size:.8125rem;line-height:1.3;color:var(--muted)}
+.wv-read b{font-weight:500;font-size:1rem;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.wv-read small{font-size:.75rem;font-weight:400;color:var(--muted)}
+.wv-read .bar{grid-column:1/-1;display:block;height:4px;border-radius:2px;background:var(--rule);overflow:hidden}
+.wv-read .bar u{display:block;height:100%;width:var(--p,50%);border-radius:inherit;background:var(--wv-c,var(--hot));transition:background-color .4s}
+@media (prefers-reduced-motion:no-preference){
+  .wv-fig.alert .wv-halo{animation:wvPulse 1.1s ease-out infinite}
+  .wv-fig.alert .wv-watch{animation:wvBuzz .5s ease-in-out 2}
+  @keyframes wvPulse{0%{opacity:.7;transform:scale(.85)}100%{opacity:0;transform:scale(1.25)}}
+  @keyframes wvBuzz{0%,100%{transform:none}25%{transform:translateX(-1.5px) rotate(-1.5deg)}75%{transform:translateX(1.5px) rotate(1.5deg)}}
+}
+@media (max-width:420px){.wv{gap:.9rem}.trace .wv-watch{width:78px}}
 /* Motion: everything here is skipped when the viewer prefers reduced motion. */
 @media (prefers-reduced-motion:no-preference){
   /* Hero: name and intro rise in on load */
@@ -412,10 +522,28 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
               <p>HeatWatch uses wearable sensors and machine learning to spot heat stress early and to alert people before it becomes heat illness. It is a current project with Dr. Shaikhah Alkhadhr at Kuwait University.</p>
             </div>
             <div class="ch-vis">
-              <figure class="trace" data-trace="heart">
-                <figcaption><span>Heart rate, bpm</span><span>illustration</span></figcaption>
-                <svg aria-hidden="true" focusable="false"></svg>
-                <span class="mark" style="left:71%"><span>alert</span></span>
+              <figure class="trace wv-fig" id="wristviz">
+                <figcaption><span>Heat-stress risk on a smartwatch</span><span>illustration</span></figcaption>
+                <div class="wv">
+                  <svg class="wv-watch" viewBox="0 0 100 132" aria-hidden="true" focusable="false">
+                    <rect class="wv-strap" x="30" y="0" width="40" height="24" rx="6"/>
+                    <rect class="wv-strap" x="30" y="108" width="40" height="24" rx="6"/>
+                    <rect class="wv-body" x="12" y="16" width="76" height="100" rx="22"/>
+                    <rect class="wv-body" x="86" y="50" width="5" height="14" rx="2"/>
+                    <rect class="wv-screen" x="18" y="22" width="64" height="88" rx="17"/>
+                    <circle class="wv-halo" cx="50" cy="58" r="27"/>
+                    <circle class="wv-track" cx="50" cy="58" r="22"/>
+                    <circle class="wv-ring" cx="50" cy="58" r="22" transform="rotate(-90 50 58)" style="stroke-dasharray:138.2;stroke-dashoffset:27.6"/>
+                    <text class="wv-level" x="50" y="61.5" text-anchor="middle">High</text>
+                    <text class="wv-cap" x="50" y="92" text-anchor="middle">HEAT RISK</text>
+                    <text class="wv-msg" x="50" y="101" text-anchor="middle">Take a break</text>
+                  </svg>
+                  <ul class="wv-read">
+                    <li style="--p:68%"><span>Heart rate</span><b><span data-k="hr">128</span> <small>bpm</small></b><em class="bar"><u></u></em></li>
+                    <li style="--p:70%"><span>Skin temperature</span><b><span data-k="skin">37.9</span> <small>°C</small></b><em class="bar"><u></u></em></li>
+                    <li style="--p:73%"><span>Air temperature</span><b><span data-k="air">46</span> <small>°C</small></b><em class="bar"><u></u></em></li>
+                  </ul>
+                </div>
               </figure>
             </div>
           </article>
@@ -425,12 +553,33 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
               <h3>On the road</h3>
               <p class="proj">AutoCoach, from my PhD</p>
               <p>AutoCoach is a driver feedback agent. It models each driver's personality and tailors its feedback, with the aim of improving driving behavior and road safety. I developed it with Prof. Kwei-Jay Lin at UC Irvine, and it is described in papers in Electronics and at IEEE SOCA.</p>
+              <p class="links"><a href="https://www.youtube.com/watch?v=2RqC0WKgAsc" target="_blank" rel="noopener">Watch AutoCoach: video 1</a><a href="https://www.youtube.com/watch?v=MSWMBGjBspw" target="_blank" rel="noopener">Video 2</a></p>
             </div>
             <div class="ch-vis">
-              <figure class="trace" data-trace="accel">
-                <figcaption><span>Acceleration, g</span><span>illustration</span></figcaption>
-                <svg aria-hidden="true" focusable="false"></svg>
-                <span class="mark" style="left:52%"><span>feedback</span></span>
+              <figure class="trace ac-fig" id="autocoachviz">
+                <figcaption><span>AutoCoach driving feedback</span><span>illustration</span></figcaption>
+                <div class="ac-phone">
+                  <div class="ac-screen">
+                    <div class="ac-left">
+                      <div>
+                        <p class="ac-k">Driving score</p>
+                        <p class="ac-score"><span data-k="score">88</span><small data-k="delta">+4</small></p>
+                      </div>
+                      <svg class="ac-trend" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline points="0,24 14,22 28,23 42,17 57,15 71,11 85,9 100,6"/></svg>
+                      <p class="ac-coins"><i class="coin" aria-hidden="true"></i><span data-k="coins">135</span>&nbsp;coins</p>
+                    </div>
+                    <div class="ac-right">
+                      <div class="ac-bars">
+                        <div class="ac-bar" data-b="brake" style="--v:34%;--lim:72%"><div class="ac-col"><u></u><s></s></div><span>Brakes</span></div>
+                        <div class="ac-bar" data-b="accel" style="--v:28%;--lim:66%"><div class="ac-col"><u></u><s></s></div><span>Acceleration</span></div>
+                        <div class="ac-bar" data-b="turn" style="--v:30%;--lim:76%"><div class="ac-col"><u></u><s></s></div><span>Turns</span></div>
+                        <div class="ac-bar" data-b="swerve" style="--v:22%;--lim:60%"><div class="ac-col"><u></u><s></s></div><span>Swerves</span></div>
+                      </div>
+                      <p class="ac-legend"><i aria-hidden="true"></i>Limit set by the driver's personality group</p>
+                    </div>
+                    <p class="ac-toast reward" data-k="toast"><span class="dot" aria-hidden="true"></span><span data-k="msg">+10 coins for smoother braking</span></p>
+                  </div>
+                </div>
               </figure>
               <figure class="photo">
                 <img src="images/autocoach-in-car.jpg" alt="A phone on a car dashboard running AutoCoach, showing a live driving score of 74 and a trip score of 88" width="1400" height="668" loading="lazy">
@@ -443,12 +592,32 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
             <div class="ch-text">
               <h3>Across the city</h3>
               <p class="proj">GreenScore</p>
-              <p>GreenScore is a sustainability assessment framework for IoT systems, part of my work on smart cities.</p>
+              <p>GreenScore is a sustainability assessment framework for IoT systems, part of my work on smart cities. It scores each device on its materials, how efficiently it runs and how much energy it uses, then uses generative AI to suggest changes that raise the score.</p>
             </div>
             <div class="ch-vis">
-              <figure class="trace" data-trace="energy">
-                <figcaption><span>Energy use over a day, kW</span><span>illustration</span></figcaption>
-                <svg aria-hidden="true" focusable="false"></svg>
+              <figure class="trace gs-fig" id="greenscoreviz">
+                <figcaption><span>GreenScore for an IoT device</span><span>illustration</span></figcaption>
+                <div class="gs">
+                  <div class="gs-dev">
+                    <svg class="gs-icon" viewBox="0 0 56 56" aria-hidden="true" focusable="false">
+                      <g data-icon="tracker"><rect class="dv-soft" x="19" y="2" width="18" height="52" rx="8"/><rect class="dv-line" x="13" y="15" width="30" height="26" rx="7"/><polyline class="dv-acc" points="18,29 23,29 26,23 30,34 33,27 38,27"/></g>
+                      <g data-icon="thermostat" hidden><circle class="dv-line" cx="28" cy="28" r="23"/><circle class="dv-soft" cx="28" cy="28" r="15"/><path class="dv-acc" d="M13 37 A17 17 0 1 1 43 37"/><text class="dv-txt" x="28" y="32" text-anchor="middle">21°</text></g>
+                      <g data-icon="bulb" hidden><path class="dv-line" d="M28 5c-9.4 0-16 7-16 15.6 0 6 3.2 9.6 5.8 12.6 1.6 1.9 2.2 3.6 2.2 5.8h16c0-2.2.6-3.9 2.2-5.8 2.6-3 5.8-6.6 5.8-12.6C44 12 37.4 5 28 5z"/><path class="dv-line" d="M21 44h14M22 49h12"/><path class="dv-acc" d="M23 26l5 6 5-6"/></g>
+                    </svg>
+                    <div class="gs-meta">
+                      <p class="gs-name" data-k="name">Fitness tracker</p>
+                      <p class="gs-score"><span data-k="score">72</span><small>/100</small></p>
+                      <p class="gs-tag" data-k="tag">Improved</p>
+                    </div>
+                  </div>
+                  <ul class="gs-factors">
+                    <li data-f="m" style="--v:70%"><span>Materials <small>50%</small></span><em class="bar"><u></u></em></li>
+                    <li data-f="e" style="--v:70%"><span>Efficiency <small>30%</small></span><em class="bar"><u></u></em></li>
+                    <li data-f="n" style="--v:78%"><span>Energy use <small>20%</small></span><em class="bar"><u></u></em></li>
+                  </ul>
+                  <ol class="gs-grades" aria-hidden="true"><li data-g="A" style="--w:52%"><span>A</span></li><li data-g="B" class="on" style="--w:62%"><span>B</span></li><li data-g="C" style="--w:72%"><span>C</span></li><li data-g="D" style="--w:82%"><span>D</span></li><li data-g="E" style="--w:92%"><span>E</span></li></ol>
+                  <p class="gs-ai"><span class="spark" aria-hidden="true"></span><span><b>AI suggestion:</b> <span data-k="tip">use a recycled-aluminium case and a replaceable battery.</span></span></p>
+                </div>
               </figure>
             </div>
           </article>
@@ -607,8 +776,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
                 <p>Invited talk, 8 October 2024, at the conference Artificial Intelligence Between Law and Technology: The Role of Lawyers in AI and Data Protection, held by the Kuwait Lawyers Bar Society with the French Embassy in Kuwait.</p>
                 <p>I covered the privacy and security risks of AI systems: collecting data without consent, anonymization that can be reversed, attacks that corrupt or trick AI models, bias, data crossing borders, and who is accountable when AI gets it wrong. I closed with security in the metaverse, the Internet of Things and self-driving cars.</p>
                 <p class="links"><a href="https://cls.ku.edu.kw/ar/media-center/news/artificial-intelligence-between-law-and-technology" target="_blank" rel="noopener">College news (Arabic)</a></p>
-                <ul class="gallery g2" aria-label="Photos from the Artificial Intelligence Between Law and Technology conference"><li style="--r:1.5"><img src="images/lawyers-bar-plaque.jpg" alt="Dr. Zahraa Marafie receiving a plaque of appreciation at the Kuwait Lawyers Bar Society conference" width="1200" height="800" loading="lazy"></li><li style="--r:1.5"><img src="images/lawyers-bar-hall.jpg" alt="The conference hall during the session on artificial intelligence between law and technology" width="1200" height="800" loading="lazy"></li></ul>
-                <figure class="photo" style="max-width:18rem;margin-top:.9rem"><img src="images/ai-law-technology-poster.jpg" alt="Poster for the conference Artificial Intelligence Between Law and Technology, 7 to 8 October, Kuwait Lawyers Bar Society with the French Embassy in Kuwait" width="900" height="1102" loading="lazy"><figcaption>Conference poster, Artificial Intelligence Between Law and Technology.</figcaption></figure>
+                <ul class="gallery" aria-label="Photos from the Artificial Intelligence Between Law and Technology conference"><li style="--r:1.5"><img src="images/lawyers-bar-plaque.jpg" alt="Dr. Zahraa Marafie receiving a plaque of appreciation at the Kuwait Lawyers Bar Society conference" width="1200" height="800" loading="lazy"></li><li style="--r:1.5"><img src="images/lawyers-bar-hall.jpg" alt="The conference hall during the session on artificial intelligence between law and technology" width="1200" height="800" loading="lazy"></li></ul>
               </div>
             </li>
             <li class="row">
@@ -1039,5 +1207,167 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
 })();
 </script>
 </body></html>
+<script>
+/* HeatWatch smartwatch: heat risk builds, the watch alerts, then cools down. */
+(function(){
+  "use strict";
+  var fig=document.getElementById("wristviz");
+  if(!fig){return}
+  if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches){fig.classList.add("alert");return}
+  var ring=fig.querySelector(".wv-ring"),lvl=fig.querySelector(".wv-level"),lis=fig.querySelectorAll(".wv-read li");
+  var hr=fig.querySelector('[data-k="hr"]'),skin=fig.querySelector('[data-k="skin"]'),air=fig.querySelector('[data-k="air"]');
+  var C=2*Math.PI*22,RISE=8000,HOLD=2400,COOL=2000,T=RISE+HOLD+COOL,t0=null,run=false,raf=0;
+  fig.classList.add("js");
+  function ease(x){return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2}
+  function frame(now){
+    if(!run){return}
+    if(t0===null){t0=now}
+    var e=(now-t0)%T,r,alert=false;
+    if(e<RISE){r=ease(e/RISE)}else if(e<RISE+HOLD){r=1;alert=true}else{r=1-ease((e-RISE-HOLD)/COOL)}
+    var h=78+60*r,s=34.4+3.9*r,a=39+8*r;
+    hr.textContent=Math.round(h);skin.textContent=s.toFixed(1);air.textContent=Math.round(a);
+    lis[0].style.setProperty("--p",((h-60)/100*100).toFixed(1)+"%");
+    lis[1].style.setProperty("--p",((s-33)/7*100).toFixed(1)+"%");
+    lis[2].style.setProperty("--p",((a-30)/22*100).toFixed(1)+"%");
+    ring.style.strokeDashoffset=(C*(1-(.12+.88*r))).toFixed(1);
+    var L=r<.45?["Low","var(--cool)"]:r<.8?["Moderate","var(--warm)"]:["High","var(--hot)"];
+    if(lvl.textContent!==L[0]){lvl.textContent=L[0]}
+    fig.style.setProperty("--wv-c",L[1]);
+    fig.classList.toggle("alert",alert);
+    raf=requestAnimationFrame(frame);
+  }
+  function start(){if(run){return}run=true;t0=null;raf=requestAnimationFrame(frame)}
+  function stop(){run=false;cancelAnimationFrame(raf)}
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(function(es){es.forEach(function(x){x.isIntersecting?start():stop()})}).observe(fig);
+  }else{start()}
+})();
+</script>
+<script>
+/* AutoCoach: event intensities against personality-based limits, a score that moves with behaviour, and reward coins. */
+(function(){
+  "use strict";
+  var fig=document.getElementById("autocoachviz");
+  if(!fig){return}
+  if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches){return}
+  function q(s){return fig.querySelector(s)}
+  var bars={},keys=["brake","accel","turn","swerve"];
+  keys.forEach(function(k){var el=q('[data-b="'+k+'"]');bars[k]={el:el,lim:parseFloat(el.style.getPropertyValue("--lim"))/100}});
+  var scoreEl=q('[data-k="score"]'),deltaEl=q('[data-k="delta"]'),coinsEl=q('[data-k="coins"]'),coinsP=q(".ac-coins"),toast=q('[data-k="toast"]'),msg=q('[data-k="msg"]'),line=q(".ac-trend polyline");
+  var T=18000;
+  /* Base intensity of each event type at the start of the drive, and spikes that cross the limit early on. */
+  var base={brake:.55,accel:.5,turn:.48,swerve:.42};
+  var spikes=[
+    {k:"brake",at:1600,amp:.36,msg:"Hard braking: brake earlier and more gently"},
+    {k:"swerve",at:3800,amp:.34,msg:"Sharp swerve: keep a steady lane"},
+    {k:"accel",at:5900,amp:.3,msg:"Fast acceleration: ease into the throttle"},
+    {k:"turn",at:8200,amp:.22,msg:null}
+  ];
+  var rewards=[
+    {at:10200,coins:5,msg:"+5 coins for smooth acceleration"},
+    {at:13000,coins:10,msg:"+10 coins for smoother braking"},
+    {at:15800,coins:15,msg:"+15 coins for a safe trip"}
+  ];
+  var t0=null,run=false,raf=0,last=-1,score=72,coins=120,trend=[],shown="",penalty=0,lastTrend=0;
+  function say(text,cls){
+    if(shown===text){return}shown=text;
+    toast.classList.add("hide");
+    setTimeout(function(){msg.textContent=text;toast.className="ac-toast "+cls;},220);
+  }
+  function reset(){score=72;coins=120;trend=[72];penalty=0;lastTrend=0;coinsEl.textContent=coins;shown="";say("New trip: driving with your profile","")}
+  function bump(n){coins+=n;coinsEl.textContent=coins;coinsP.classList.remove("bump");void coinsP.offsetWidth;coinsP.classList.add("bump")}
+  function noise(t,k){return .05*Math.sin(t/260+k)+.035*Math.sin(t/97+2*k)}
+  function frame(now){
+    if(!run){return}
+    if(t0===null){t0=now}
+    var e=(now-t0)%T;
+    if(e<last){reset()}
+    var skill=Math.min(1,e/14000);
+    var over=null;
+    keys.forEach(function(k,i){
+      var v=base[k]*(1-.6*skill)+noise(now,i)+.06;
+      spikes.forEach(function(s){if(s.k===k){var d=(e-s.at)/320;v+=s.amp*Math.exp(-d*d)}});
+      v=Math.max(.04,Math.min(.98,v));
+      var b=bars[k];b.el.style.setProperty("--v",(v*100).toFixed(1)+"%");
+      var isOver=v>b.lim,isNear=!isOver&&v>b.lim*.82;
+      b.el.classList.toggle("over",isOver);b.el.classList.toggle("near",isNear);
+      if(isOver){over=k}
+    });
+    spikes.forEach(function(s){if(s.msg&&last<s.at&&e>=s.at){penalty+=3;say(s.msg,"warn")}});
+    rewards.forEach(function(r){if(last<r.at&&e>=r.at){bump(r.coins);say(r.msg,"reward")}});
+    if(e>8800&&e<10200){say("Behaviour improving: score rising","")}
+    var target=72+19*skill-penalty*(1-skill);
+    score+=(target-score)*.05;
+    var s=Math.round(score);
+    if(scoreEl.textContent!==String(s)){scoreEl.textContent=s}
+    if(e-lastTrend>1500){lastTrend=e;trend.push(s);if(trend.length>8){trend.shift()}
+      var d=trend.length>1?trend[trend.length-1]-trend[0]:0;
+      deltaEl.textContent=(d>=0?"+":"")+d;deltaEl.classList.toggle("down",d<0);
+      var pts=trend.map(function(v,i){var x=trend.length>1?i/(trend.length-1)*100:0,y=28-(v-60)/36*26;return x.toFixed(1)+","+y.toFixed(1)}).join(" ");
+      line.setAttribute("points",pts);
+    }
+    last=e;
+    raf=requestAnimationFrame(frame);
+  }
+  function start(){if(run){return}run=true;t0=null;last=-1;reset();raf=requestAnimationFrame(frame)}
+  function stop(){run=false;cancelAnimationFrame(raf)}
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(function(es){es.forEach(function(x){x.isIntersecting?start():stop()})}).observe(fig);
+  }else{start()}
+})();
+</script>
+<script>
+/* GreenScore: score a device on materials (50%), efficiency (30%) and energy use (20%), suggest a change, re-score. */
+(function(){
+  "use strict";
+  var fig=document.getElementById("greenscoreviz");
+  if(!fig){return}
+  if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches){return}
+  function q(s){return fig.querySelector(s)}
+  var W={m:.5,e:.3,n:.2};
+  var devices=[
+    {icon:"tracker",name:"Fitness tracker",a:{m:.52,e:.70,n:.78},b:{m:.70,e:.70,n:.78},up:"m",tip:"use a recycled-aluminium case and a replaceable battery."},
+    {icon:"thermostat",name:"Smart thermostat",a:{m:.48,e:.50,n:.44},b:{m:.48,e:.78,n:.70},up:"e",tip:"learn the home's schedule and stop heating empty rooms."},
+    {icon:"bulb",name:"Smart light bulb",a:{m:.78,e:.84,n:.86},b:{m:.78,e:.84,n:.95},up:"n",tip:"dim automatically with daylight to save more energy."}
+  ];
+  var nameEl=q('[data-k="name"]'),scoreEl=q('[data-k="score"]'),tagEl=q('[data-k="tag"]'),tipEl=q('[data-k="tip"]');
+  var rows={m:q('[data-f="m"]'),e:q('[data-f="e"]'),n:q('[data-f="n"]')};
+  var grades=[].slice.call(fig.querySelectorAll(".gs-grades li"));
+  var icons=[].slice.call(fig.querySelectorAll("[data-icon]"));
+  var timers=[],run=false,idx=0,shown=0,countRaf=0;
+  function later(fn,ms){timers.push(setTimeout(fn,ms))}
+  function clear(){timers.forEach(clearTimeout);timers=[];cancelAnimationFrame(countRaf)}
+  function gs(f){return Math.round(100*(W.m*f.m+W.e*f.e+W.n*f.n))}
+  function grade(s){return s>=80?"A":s>=65?"B":s>=50?"C":s>=35?"D":"E"}
+  function setFactors(f,up){["m","e","n"].forEach(function(k){rows[k].style.setProperty("--v",(f[k]*100).toFixed(0)+"%");rows[k].classList.toggle("up",k===up)})}
+  function setGrade(s){var g=grade(s);grades.forEach(function(li){li.classList.toggle("on",li.getAttribute("data-g")===g)})}
+  function countTo(to){
+    cancelAnimationFrame(countRaf);var from=shown,t0=null;
+    function step(t){if(t0===null){t0=t}var p=Math.min(1,(t-t0)/900),e=1-Math.pow(1-p,3);shown=Math.round(from+(to-from)*e);scoreEl.textContent=shown;if(p<1){countRaf=requestAnimationFrame(step)}}
+    countRaf=requestAnimationFrame(step);
+  }
+  function type(text,done){
+    tipEl.textContent="";var c=document.createElement("span");c.className="caret";tipEl.parentNode.appendChild(c);var i=0;
+    (function tick(){if(!run){return}i++;tipEl.textContent=text.slice(0,i);if(i<text.length){later(tick,28)}else{later(function(){c.remove();done&&done()},400)}})();
+  }
+  function show(d){
+    icons.forEach(function(g){if(g.getAttribute("data-icon")===d.icon){g.removeAttribute("hidden")}else{g.setAttribute("hidden","")}});
+    nameEl.textContent=d.name;tagEl.classList.add("off");tipEl.textContent="";
+    var old=fig.querySelector(".gs-ai .caret");if(old){old.remove()}
+    setFactors({m:.04,e:.04,n:.04});shown=0;scoreEl.textContent="0";grades.forEach(function(li){li.classList.remove("on")});
+    later(function(){setFactors(d.a);var s=gs(d.a);countTo(s);later(function(){setGrade(s)},700)},120);
+    later(function(){type(d.tip,function(){
+      setFactors(d.b,d.up);var s=gs(d.b);countTo(s);
+      later(function(){setGrade(s);tagEl.textContent=grade(s)!==grade(gs(d.a))?"Up to grade "+grade(s):"+"+(s-gs(d.a))+" points";tagEl.classList.remove("off")},700);
+    })},1700);
+    later(function(){fig.classList.add("swap");later(function(){fig.classList.remove("swap");idx=(idx+1)%devices.length;if(run){show(devices[idx])}},380)},8600);
+  }
+  function start(){if(run){return}run=true;show(devices[idx])}
+  function stop(){run=false;clear();fig.classList.remove("swap")}
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(function(es){es.forEach(function(x){x.isIntersecting?start():stop()})}).observe(fig);
+  }else{start()}
+})();
+</script>
 </body>
 </html>
