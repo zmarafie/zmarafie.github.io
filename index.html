@@ -11,6 +11,7 @@
 <meta property="og:url" content="https://www.zmarafie.com/">
 <meta property="og:image" content="https://www.zmarafie.com/images/zahraa-marafie.jpg">
 <meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%236B3F8F'/%3E%3Cstop%20offset='1'%20stop-color='%23C1557A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='url%28%23g%29'/%3E%3Ctext%20x='16'%20y='21.5'%20text-anchor='middle'%20font-family='Arial%2CHelvetica%2Csans-serif'%20font-size='13.5'%20font-weight='700'%20fill='%23fff'%3EZM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600&display=swap">
@@ -310,6 +311,8 @@ h3{font-size:1.1875rem;font-weight:500;line-height:1.35}
 footer{padding-block:2rem 2.5rem;border-top:1px solid var(--rule);font-size:.9375rem;color:var(--muted)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
 
+.current{display:grid;gap:.25rem}
+.wt{font-weight:400;color:var(--muted)}
 /* GreenScore device scorecard illustration */
 :root{--on-accent:#0C1B26}
 .gs{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.5fr) minmax(0,.8fr);align-items:center;gap:.9rem 1.2rem;padding:.7rem .9rem 1rem}
@@ -454,6 +457,107 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
   .figs li.rv::before{transform:scaleX(0)}
   .figs li.rv.in::before{transform:none}
 }
+/* Colour-coded tags */
+.tag{--tc:var(--muted);display:inline-flex;align-items:center;gap:.4rem;border-color:color-mix(in srgb,var(--tc) 50%,var(--rule));background:color-mix(in srgb,var(--tc) 11%,transparent);color:var(--ink);transition:transform .25s,background-color .25s}
+.tag::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--tc)}
+.tag.t-learn,.tag.t-iot{--tc:var(--cool)}
+.tag.t-compete,.tag.t-data{--tc:var(--warm)}
+.tag.t-community,.tag.t-med{--tc:var(--hot)}
+.tag.t-pub{--tc:var(--link)}
+.tag.t-iotai{--tc:var(--cool)}
+.tag.t-iotai::before{background:linear-gradient(135deg,var(--cool) 50%,var(--warm) 50%)}
+@media (prefers-reduced-motion:no-preference){
+  .rv.in .tag{animation:tagPop .55s cubic-bezier(.3,1.5,.5,1) .3s both}
+  .row:hover .tag{transform:translateY(-1px);background:color-mix(in srgb,var(--tc) 20%,transparent)}
+  .row:hover .tag::before{animation:tagDot 1.2s ease-in-out infinite}
+  @keyframes tagPop{from{opacity:0;transform:scale(.8)}}
+  @keyframes tagDot{50%{transform:scale(1.6)}}
+}
+/* About: two columns for education and experience */
+@media (min-width:1000px){.about-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem 3rem}.about-cols .route li{grid-template-columns:7rem minmax(0,1fr)}}
+.about-more{margin-top:1rem;max-width:62ch}
+.about-more .prose{margin-top:.75rem}
+/* Email reveal */
+.mail-btn{display:inline-flex;align-items:center;gap:.55rem;min-height:46px;padding:0 1.3rem 0 1.05rem;border:0;border-radius:999px;background:var(--ink);color:var(--paper);font:inherit;font-weight:500;cursor:pointer;transition:background-color .25s,transform .25s}
+.mail-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.mail-btn:hover{background:var(--link);transform:translateY(-2px)}
+.mail-reveal{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;font-size:1.0625rem}
+.mail-reveal a{color:var(--ink);overflow-wrap:anywhere}
+.mail-reveal .copy{margin-top:0}
+/* Profile links with icons */
+.social{display:flex;flex-wrap:wrap;gap:.5rem}
+.social a{display:inline-flex;align-items:center;gap:.5rem;min-height:40px;padding:0 .95rem 0 .75rem;border:1px solid var(--rule);border-radius:999px;background:var(--dial);color:var(--ink);text-decoration:none;font-size:.9375rem;transition:border-color .25s,color .25s,transform .25s}
+.social svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.social a:hover{border-color:var(--link);color:var(--link);transform:translateY(-2px)}
+.social-icons{gap:.35rem}
+.social-icons a{width:40px;padding:0;justify-content:center}
+footer .wrap{align-items:center}
+/* Photo viewer */
+:root{--scrim:rgba(5,16,23,.97);--on-scrim:#E7EFF3}
+.zoomable{cursor:zoom-in}
+.zoomable:focus-visible{outline:3px solid var(--link);outline-offset:3px}
+.lb{position:fixed;inset:0;z-index:50;display:grid;grid-template-rows:auto minmax(0,1fr) auto;background:var(--scrim);color:var(--on-scrim);padding:calc(env(safe-area-inset-top,0px) + .75rem) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 1rem) max(16px,env(safe-area-inset-left,0px));touch-action:pan-y}
+.lb-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:.9375rem}
+.lb-stage{display:grid;place-items:center;min-height:0;position:relative;overflow:hidden}
+.lb-stage img{max-width:calc(100% - 7rem);max-height:calc(100vh - 10rem);max-height:calc(100dvh - 10rem);width:auto;height:auto;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.45);object-fit:contain}
+.lb-cap{margin:.75rem auto 0;max-width:62ch;text-align:center;font-size:.9375rem;line-height:1.5;color:var(--on-scrim);opacity:.85}
+.lb button{display:inline-grid;place-items:center;min-width:44px;min-height:44px;border:1px solid rgba(231,239,243,.28);border-radius:999px;background:rgba(231,239,243,.08);color:var(--on-scrim);font:inherit;font-size:1.25rem;cursor:pointer}
+.lb button:hover{background:rgba(231,239,243,.18)}
+.lb .lb-prev,.lb .lb-next{position:absolute;top:50%;transform:translateY(-50%)}
+.lb .lb-prev{left:0}.lb .lb-next{right:0}
+.lb.single .lb-prev,.lb.single .lb-next,.lb.single .lb-count{display:none}
+@media (prefers-reduced-motion:no-preference){.lb{animation:lbIn .25s ease}.lb-stage img{animation:lbImg .3s cubic-bezier(.2,.7,.2,1)}@keyframes lbIn{from{opacity:0}}@keyframes lbImg{from{opacity:0;transform:scale(.97)}}}
+@media (max-width:600px){.lb-stage{overflow:visible}.lb-stage img{max-width:100%;max-height:calc(100dvh - 14rem)}.lb .lb-prev,.lb .lb-next{top:auto;bottom:-3.5rem;transform:none}.lb-cap{margin-top:4.25rem}}
+/* Scroll progress line under the header */
+.bar{position:sticky}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:3px;pointer-events:none}
+.progress i{display:block;height:100%;transform:scaleX(var(--sp,0));transform-origin:left;background:linear-gradient(90deg,var(--cool),var(--warm) 60%,var(--hot))}
+/* Talks timeline */
+.tl{position:relative;padding:.25rem 0 0}
+.tl:empty{display:none}
+.tl-track{position:relative;height:128px;margin:0 1.4rem}
+.tl-axis{position:absolute;left:0;right:0;top:94px;height:2px;border-radius:1px;background:var(--rule)}
+.tl-fill{position:absolute;left:0;top:94px;height:2px;width:100%;transform-origin:left;background:linear-gradient(90deg,var(--cool),var(--warm) 60%,var(--hot))}
+.tl-year{position:absolute;top:104px;transform:translateX(-50%);font-size:.8125rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.tl-year::before{content:"";position:absolute;left:50%;top:-12px;width:1px;height:8px;background:var(--tick)}
+.tl-dot{position:absolute;width:14px;height:14px;margin:-7px 0 0 -7px;padding:0;border:2px solid var(--paper-2);border-radius:50%;background:var(--tc);cursor:pointer;transition:transform .2s}
+.tl-dot::after{content:"";position:absolute;inset:-4px}
+.tl-dot.k-talk{--tc:var(--cool)}.tl-dot.k-poster{--tc:var(--hot)}.tl-dot.k-press{--tc:var(--warm)}
+.tl-dot:hover,.tl-dot:focus-visible,.tl-dot.on{transform:scale(1.35)}
+.tl-tip{position:absolute;z-index:3;left:0;max-width:min(22rem,80vw);padding:.45rem .7rem;border-radius:8px;background:var(--ink);color:var(--paper);font-size:.8125rem;line-height:1.35;pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .15s,transform .15s}
+.tl-tip.show{opacity:1;transform:none}
+.tl-tip b{display:block;font-weight:500}
+.tl-legend{display:flex;flex-wrap:wrap;gap:.35rem 1.1rem;margin-top:.25rem;font-size:.8125rem;color:var(--muted)}
+.tl-legend span{display:inline-flex;align-items:center;gap:.4rem}
+.tl-legend i{width:9px;height:9px;border-radius:50%;background:var(--tc)}
+.tl-legend .k-talk{--tc:var(--cool)}.tl-legend .k-poster{--tc:var(--hot)}.tl-legend .k-press{--tc:var(--warm)}
+.row.flash{animation:rowFlash 1.6s ease}
+@keyframes rowFlash{0%,40%{background:color-mix(in srgb,var(--warm) 16%,transparent)}100%{background:transparent}}
+@media (prefers-reduced-motion:no-preference){
+  .tl.wait .tl-fill{transform:scaleX(0)}
+  .tl.go .tl-fill{transform:none;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+  .tl.wait .tl-dot{opacity:0;transform:scale(.3)}
+  .tl.go .tl-dot{opacity:1;transition:opacity .35s ease var(--dl,0s),transform .45s cubic-bezier(.3,1.6,.5,1) var(--dl,0s)}
+}
+/* Desert dusk palette: decorative accents (plum, rose, sand). Warning colours in the animations stay as they are. */
+:root{--d1:#6B3F8F;--d2:#C1557A;--d3:#E8B46A;--d4:#2E8A93;--link:#6B3F8F;--dusk:linear-gradient(90deg,var(--d1),var(--d2) 55%,var(--d3))}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--d1:#B48AD8;--d2:#E37E9F;--d3:#F0C27E;--d4:#5CC3CB;--link:#C9A6EC}}
+:root[data-theme="dark"]{--d1:#B48AD8;--d2:#E37E9F;--d3:#F0C27E;--d4:#5CC3CB;--link:#C9A6EC}
+.brand .mono{width:26px;height:26px;flex:none;display:block}
+.dial .arc{background:conic-gradient(from -90deg,var(--d1),var(--d2) calc(var(--sweep) * .55),var(--d3) var(--sweep),transparent var(--sweep))}
+.figs li::before,.progress i,.tl-fill{background:var(--dusk)}
+.orbit::before{background:var(--d2);box-shadow:0 0 0 4px color-mix(in srgb,var(--d2) 22%,transparent),0 0 16px var(--d2)}
+.tag.t-learn,.tag.t-iot,.tag.t-iotai{--tc:var(--d1)}
+.tag.t-community,.tag.t-med{--tc:var(--d2)}
+.tag.t-compete,.tag.t-data{--tc:var(--d3)}
+.tag.t-pub{--tc:var(--d4)}
+.tag.t-iotai::before{background:linear-gradient(135deg,var(--d1) 50%,var(--d3) 50%)}
+.tl-dot.k-talk,.tl-legend .k-talk{--tc:var(--d1)}
+.tl-dot.k-press,.tl-legend .k-press{--tc:var(--d3)}
+.flt button[data-t="learn"]{--tc:var(--d1)}.flt button[data-t="compete"]{--tc:var(--d3)}.flt button[data-t="community"]{--tc:var(--d2)}
+.spark{background:var(--d2)}
+.dv-acc{stroke:var(--d1)}
+.gs-tag{background:var(--d3)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -470,13 +574,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
 
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="#top"><i aria-hidden="true"></i>Zahraa Marafie</a>
+    <a class="brand" href="#top"><svg class="mono" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><defs><linearGradient id="mono-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6B3F8F"/><stop offset="1" stop-color="#C1557A"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#mono-g)"/><text x="16" y="21" text-anchor="middle" font-family="Readex Pro, Arial, sans-serif" font-size="13" font-weight="600" fill="#fff" letter-spacing=".3">ZM</text></svg>Zahraa Marafie</a>
     <nav aria-label="Sections">
       <ul>
         <li><a href="#research">Research</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#publications">Publications</a></li>
-        <li><a href="#talks">Talks and press</a></li>
+        <li><a href="#talks">Talks and media</a></li>
         <li><a href="#service">Service</a></li>
         <li><a href="#clubs">Student clubs</a></li>
         <li><a href="#teaching">Teaching</a></li>
@@ -512,7 +616,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
     <div class="wrap">
       <div class="sec-head"><h2 id="h-research">Research</h2></div>
       <div class="sec-body">
-        <p class="prose">Most of my work applies artificial intelligence inside Internet of Things systems, where sensors, small computers and machine learning work together.</p>
+        <p class="prose">The common thread in my work is applied AI that turns real-world data into a score or an alert a person can act on: a heat-risk warning on the wrist, a driving score with personal coaching, a sustainability grade for a device, a diabetes risk estimate that knows when to ask a doctor, and a property valuation. Much of it runs inside Internet of Things systems, where sensors, small computers and machine learning work together.</p>
 
         <div class="channels">
           <article class="channel">
@@ -624,8 +728,47 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
 
         </div>
 
+        <div class="current">
+          <p class="sub">Current projects</p>
+          <ul class="rows">
+            <li class="row">
+              <span class="gut">Ongoing</span>
+              <div>
+                <h3>HeatWatch</h3>
+                <p>Real-time prediction of heat-stroke risk from wearable data, with a clinical risk score.</p>
+                <p class="venue"><span class="tag t-iotai">IoT and AI</span><span>Principal investigator, with Dr. Shaikhah Alkhadhr</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">Ongoing</span>
+              <div>
+                <h3>Uncertainty-aware human–AI referral for type 2 diabetes risk <span class="wt">(working title)</span></h3>
+                <p>AI that predicts type 2 diabetes risk and knows when to defer to a clinician instead of deciding on its own.</p>
+                <p class="venue"><span class="tag t-med">Medical AI</span><span>Principal investigator, with Dr. Shaikhah Alkhadhr</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">Ongoing</span>
+              <div>
+                <h3>GreenScore for IoT</h3>
+                <p>A sustainability score for IoT devices based on their materials, operating patterns and energy use.</p>
+                <p class="venue"><span class="tag t-iot">IoT</span><span>With Dr. Shaikhah Alkhadhr</span></p>
+              </div>
+            </li>
+            <li class="row">
+              <span class="gut">Ongoing</span>
+              <div>
+                <h3>Real estate valuation <span class="wt">(working title)</span></h3>
+                <p>AI and data analytics for property valuation and market decision-making in Kuwait's real estate market.</p>
+                <p class="venue"><span class="tag t-data">AI and data analytics</span><span>Lead researcher</span></p>
+              </div>
+            </li>
+          </ul>
+          <p class="note">These projects run in the CAIS Lab, which I co-lead with Dr. Shaikhah Alkhadhr.</p>
+        </div>
+
         <div class="next">
-          <p class="prose">Next, I am extending this work into medical AI.</p>
+          <p class="sub">Research interests</p>
           <ul class="chips" aria-label="Research interests">
             <li>Internet of Things</li>
             <li>Artificial intelligence</li>
@@ -634,7 +777,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
             <li>Medical AI</li>
             <li>Service-oriented computing</li>
           </ul>
-          <p class="note">The traces on this page are illustrations, not measured data.</p>
+          <p class="note">The animations in this section are illustrations, not measured data.</p>
         </div>
       </div>
     </div>
@@ -647,11 +790,15 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
         <div>
           <p class="prose">I am a Computing Professor and applied AI researcher specializing in the Internet of Things, intelligent systems, real-time computing, and the development of technology-driven solutions for real-world challenges.</p>
           <p class="prose">My research focuses on translating emerging technologies into practical and impactful systems across digital health, smart environments, sustainability, mobility, and data-driven decision support. I am particularly interested in wearable sensing, edge intelligence, machine learning, personalized feedback systems, and the responsible use of AI in critical and socially relevant domains.</p>
-          <p class="prose">My current research includes wearable-based systems for monitoring heat-related health risks through real-time sensing and analytics, frameworks for evaluating the sustainability of IoT devices, and projects involving smart systems, health analytics, intelligent decision support, and real-time data processing.</p>
-          <p class="prose">I am also interested in the application of artificial intelligence and data analytics to real estate valuation and market decision-making, particularly within the context of the Kuwaiti property market.</p>
-          <p class="prose">My doctoral research at the University of California, Irvine, resulted in AutoCoach, an intelligent IoT system that analyzed driving behaviour and delivered personalized feedback to support safer driving.</p>
           <p class="prose">Alongside my research, I am committed to mentoring students, supervising interdisciplinary projects, and building stronger connections between academia, industry, and entrepreneurship. I welcome research collaborations, industry partnerships, and innovation opportunities in applied AI, IoT, digital health, smart systems, sustainability, and intelligent data-driven platforms.</p>
+          <details class="more about-more">
+            <summary>More about my research</summary>
+            <p class="prose">My current research includes wearable-based systems for monitoring heat-related health risks through real-time sensing and analytics, frameworks for evaluating the sustainability of IoT devices, and projects involving smart systems, health analytics, intelligent decision support, and real-time data processing.</p>
+            <p class="prose">I am also interested in the application of artificial intelligence and data analytics to real estate valuation and market decision-making, particularly within the context of the Kuwaiti property market.</p>
+            <p class="prose">My doctoral research at the University of California, Irvine, resulted in AutoCoach, an intelligent IoT system that analyzed driving behaviour and delivered personalized feedback to support safer driving.</p>
+          </details>
         </div>
+        <div class="about-cols">
         <div>
           <p class="sub">Education</p>
           <ol class="route">
@@ -670,6 +817,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
             <li><span class="y">2009 to 2011</span><span>Student part-time roles, Kuwait University<span class="det">Graphic designer and administrative coordinator in the Departments of Information Science and Visual Communication.</span></span></li>
           </ol>
         </div>
+        </div>
       </div>
     </div>
   </section>
@@ -678,62 +826,101 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
     <div class="wrap">
       <div class="sec-head"><h2 id="h-pubs">Publications</h2></div>
       <div class="sec-body">
-        <ul class="rows">
-          <li class="row pub">
-            <span class="gut">2026</span>
-            <div>
-              <h3><a href="https://peer.asee.org/investigating-data-science-student-confidence-and-competency-in-kuwait" target="_blank" rel="noopener">Investigating Data Science Student Confidence and Competency in Kuwait</a></h3>
-              <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">S. Malallah</span>, <span class="nw">E.U. Osiobe</span>, <span class="nw">L. Shamir</span>, <span class="nw">J.L. Valenzuela</span>, <span class="nw">F.E. James</span></p>
-              <p class="venue"><span class="tag">Conference</span><span>2026 ASEE Annual Conference &amp; Exposition</span></p>
-            </div>
-          </li>
-          <li class="row pub">
-            <span class="gut">2024</span>
-            <div>
-              <h3><a href="https://peer.asee.org/developing-an-instrument-for-assessing-self-efficacy-confidence-in-data-science.pdf" target="_blank" rel="noopener">Developing an Instrument for Assessing Self-Efficacy Confidence in Data Science</a></h3>
-              <p class="by"><span class="nw">S. Malallah</span>, <span class="nw">E.U. Osiobe</span>, <span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">P. Henriquez-Coronel</span>, <span class="nw">L. Shamir</span>, <span class="nw">E.L. Carlson</span>, <span class="nw">J.L. Weese</span></p>
-              <p class="venue"><span class="tag">Conference</span><span>2024 ASEE Annual Conference &amp; Exposition</span></p>
-            </div>
-          </li>
-          <li class="row pub">
-            <span class="gut">2021</span>
-            <div>
-              <h3><a href="https://www.mdpi.com/2079-9292/10/11/1361" target="_blank" rel="noopener">AutoCoach: An Intelligent Driver Behavior Feedback Agent with Personality-Based Driver Models</a></h3>
-              <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">K.-J. Lin</span>, <span class="nw">D. Wang</span>, <span class="nw">H. Lyu</span>, <span class="nw">Y. Liu</span>, <span class="nw">Y. Meng</span>, <span class="nw">J. Ma</span></p>
-              <p class="venue"><span class="tag">Journal</span><span>Electronics, 10(11), 1361</span></p>
-            </div>
-          </li>
-          <li class="row pub">
-            <span class="gut">2021</span>
-            <div>
-              <h3><a href="https://escholarship.org/uc/item/9s1972st" target="_blank" rel="noopener">Building Intelligent IoT Agents Using Personality-Based Service Models</a></h3>
-              <p class="venue"><span class="tag">Thesis</span><span>PhD dissertation, University of California, Irvine</span></p>
-            </div>
-          </li>
-          <li class="row pub">
-            <span class="gut">2019</span>
-            <div>
-              <h3><a href="https://ieeexplore.ieee.org/document/8954914" target="_blank" rel="noopener">AutoCoach: Driving Behavior Management Using Intelligent IoT Services</a></h3>
-              <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">K.-J. Lin</span>, <span class="nw">D. Wang</span>, <span class="nw">H. Lyu</span>, <span class="nw">Y. Meng</span>, <span class="nw">T. Ito</span></p>
-              <p class="venue"><span class="tag">Conference</span><span>IEEE 12th Conference on Service-Oriented Computing and Applications (SOCA)</span></p>
-            </div>
-          </li>
-          <li class="row pub">
-            <span class="gut">2018</span>
-            <div>
-              <h3><a href="https://ieeexplore.ieee.org/document/8439170" target="_blank" rel="noopener">Proactive FinTech: Using Intelligent IoT to Deliver Positive InsurTech Feedback</a></h3>
-              <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">K.-J. Lin</span>, <span class="nw">Y. Zhai</span>, <span class="nw">J. Li</span></p>
-              <p class="venue"><span class="tag">Conference</span><span>IEEE 20th Conference on Business Informatics (CBI), vol. 2, pp.&nbsp;<span class="nw">72–81</span>. Presented in Vienna, Austria</span></p>
-            </div>
-          </li>
-          <li class="row pub">
-            <span class="gut">2016</span>
-            <div>
-              <h3><a href="https://escholarship.org/uc/item/17c2b5rs" target="_blank" rel="noopener">Energy Optimization for Two-Dimensional NoCs Using Genetic Algorithms</a></h3>
-              <p class="venue"><span class="tag">Thesis</span><span>MSc thesis, University of California, Irvine</span></p>
-            </div>
-          </li>
-        </ul>
+        <div>
+          <p class="sub">Papers</p>
+          <ul class="rows">
+            <li class="row pub">
+              <span class="gut">2026</span>
+              <div>
+                <h3><a href="https://peer.asee.org/investigating-data-science-student-confidence-and-competency-in-kuwait" target="_blank" rel="noopener">Investigating Data Science Student Confidence and Competency in Kuwait</a></h3>
+                <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">S. Malallah</span>, <span class="nw">E.U. Osiobe</span>, <span class="nw">L. Shamir</span>, <span class="nw">J.L. Valenzuela</span>, <span class="nw">F.E. James</span></p>
+                <p class="venue"><span class="tag t-pub">Conference</span><span>2026 ASEE Annual Conference &amp; Exposition</span></p>
+              </div>
+            </li>
+            <li class="row pub">
+              <span class="gut">2024</span>
+              <div>
+                <h3><a href="https://peer.asee.org/developing-an-instrument-for-assessing-self-efficacy-confidence-in-data-science.pdf" target="_blank" rel="noopener">Developing an Instrument for Assessing Self-Efficacy Confidence in Data Science</a></h3>
+                <p class="by"><span class="nw">S. Malallah</span>, <span class="nw">E.U. Osiobe</span>, <span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">P. Henriquez-Coronel</span>, <span class="nw">L. Shamir</span>, <span class="nw">E.L. Carlson</span>, <span class="nw">J.L. Weese</span></p>
+                <p class="venue"><span class="tag t-pub">Conference</span><span>2024 ASEE Annual Conference &amp; Exposition</span></p>
+              </div>
+            </li>
+            <li class="row pub">
+              <span class="gut">2021</span>
+              <div>
+                <h3><a href="https://www.mdpi.com/2079-9292/10/11/1361" target="_blank" rel="noopener">AutoCoach: An Intelligent Driver Behavior Feedback Agent with Personality-Based Driver Models</a></h3>
+                <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">K.-J. Lin</span>, <span class="nw">D. Wang</span>, <span class="nw">H. Lyu</span>, <span class="nw">Y. Liu</span>, <span class="nw">Y. Meng</span>, <span class="nw">J. Ma</span></p>
+                <p class="venue"><span class="tag t-pub">Journal</span><span>Electronics, 10(11), 1361</span></p>
+              </div>
+            </li>
+            <li class="row pub">
+              <span class="gut">2021</span>
+              <div>
+                <h3><a href="https://escholarship.org/uc/item/9s1972st" target="_blank" rel="noopener">Building Intelligent IoT Agents Using Personality-Based Service Models</a></h3>
+                <p class="venue"><span class="tag t-pub">Thesis</span><span>PhD dissertation, University of California, Irvine</span></p>
+              </div>
+            </li>
+            <li class="row pub">
+              <span class="gut">2019</span>
+              <div>
+                <h3><a href="https://ieeexplore.ieee.org/document/8954914" target="_blank" rel="noopener">AutoCoach: Driving Behavior Management Using Intelligent IoT Services</a></h3>
+                <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">K.-J. Lin</span>, <span class="nw">D. Wang</span>, <span class="nw">H. Lyu</span>, <span class="nw">Y. Meng</span>, <span class="nw">T. Ito</span></p>
+                <p class="venue"><span class="tag t-pub">Conference</span><span>IEEE 12th Conference on Service-Oriented Computing and Applications (SOCA)</span></p>
+              </div>
+            </li>
+            <li class="row pub">
+              <span class="gut">2018</span>
+              <div>
+                <h3><a href="https://ieeexplore.ieee.org/document/8439170" target="_blank" rel="noopener">Proactive FinTech: Using Intelligent IoT to Deliver Positive InsurTech Feedback</a></h3>
+                <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">K.-J. Lin</span>, <span class="nw">Y. Zhai</span>, <span class="nw">J. Li</span></p>
+                <p class="venue"><span class="tag t-pub">Conference</span><span>IEEE 20th Conference on Business Informatics (CBI), vol. 2, pp.&nbsp;<span class="nw">72–81</span>. Presented in Vienna, Austria</span></p>
+              </div>
+            </li>
+            <li class="row pub">
+              <span class="gut">2016</span>
+              <div>
+                <h3><a href="https://escholarship.org/uc/item/17c2b5rs" target="_blank" rel="noopener">Energy Optimization for Two-Dimensional NoCs Using Genetic Algorithms</a></h3>
+                <p class="venue"><span class="tag t-pub">Thesis</span><span>MSc thesis, University of California, Irvine</span></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="sub">Posters</p>
+          <ul class="rows">
+            <li class="row pub">
+              <span class="gut">2025</span>
+              <div>
+                <h3>Plugged into the Planet: Measuring IoT Sustainability with GreenScore</h3>
+                <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">S. Alkhadhr</span></p>
+                <p>A framework that scores how sustainable an IoT device is, based on its materials, how efficiently it runs and how much energy it uses. It then uses generative AI to suggest ways to improve the score. We showed it on everyday devices such as fitness trackers, smart thermostats and light bulbs.</p>
+                <p class="venue"><span class="tag t-pub">Poster</span><span>4th Kuwait International Conference on Life Sciences (KICLS 2025), Kuwait University, 11 November 2025</span></p>
+                <p class="links"><a href="https://kicls.ku.edu.kw" target="_blank" rel="noopener">KICLS 2025</a><a href="https://www.ku.edu.kw/sites/default/files/2025-11/ISAI-track-schedule.pdf" target="_blank" rel="noopener">Conference programme</a></p>
+              </div>
+            </li>
+            <li class="row pub">
+              <span class="gut">2025</span>
+              <div>
+                <h3>Pulse of the Campus: Real-Time Health Tracking with Bangle.js 2</h3>
+                <p class="by"><span class="nw">A. Elshabrawi</span>, <span class="nw">J. Anjom</span>, <span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">S. Alkhadhr</span></p>
+                <p>A real-time system that streams step counts, heart rate and motion from a Bangle.js 2 smartwatch straight to a browser dashboard, with no app to install. It follows activity across the Kuwait University campus and adds campus-wide step challenges to encourage healthier habits.</p>
+                <p class="venue"><span class="tag t-pub">Poster</span><span>4th Kuwait International Conference on Life Sciences (KICLS 2025), Kuwait University, 12 November 2025</span></p>
+                <p class="links"><a href="https://kicls.ku.edu.kw" target="_blank" rel="noopener">KICLS 2025</a><a href="https://www.ku.edu.kw/sites/default/files/2025-11/ISAI-track-schedule.pdf" target="_blank" rel="noopener">Conference programme</a></p>
+              </div>
+            </li>
+            <li class="row pub">
+              <span class="gut">2025</span>
+              <div>
+                <h3>HeatWatch: Real-time Detection of Heat Exhaustion via Wearable Sensors and AI Models</h3>
+                <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">S. Alkhadhr</span></p>
+                <p>Machine learning on wearable readings, such as heart rate and movement, together with temperature and humidity, to flag the risk of heat exhaustion early. We tested it on simulated data modelled on Kuwait's climate; testing in real conditions is the next step.</p>
+                <p class="venue"><span class="tag t-pub">Poster</span><span>Poster Day, Scientific Research Conference 2024 to 2025, Kuwait University</span></p>
+                <p class="links"><a href="https://rsonline.ku.edu.kw/ercc/PostersById/3053.pdf" target="_blank" rel="noopener">View the poster (PDF)</a><a href="https://rsonline.ku.edu.kw/ercc/PostersByFac.aspx?fac=FACULTY%20OF%20LIFE%20SCIENCES&amp;facar=%D9%83%D9%84%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B9%D9%84%D9%88%D9%85%20%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%AA%D9%8A%D8%A9&amp;yr=2024/2025" target="_blank" rel="noopener">Life Sciences posters, 2024 to 2025</a></p>
+                <figure class="photo" style="max-width:44rem;margin-top:.9rem"><img src="images/poster-day-heatwatch.jpg" alt="Dr. Zahraa Marafie and Dr. Shaikhah Alkhadhr standing beside the HeatWatch poster at Poster Day" width="1200" height="554" loading="lazy"><figcaption>With Dr. Shaikhah Alkhadhr beside our HeatWatch poster at Poster Day, February 2025.</figcaption></figure>
+              </div>
+            </li>
+          </ul>
+        </div>
         <p class="links"><a href="https://scholar.google.com/citations?hl=en&amp;user=rc3aBcoAAAAJ" target="_blank" rel="noopener">Full list on Google Scholar</a></p>
       </div>
     </div>
@@ -741,8 +928,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
 
   <section class="sec alt" id="talks" aria-labelledby="h-talks">
     <div class="wrap">
-      <div class="sec-head"><h2 id="h-talks">Talks, posters and press</h2></div>
+      <div class="sec-head"><h2 id="h-talks">Talks and media</h2></div>
       <div class="sec-body">
+        <div class="tl" id="talks-timeline" aria-label="Timeline of talks and media"></div>
         <div>
           <p class="sub">Invited talks and workshops</p>
           <ul class="rows">
@@ -787,42 +975,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
                 <p>An introduction to AI for lawyers: what it is, how it developed, and how it already supports decisions in finance and healthcare. I then showed how law firms use it for legal research, contract review, predicting case outcomes, sorting documents for e-discovery, and client chatbots.</p>
                 <p class="links"><a href="https://www.youtube.com/watch?v=nSvGSbSXcKk" target="_blank" rel="noopener">Watch the session</a></p>
                 <ul class="gallery g2" aria-label="Photos from The Future of Digital Justice conference"><li style="--r:1.5"><img src="images/digital-justice-speaking.jpg" alt="Dr. Zahraa Marafie speaking on the panel at The Future of Digital Justice conference, Kuwait Lawyers Bar Society" width="1200" height="800" loading="lazy"></li><li style="--r:0.8"><img src="images/digital-justice-poster.jpg" alt="Speaker poster for Dr. Zahraa Marafie at The Future of Digital Justice conference, Kuwait Lawyers Bar Society" width="900" height="1125" loading="lazy"></li></ul>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <p class="sub">Posters</p>
-          <ul class="rows">
-            <li class="row">
-              <span class="gut">Nov 2025</span>
-              <div>
-                <h3>Plugged into the Planet: Measuring IoT Sustainability with GreenScore</h3>
-                <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">S. Alkhadhr</span></p>
-                <p>A framework that scores how sustainable an IoT device is, based on its materials, how efficiently it runs and how much energy it uses. It then uses generative AI to suggest ways to improve the score. We showed it on everyday devices such as fitness trackers, smart thermostats and light bulbs.</p>
-                <p class="venue"><span class="tag">Poster</span><span>4th Kuwait International Conference on Life Sciences (KICLS 2025), Kuwait University, 11 November 2025</span></p>
-                <p class="links"><a href="https://kicls.ku.edu.kw" target="_blank" rel="noopener">KICLS 2025</a><a href="https://www.ku.edu.kw/sites/default/files/2025-11/ISAI-track-schedule.pdf" target="_blank" rel="noopener">Conference programme</a></p>
-              </div>
-            </li>
-            <li class="row">
-              <span class="gut">Nov 2025</span>
-              <div>
-                <h3>Pulse of the Campus: Real-Time Health Tracking with Bangle.js 2</h3>
-                <p class="by"><span class="nw">A. Elshabrawi</span>, <span class="nw">J. Anjom</span>, <span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">S. Alkhadhr</span></p>
-                <p>A real-time system that streams step counts, heart rate and motion from a Bangle.js 2 smartwatch straight to a browser dashboard, with no app to install. It follows activity across the Kuwait University campus and adds campus-wide step challenges to encourage healthier habits.</p>
-                <p class="venue"><span class="tag">Poster</span><span>4th Kuwait International Conference on Life Sciences (KICLS 2025), Kuwait University, 12 November 2025</span></p>
-                <p class="links"><a href="https://kicls.ku.edu.kw" target="_blank" rel="noopener">KICLS 2025</a><a href="https://www.ku.edu.kw/sites/default/files/2025-11/ISAI-track-schedule.pdf" target="_blank" rel="noopener">Conference programme</a></p>
-              </div>
-            </li>
-            <li class="row">
-              <span class="gut">Feb 2025</span>
-              <div>
-                <h3>HeatWatch: Real-time Detection of Heat Exhaustion via Wearable Sensors and AI Models</h3>
-                <p class="by"><span class="nw"><strong>Z. Marafie</strong></span>, <span class="nw">S. Alkhadhr</span></p>
-                <p>Machine learning on wearable readings, such as heart rate and movement, together with temperature and humidity, to flag the risk of heat exhaustion early. We tested it on simulated data modelled on Kuwait's climate; testing in real conditions is the next step.</p>
-                <p class="venue"><span class="tag">Poster</span><span>Poster Day, Scientific Research Conference 2024 to 2025, Kuwait University</span></p>
-                <p class="links"><a href="https://rsonline.ku.edu.kw/ercc/PostersById/3053.pdf" target="_blank" rel="noopener">View the poster (PDF)</a><a href="https://rsonline.ku.edu.kw/ercc/PostersByFac.aspx?fac=FACULTY%20OF%20LIFE%20SCIENCES&amp;facar=%D9%83%D9%84%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B9%D9%84%D9%88%D9%85%20%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%AA%D9%8A%D8%A9&amp;yr=2024/2025" target="_blank" rel="noopener">Life Sciences posters, 2024 to 2025</a></p>
-                <figure class="photo" style="max-width:44rem;margin-top:.9rem"><img src="images/poster-day-heatwatch.jpg" alt="Dr. Zahraa Marafie and Dr. Shaikhah Alkhadhr standing beside the HeatWatch poster at Poster Day" width="1200" height="554" loading="lazy"><figcaption>With Dr. Shaikhah Alkhadhr beside our HeatWatch poster at Poster Day, February 2025.</figcaption></figure>
               </div>
             </li>
           </ul>
@@ -999,10 +1151,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
       <div class="sec-body">
         <p class="prose">I welcome collaboration on wearable AI, medical AI and IoT for sustainable cities.</p>
         <div>
-          <p class="mail"><a id="mail-text" href="mailto:zahraa.marafie@ku.edu.kw">zahraa.marafie@ku.edu.kw</a></p>
-          <button type="button" class="copy" id="copy-mail">Copy address</button>
+          <div class="mailbox">
+            <button type="button" class="mail-btn" id="show-mail" aria-controls="mail-reveal" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg><span>Show email address</span></button>
+            <p class="mail-reveal" id="mail-reveal" hidden><a id="mail-text" href="#"></a><button type="button" class="copy" id="copy-mail">Copy</button></p>
+            <noscript><p class="mail-reveal">zahraa.marafie [at] ku.edu.kw</p></noscript>
+          </div>
           <address class="where">Department of Information Science<br>College of Life Sciences, Kuwait University<br>Kuwait</address>
-          <p class="links" style="margin-top:1.25rem"><a href="https://www.linkedin.com/in/zmarafie" target="_blank" rel="noopener">LinkedIn</a><a href="https://scholar.google.com/citations?hl=en&amp;user=rc3aBcoAAAAJ" target="_blank" rel="noopener">Google Scholar</a><a href="https://orcid.org/0009-0005-0356-1537" target="_blank" rel="noopener">ORCID</a><a href="https://www.instagram.com/marafiez/" target="_blank" rel="noopener">Instagram</a></p>
+          <ul class="social" style="margin-top:1.25rem"><li><a href="https://www.linkedin.com/in/zmarafie" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg><span>LinkedIn</span></a></li><li><a href="https://scholar.google.com/citations?hl=en&amp;user=rc3aBcoAAAAJ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6"/></svg><span>Google Scholar</span></a></li><li><a href="https://orcid.org/0009-0005-0356-1537" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-1.6 1.8-2.4 3-2.4s2.4.8 3 2.4M14 10h4M14 13h4"/></svg><span>ORCID</span></a></li><li><a href="https://www.instagram.com/marafiez/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="3"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-3h5L16 7"/></svg><span>Instagram</span></a></li></ul>
         </div>
       </div>
     </div>
@@ -1012,6 +1167,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
 <footer>
   <div class="wrap">
     <p>&copy; 2026 Zahraa Marafie</p>
+    <ul class="social social-icons" aria-label="Profiles"><li><a href="https://www.linkedin.com/in/zmarafie" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></a></li><li><a href="https://scholar.google.com/citations?hl=en&amp;user=rc3aBcoAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6"/></svg></a></li><li><a href="https://orcid.org/0009-0005-0356-1537" target="_blank" rel="noopener" aria-label="ORCID" title="ORCID"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-1.6 1.8-2.4 3-2.4s2.4.8 3 2.4M14 10h4M14 13h4"/></svg></a></li><li><a href="https://www.instagram.com/marafiez/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="3"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-3h5L16 7"/></svg></a></li></ul>
     <p><a href="#top">Back to top</a></p>
   </div>
 </footer>
@@ -1131,22 +1287,18 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
     window.addEventListener("resize",buildAll);
   }
 
-  /* Copy the email address. */
-  var btn=document.getElementById("copy-mail");
-  if(btn){
-    var label=btn.textContent;
-    btn.addEventListener("click",function(){
-      var text="zahraa.marafie@ku.edu.kw";
-      function done(msg){btn.textContent=msg;setTimeout(function(){btn.textContent=label},1800)}
-      function pick(){
-        var node=document.getElementById("mail-text"),r=document.createRange();
-        r.selectNodeContents(node);
-        var s=window.getSelection();s.removeAllRanges();s.addRange(r);
-        done("Address selected");
-      }
-      if(navigator.clipboard&&navigator.clipboard.writeText){
-        navigator.clipboard.writeText(text).then(function(){done("Copied")},pick);
-      }else{pick()}
+  /* Email: assembled only when a visitor asks for it, so the address is not sitting in the page for spam bots. */
+  var show=document.getElementById("show-mail"),box=document.getElementById("mail-reveal");
+  if(show&&box){
+    var addr=["zahraa","marafie"].join(".")+String.fromCharCode(64)+["ku","edu","kw"].join(".");
+    var link=document.getElementById("mail-text"),cp=document.getElementById("copy-mail");
+    show.addEventListener("click",function(){
+      link.textContent=addr;link.href="mai"+"lto:"+addr;box.hidden=false;show.hidden=true;show.setAttribute("aria-expanded","true");link.focus();
+    });
+    cp.addEventListener("click",function(){
+      function done(m){cp.textContent=m;setTimeout(function(){cp.textContent="Copy"},1800)}
+      function pick(){var r=document.createRange();r.selectNodeContents(link);var sel=window.getSelection();sel.removeAllRanges();sel.addRange(r);done("Selected")}
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(addr).then(function(){done("Copied")},pick)}else{pick()}
     });
   }
 
@@ -1206,7 +1358,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
   list.forEach(function(el){io.observe(el)});
 })();
 </script>
-</body></html>
 <script>
 /* HeatWatch smartwatch: heat risk builds, the watch alerts, then cools down. */
 (function(){
@@ -1367,6 +1518,112 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
   if("IntersectionObserver" in window){
     new IntersectionObserver(function(es){es.forEach(function(x){x.isIntersecting?start():stop()})}).observe(fig);
   }else{start()}
+})();
+</script>
+<script>
+/* Photo viewer: click or tap a photo to see it large; arrows, swipe and Esc work. */
+(function(){
+  "use strict";
+  var imgs=[].slice.call(document.querySelectorAll(".photo img,.gallery img"));
+  if(!imgs.length){return}
+  var lb=null,list=[],i=0,back=null,sx=null;
+  function capOf(img){var f=img.closest("figure");var c=f&&f.querySelector("figcaption");return c?c.textContent:img.alt}
+  function build(){
+    lb=document.createElement("div");lb.className="lb";lb.setAttribute("role","dialog");lb.setAttribute("aria-modal","true");lb.setAttribute("aria-label","Photo viewer");lb.hidden=true;
+    lb.innerHTML='<div class="lb-top"><span class="lb-count"></span><button type="button" class="lb-close" aria-label="Close photo">&times;</button></div><div class="lb-stage"><button type="button" class="lb-prev" aria-label="Previous photo">&#8592;</button><img alt=""><button type="button" class="lb-next" aria-label="Next photo">&#8594;</button></div><p class="lb-cap"></p>';
+    document.body.appendChild(lb);
+    lb.querySelector(".lb-close").addEventListener("click",close);
+    lb.querySelector(".lb-prev").addEventListener("click",function(){go(-1)});
+    lb.querySelector(".lb-next").addEventListener("click",function(){go(1)});
+    lb.addEventListener("click",function(e){if(e.target===lb||e.target.classList.contains("lb-stage")){close()}});
+    lb.addEventListener("pointerdown",function(e){sx=e.clientX});
+    lb.addEventListener("pointerup",function(e){if(sx!==null&&Math.abs(e.clientX-sx)>50){go(e.clientX<sx?1:-1)}sx=null});
+    document.addEventListener("keydown",function(e){if(lb.hidden){return}if(e.key==="Escape"){close()}else if(e.key==="ArrowRight"){go(1)}else if(e.key==="ArrowLeft"){go(-1)}else if(e.key==="Tab"){var f=[].slice.call(lb.querySelectorAll("button")).filter(function(b){return b.offsetParent!==null});var k=f.indexOf(document.activeElement);if(e.shiftKey&&k<=0){e.preventDefault();f[f.length-1].focus()}else if(!e.shiftKey&&k===f.length-1){e.preventDefault();f[0].focus()}}});
+  }
+  function show(){
+    var img=list[i],big=lb.querySelector(".lb-stage img");
+    big.src=img.currentSrc||img.src;big.alt=img.alt;
+    lb.querySelector(".lb-cap").textContent=capOf(img);
+    lb.querySelector(".lb-count").textContent=(i+1)+" of "+list.length;
+    lb.classList.toggle("single",list.length<2);
+  }
+  function open(img){
+    if(!lb){build()}
+    var g=img.closest(".gallery");list=g?[].slice.call(g.querySelectorAll("img")):[img];i=Math.max(0,list.indexOf(img));
+    back=document.activeElement;show();lb.hidden=false;document.documentElement.style.overflow="hidden";
+    lb.querySelector(".lb-close").focus();
+  }
+  function close(){lb.hidden=true;document.documentElement.style.overflow="";if(back&&back.focus){back.focus()}}
+  function go(d){if(list.length<2){return}i=(i+d+list.length)%list.length;show()}
+  imgs.forEach(function(img){
+    img.classList.add("zoomable");img.tabIndex=0;img.setAttribute("role","button");img.setAttribute("aria-label","Open photo: "+img.alt);
+    img.addEventListener("click",function(){open(img)});
+    img.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();open(img)}});
+  });
+})();
+</script>
+<script>
+/* Scroll progress line. */
+(function(){
+  "use strict";
+  var bar=document.querySelector(".bar");if(!bar){return}
+  var p=document.createElement("div");p.className="progress";p.setAttribute("aria-hidden","true");p.appendChild(document.createElement("i"));bar.appendChild(p);
+  var tick=false;
+  function upd(){tick=false;var h=document.documentElement.scrollHeight-window.innerHeight;var v=h>0?Math.min(1,Math.max(0,window.scrollY/h)):0;p.style.setProperty("--sp",v.toFixed(4))}
+  window.addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});
+  window.addEventListener("resize",upd);upd();
+})();
+</script>
+<script>
+/* Talks timeline: one dot per talk, poster and news item; hover for the title, click to jump to it. */
+(function(){
+  "use strict";
+  var box=document.getElementById("talks-timeline");if(!box){return}
+  var sec=document.getElementById("talks"),M={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+  var kinds={"Invited talks and workshops":["talk","Talk"],"Posters":["poster","Poster"],"In the news":["press","Press"]};
+  var items=[];
+  sec.querySelectorAll(".sec-body .sub").forEach(function(sub){
+    var k=kinds[sub.textContent.trim()];if(!k){return}
+    var ul=sub.nextElementSibling;if(!ul){return}
+    [].forEach.call(ul.querySelectorAll(":scope > .row"),function(row,n){
+      var g=row.querySelector(".gut").textContent.trim(),m=/^(?:([A-Z][a-z]{2})\s+)?(\d{4})$/.exec(g);if(!m){return}
+      var t=+m[2]+((m[1]?M[m[1]]:6)+.5)/12;
+      if(!row.id){row.id="tl-"+k[0]+"-"+n}
+      items.push({t:t,kind:k[0],label:k[1],date:g,title:row.querySelector("h3").textContent.replace(/\s+/g," ").trim(),row:row});
+    });
+  });
+  if(!items.length){return}
+  items.sort(function(a,b){return a.t-b.t});
+  var y0=Math.floor(items[0].t),y1=Math.floor(items[items.length-1].t)+1;
+  var track=document.createElement("div");track.className="tl-track";
+  track.innerHTML='<div class="tl-axis"></div><div class="tl-fill"></div>';
+  for(var y=y0;y<=y1;y++){var yl=document.createElement("span");yl.className="tl-year";yl.style.left=((y-y0)/(y1-y0)*100)+"%";yl.textContent=y;track.appendChild(yl)}
+  var tip=document.createElement("div");tip.className="tl-tip";tip.setAttribute("aria-hidden","true");
+  items.forEach(function(it,i){
+    var x=(it.t-y0)/(y1-y0)*100;it.x=x;
+    var b=document.createElement("button");b.type="button";b.className="tl-dot k-"+it.kind;
+    b.style.left=x+"%";it.b=b;b.style.setProperty("--dl",(.15+i*.06).toFixed(2)+"s");
+    b.setAttribute("aria-label",it.label+", "+it.date+": "+it.title);
+    function show(){tip.innerHTML="";var bb=document.createElement("b");bb.textContent=it.title;tip.appendChild(bb);tip.appendChild(document.createTextNode(it.label+" · "+it.date));
+      var tw=Math.min(352,track.clientWidth*.8),left=Math.max(0,Math.min(track.clientWidth-tw,b.offsetLeft-tw/2));tip.style.left=left+"px";tip.style.width=tw+"px";tip.style.bottom=(128-parseFloat(b.style.top)+14)+"px";tip.classList.add("show");b.classList.add("on")}
+    function hide(){tip.classList.remove("show");b.classList.remove("on")}
+    b.addEventListener("mouseenter",show);b.addEventListener("focus",show);b.addEventListener("mouseleave",hide);b.addEventListener("blur",hide);
+    b.addEventListener("click",function(){it.row.scrollIntoView({behavior:"smooth",block:"center"});it.row.classList.remove("flash");void it.row.offsetWidth;it.row.classList.add("flash")});
+    track.appendChild(b);
+  });
+  track.appendChild(tip);
+  box.appendChild(track);
+  function layout(){var w=track.clientWidth||600,lv=[];items.forEach(function(it){var px=it.x/100*w,l=0;while(lv[l]!==undefined&&px-lv[l]<18){l++}lv[l]=px;it.b.style.top=(94-l*17)+"px"})}
+  layout();var rt=0;window.addEventListener("resize",function(){clearTimeout(rt);rt=setTimeout(layout,150)});
+  var lg=document.createElement("p");lg.className="tl-legend";
+  lg.innerHTML='<span class="k-talk"><i></i>Talks</span><span class="k-press"><i></i>Media and press</span><span>Hover or tap a dot to see it; click to jump to it.</span>';
+  box.appendChild(lg);
+  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(!reduce&&"IntersectionObserver" in window&&box.getBoundingClientRect().top>window.innerHeight*.9){
+    box.classList.add("wait");
+    var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();requestAnimationFrame(function(){box.classList.add("go");box.classList.remove("wait")})}},{rootMargin:"0px 0px -10% 0px"});
+    io.observe(box);
+  }
 })();
 </script>
 </body>
