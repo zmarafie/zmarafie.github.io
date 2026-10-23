@@ -371,6 +371,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
 @media (min-width:1000px){.about-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem 3rem}.about-cols .route li{grid-template-columns:7rem minmax(0,1fr)}}
 .about-more{margin-top:1rem;max-width:62ch}
 .about-more .prose{margin-top:.75rem}
+/* Photo grids (uniform 5:4 photos) */
+.gallery.pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem;max-width:48rem}
+.gallery.pgrid.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.gallery.pgrid li{min-width:0;border-radius:10px;overflow:hidden}
+.gallery.pgrid img{width:100%;height:auto;aspect-ratio:5/4;object-fit:cover}
+@media (max-width:560px){.gallery.pgrid,.gallery.pgrid.c4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.gallery.mixed{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}.gallery.mixed li{min-width:0}.gallery.mixed li.wide{grid-column:1/-1}}
 /* Profile links with icons */
 .social{display:flex;flex-wrap:wrap;gap:.5rem}
 .social a{display:inline-flex;align-items:center;gap:.5rem;min-height:40px;padding:0 .95rem 0 .75rem;border:1px solid var(--rule);border-radius:999px;background:var(--dial);color:var(--ink);text-decoration:none;font-size:.9375rem;transition:border-color .25s,color .25s,transform .25s}
@@ -379,6 +386,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
 .social-icons{gap:.35rem}
 .social-icons a{width:40px;padding:0;justify-content:center}
 footer .wrap{align-items:center}
+[hidden]:not([hidden=until-found i]){display:none!important}
 /* Photo viewer */
 :root{--scrim:rgba(5,16,23,.97);--on-scrim:#E7EFF3}
 .zoomable{cursor:zoom-in}
@@ -622,11 +630,11 @@ footer .wrap{align-items:center}
               <ul class="chips" aria-label="Honoured for their contributions to the club"><li>Lamia Alajmi</li><li>Manar Alajmi</li><li>Reem Alajmi</li><li>Alghalia Alhais</li><li>Anfal Alharbi</li><li>Dari Alshehri</li><li>Hamza Alwesabi</li><li>Mohammad Alali</li><li>Fahad Alsuhail</li></ul>
             </div>
           </div>
-          <ul class="gallery g3" aria-label="Photos from the honouring ceremony">
-            <li style="--r:1"><div class="ph" style="margin-top:0">Photo to come: the honouring ceremony</div></li>
-            <li style="--r:1"><div class="ph" style="margin-top:0">Photo to come: club members with their certificates</div></li>
-            <li style="--r:1"><div class="ph" style="margin-top:0">Photo to come: group photo</div></li>
-          </ul>
+          <p class="note" style="margin-top:1.5rem;font-weight:500;color:var(--ink)">The awards</p>
+          <ul class="gallery pgrid" aria-label="Photos of the awards at the honouring ceremony"><li><img src="images/honour-award-1.jpg" alt="A ClickIT member receiving an honouring plaque from Dr. Zahraa Marafie, with department faculty" width="1200" height="960" loading="lazy"></li><li><img src="images/honour-award-2.jpg" alt="A ClickIT member holding his plaque beside Dr. Zahraa Marafie and department faculty" width="1200" height="960" loading="lazy"></li><li><img src="images/honour-award-3.jpg" alt="A ClickIT member holding her plaque beside Dr. Zahraa Marafie and department faculty" width="1200" height="960" loading="lazy"></li><li><img src="images/honour-award-4.jpg" alt="A ClickIT member with her plaque, Dr. Zahraa Marafie and department faculty" width="1200" height="960" loading="lazy"></li><li><img src="images/honour-award-5.jpg" alt="A ClickIT member receiving her plaque from a faculty member" width="1200" height="960" loading="lazy"></li><li><img src="images/honour-honoured-dr-zahraa.jpg" alt="Dr. Zahraa Marafie holding a plaque, with a certificate of recognition and department faculty" width="1200" height="960" loading="lazy"></li></ul>
+          <p class="note" style="margin-top:1.5rem;font-weight:500;color:var(--ink)">Celebrating together</p>
+          <ul class="gallery pgrid" aria-label="Photos of the celebration after the ceremony"><li><img src="images/honour-cake.jpg" alt="ClickIT members cutting the celebration cake together" width="1200" height="960" loading="lazy"></li><li><img src="images/honour-gathering.jpg" alt="Club members talking at tables during the ceremony" width="1200" height="960" loading="lazy"></li><li><img src="images/honour-cookie.jpg" alt="A cookie with the message Never stop chasing your dreams, Dr. Zahraa" width="1200" height="960" loading="lazy"></li></ul>
+          <p class="note" style="margin-top:.6rem">Tap any photo to see it larger.</p>
         </div>
 
         <details class="more">
@@ -744,15 +752,8 @@ footer .wrap{align-items:center}
 
         <div>
           <p class="sub">Photos</p>
-          <p class="note">More photos from the club's events.</p>
-          <ul class="gallery g3" aria-label="Photos from ClickIT events">
-            <li style="--r:1.5"><div class="ph" style="margin-top:0">Photo to come</div></li>
-            <li style="--r:1.5"><div class="ph" style="margin-top:0">Photo to come</div></li>
-            <li style="--r:1.5"><div class="ph" style="margin-top:0">Photo to come</div></li>
-            <li style="--r:1.5"><div class="ph" style="margin-top:0">Photo to come</div></li>
-            <li style="--r:1.5"><div class="ph" style="margin-top:0">Photo to come</div></li>
-            <li style="--r:1.5"><div class="ph" style="margin-top:0">Photo to come</div></li>
-          </ul>
+          <p class="note">More photos from the club's events. Tap any photo to see it larger.</p>
+          <ul class="gallery mixed" aria-label="Photos from ClickIT events"><li class="wide" style="--r:1.333"><img src="images/clickit-group.jpg" alt="ClickIT members and faculty together after a club event in a lecture hall" width="1200" height="900" loading="lazy"></li><li style="--r:0.800"><img src="images/clickit-club-table.jpg" alt="The ClickIT club table with a Future Software Programmer robot sign and giveaways" width="1152" height="1440" loading="lazy"></li><li style="--r:0.800"><img src="images/clickit-award.jpg" alt="Dr. Zahraa Marafie with students as an award is presented at a club event" width="1200" height="1500" loading="lazy"></li><li style="--r:0.800"><img src="images/clickit-plaques.jpg" alt="Rows of thank-you plaques prepared for ClickIT members" width="1200" height="1500" loading="lazy"></li><li style="--r:0.800"><img src="images/clickit-workshop.jpg" alt="Students working at their desks during a club workshop" width="1200" height="1500" loading="lazy"></li><li class="wide" style="--r:1.333"><img src="images/clickit-booth-game.jpg" alt="Students showing a game they built at a booth during a club event" width="1200" height="900" loading="lazy"></li><li class="wide" style="--r:1.333"><img src="images/clickit-booth-nutrition.jpg" alt="Students at an awareness booth on the importance of nutrition" width="1200" height="900" loading="lazy"></li></ul>
         </div>
 
         <div>
@@ -793,10 +794,6 @@ footer .wrap{align-items:center}
             </li>
           </ul>
         </div>
-        <ul class="gallery g2" aria-label="Photos from WiDS events">
-          <li style="--r:1.5"><div class="ph" style="margin-top:0">Photo to come</div></li>
-          <li style="--r:1.5"><div class="ph" style="margin-top:0">Photo to come</div></li>
-        </ul>
         <p class="links"><a href="https://www.widsworldwide.org/get-inspired/blog/june-october-2025-ambassador-event-highlights/" target="_blank" rel="noopener">WiDS Worldwide ambassador highlights</a></p>
       </div>
     </div>
@@ -833,10 +830,6 @@ footer .wrap{align-items:center}
             </li>
           </ul>
         </div>
-        <ul class="gallery g2" aria-label="Photos from ACM events">
-          <li style="--r:1.5"><div class="ph" style="margin-top:0">Photo to come</div></li>
-          <li style="--r:1.5"><div class="ph" style="margin-top:0">Photo to come</div></li>
-        </ul>
       </div>
     </div>
   </section>
