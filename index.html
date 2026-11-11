@@ -453,15 +453,19 @@ dialog.lb button{position:absolute;top:-14px;right:-6px;width:40px;height:40px;b
 .clubs .small{font-size:.9rem;color:rgba(255,255,255,.7);margin:12px 0 0}
 @media (max-width:860px){.clubs{grid-template-columns:1fr}}
 
-/* teaching marquee */
-.marq{overflow:hidden;margin-top:10px;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.marq .track{display:flex;width:max-content;animation:marq 46s linear infinite}
-.marq:nth-of-type(2) .track{animation-direction:reverse;animation-duration:54s}
-.marq:hover .track,.marq:focus-within .track{animation-play-state:paused}
-@keyframes marq{to{transform:translateX(-50%)}}
-.marq ul{display:flex;gap:14px;padding:8px 7px}
-.marq li{white-space:nowrap;font-family:var(--display);font-size:1.15rem;font-weight:600;background:var(--card);border:1px solid var(--rule);border-radius:999px;padding:14px 24px}
-.marq li{color:var(--text)}.marq li b{color:var(--teal);margin-right:10px;font-weight:800}
+/* teaching: courses grouped by programme */
+.cgroups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 28px;align-items:start}
+@media (max-width:1000px){.cgroups{grid-template-columns:1fr}}
+.cgroup h3{margin:0 0 14px;padding-bottom:12px;border-bottom:2px solid var(--head);font-size:1.12rem;font-weight:800;line-height:1.25;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+@media (min-width:1001px){.cgroup h3{min-height:4.6em;align-items:flex-end}}
+.cgroup h3 small{font-family:var(--body);font-weight:400;font-size:.84rem;color:var(--muted);white-space:nowrap}
+.cgroup ul{display:grid;gap:10px}
+.cgroup li{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:14px 16px 15px 20px;transition:opacity .8s var(--ease),transform .5s var(--ease),border-color .3s,box-shadow .4s}
+.cgroup li::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--teal);transform:scaleY(.28);transform-origin:top;transition:transform .5s var(--ease)}
+.cgroup li:hover{transform:translateY(-3px);border-color:var(--teal);box-shadow:0 18px 36px -22px rgba(15,27,69,.5)}
+.cgroup li:hover::before{transform:none}
+.cgroup b{display:block;font-family:var(--display);font-weight:800;font-size:1.3rem;letter-spacing:-.01em;color:var(--teal);font-variant-numeric:tabular-nums;line-height:1.1}
+.cgroup span{display:block;margin-top:5px;font-size:.95rem;line-height:1.4;color:var(--text)}
 
 /* contact */
 .contact{position:relative;margin-top:110px;color:#fff;background:radial-gradient(90% 70% at 85% 0%,rgba(79,227,214,.10),transparent 60%),linear-gradient(180deg,var(--ink) 0%,var(--night) 100%);padding:120px 0 40px;overflow:hidden}
@@ -479,7 +483,6 @@ dialog.lb button{position:absolute;top:-14px;right:-6px;width:40px;height:40px;b
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .js .hero h1 .ch,.js .fade,.js [data-r]{opacity:1;transform:none}
-  .marq .track{flex-wrap:wrap;width:auto}.marq [aria-hidden]{display:none}.marq ul{flex-wrap:wrap}
   .scene.on .bar{transform:scaleX(var(--v))}
 }
 </style>
@@ -731,6 +734,8 @@ dialog.lb button{position:absolute;top:-14px;right:-6px;width:40px;height:40px;b
       <h3>Professional development</h3>
       <ol class="tl" style="max-width:38em">
         <li><time>2023</time><strong>Enriching Research Using Artificial Intelligence</strong><span>Executive education programme by the Kuwait Foundation for the Advancement of Sciences (KFAS) and HKUST Business School, 7 to 9 October 2023. Certificate of participation.</span></li>
+        <li><time>2017</time><strong>Introduction to R</strong><span>Data Science Initiative workshop, University of California, Irvine.</span></li>
+        <li><time>2017</time><strong>Topics in R (dplyr, Markdown, ggplot)</strong><span>Data Science Initiative workshop, University of California, Irvine.</span></li>
       </ol>
     </div>
   </div>
@@ -890,16 +895,15 @@ dialog.lb button{position:absolute;top:-14px;right:-6px;width:40px;height:40px;b
 <section class="sec" id="teaching">
   <div class="wrap sec-grid">
     <h2 data-r>Teaching</h2>
-    <p class="big" data-r style="margin:0">Courses I have taught at Kuwait University.</p>
+    <div>
+      <p class="big" data-r style="margin:0 0 34px">Eight courses taught at Kuwait University, from first-year computing to senior 3D graphics.</p>
+      <div class="cgroups">
+        <div class="cgroup"><h3 data-r>Information Science<small>4 courses</small></h3><ul><li data-r style="--rd:0.00s"><b>ISC 100</b><span>Introduction to Personal Computers</span></li><li data-r style="--rd:0.07s"><b>ISC 240</b><span>Programming and Problem Solving</span></li><li data-r style="--rd:0.14s"><b>ISC 357</b><span>Operating Systems and File Systems Management</span></li><li data-r style="--rd:0.21s"><b>ISC 471</b><span>Interactive 3D Graphics Modeling</span></li></ul></div>
+        <div class="cgroup"><h3 data-r>College of Life Sciences<small>3 courses</small></h3><ul><li data-r style="--rd:0.28s"><b>CLS 130</b><span>Ethics and Practices</span></li><li data-r style="--rd:0.35s"><b>CLS 161</b><span>Introduction to Entrepreneurship</span></li><li data-r style="--rd:0.42s"><b>CLS 253</b><span>Technical Writing</span></li></ul></div>
+        <div class="cgroup"><h3 data-r>Environmental Technology Management<small>1 course</small></h3><ul><li data-r style="--rd:0.49s"><b>ETM 450</b><span>Applications of Information Systems in Environmental Management</span></li></ul></div>
+      </div>
+    </div>
   </div>
-  <div class="marq" style="margin-top:34px"><div class="track">
-    <ul><li><b>ISC 100</b>Introduction to Personal Computers</li><li><b>ISC 240</b>Programming and Problem Solving</li><li><b>ISC 357</b>Operating Systems and File Systems Management</li><li><b>ISC 471</b>Interactive 3D Graphics Modeling</li></ul>
-    <ul aria-hidden="true"><li><b>ISC 100</b>Introduction to Personal Computers</li><li><b>ISC 240</b>Programming and Problem Solving</li><li><b>ISC 357</b>Operating Systems and File Systems Management</li><li><b>ISC 471</b>Interactive 3D Graphics Modeling</li></ul>
-  </div></div>
-  <div class="marq"><div class="track">
-    <ul><li><b>CLS 130</b>Ethics and Practices</li><li><b>CLS 161</b>Introduction to Entrepreneurship</li><li><b>CLS 253</b>Technical Writing</li><li><b>ETM 450</b>Applications of Information Systems in Environmental Management</li></ul>
-    <ul aria-hidden="true"><li><b>CLS 130</b>Ethics and Practices</li><li><b>CLS 161</b>Introduction to Entrepreneurship</li><li><b>CLS 253</b>Technical Writing</li><li><b>ETM 450</b>Applications of Information Systems in Environmental Management</li></ul>
-  </div></div>
 </section>
 </main>
 
